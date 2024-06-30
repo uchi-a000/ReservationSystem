@@ -21,19 +21,19 @@ php・laravelを学習中で練習のために作成しました。
 ・MySQL  8.0
 
 ## テーブル設計
-<img width="636" alt="スクリーンショット 2024-06-18 21 50 22" src="https://github.com/uchi-a000/Mockcase-first/assets/157282769/6c0cd9f4-b6a5-44c5-989c-127a475154dc">
+
 
 ## ER 図
-<img width="991" alt="スクリーンショット 2024-05-09 23 21 26" src="https://github.com/uchi-a000/Mockcase-first/assets/157282769/3cceb29c-decd-425a-bc95-d6e8d2b11b28">
+
 
 ## 環境構築
 1.  docker-compose up -d --build （docker-composeビルド&起動）
 2.  docker-compose exe php bash （PHPコンテナ内にログイン）
 3.  composer install （パッケージインストール）
-4.  cp .env.example .env （.envファイルの作成）
+4.  cp .env.example .env （.envファイルの作成(ファイルから.env を作成し、環境変数を変更)）
 5.  php artisan key:generate (アプリケーションを実行)
-6.  php artisan migrate
-7.  php artisan db:seed
+6.  php artisan migrate（マイグレーション）
+7.  php artisan db:seed（シーディング）
 
 ## その他（機能詳細）
 <!-- ○勤怠ボタン(打刻後は次に必要なボタン以外は非表示にしています（誤打刻防止）)  
