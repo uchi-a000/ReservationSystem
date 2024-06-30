@@ -1,6 +1,9 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ShopController;
+use App\Http\Controllers\CustomRegisteredUserController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -13,6 +16,16 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+Route::post('/register', [CustomRegisteredUserController::class, 'store']);
+
+Route::get('/thanks', function(){
+    return view('thanks');})->name('thanks');
+
+Route::get('/detail/{shop_id}', [ShopController::class, 'shop_detail'])->name('shop_detail');
+Route::post('/detail/{shop_id}', [ShopController::class, 'shop_detail'])->name('shop_detail');
+
+
+
+Route::middleware('auth')->group(function() {
+    Route::get('/', [ShopController::class, 'index']);
 });

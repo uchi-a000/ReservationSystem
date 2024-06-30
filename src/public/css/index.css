@@ -1,0 +1,20 @@
+.card_container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 40px;
+    padding: 80px;
+}
+
+.card__block {
+    flex: 1 0 21%;
+    /* 4つのカードが横に並ぶように調整 (比率：伸びる・縮む・基本サイズ)*/
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+
