@@ -29,13 +29,14 @@
             </div>
             <h2 class="card__content-ttl">{{ $shop->shop_name }}</h2>
             <div class="card__content-tag">
-                <p class="card__content-tag-item">{{ $shop->area }}</p>
-                <p class="card__content-tag-item">{{ $shop->genre }}</p>
+                <p class="card__content-tag-item">{{ $shop->area }} {{ $shop->genre }}</p>
             </div>
-            <div class="card__content-cat"><a class="" href="/detail/{shop_id}">詳しく見る</a></div>
+            <div class="shop-detail__content">
+                <a class="" href="{{ route('shop_detail', $shop->id) }}">詳しく見る</a>
+            </div>
         </div>
     </div>
+
     @endforeach
 </div>
-
 @endsection

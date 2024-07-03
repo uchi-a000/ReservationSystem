@@ -1,0 +1,46 @@
+.shop-detail__container {
+    height: 100%;
+}
+
+.shop-detail__inner {
+    display: flex;
+}
+
+.shop_detail__block {
+    width: 50%;
+}
+
+.shop_detail__content {
+    display: flex;
+    text-align: center;
+}
+
+.shop_detail__content a {
+    box-sizing: border-box;
+        width: 35px;
+        height: 30px;
+        display: inline-block;
+        border: 1px solid blue;
+        color: blue;
+        text-decoration: none;
+}
+
+.shop_detail__ttl {
+    font-size: 25px;
+    font-weight: bold;
+}
+
+.shop_detail__card__img {
+
+
+}
+
+img {
+    width: 50%;
+}
+
+
+.reservation-form__ttl {
+    font-size: 20px;
+    font-weight: bold;
+}

@@ -13,7 +13,7 @@
         @csrf
         <div class="form__group">
             <div class="form__group-content">
-                <div class="form__input--text">
+                <div class="form__input-text">
                     <input type="email" name="email" placeholder="Email" value="{{ old('email') }}" />
                 </div>
                 <div class="form__error">
@@ -25,7 +25,7 @@
         </div>
         <div class="form__group">
             <div class="form__group-content">
-                <div class="form__input--text">
+                <div class="form__input-text">
                     <input type="password" placeholder="password" name="password" />
                 </div>
                 <div class="form__error">

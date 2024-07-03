@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
+// use Illuminate\Http\Request;
 use App\Models\shop;
 
 class ShopController extends Controller
@@ -14,10 +14,10 @@ class ShopController extends Controller
         return view('index', compact('shops'));
     }
 
-    public function shop_detail(Request $request)
+    public function shop_detail($id)
     {
-        $detail = Shop::find($request->id);
+        $shop = Shop::find($id);
 
-        return view('shop_detail', compact('detail'));
+        return view('shop_detail', compact('shop'));
     }
 }

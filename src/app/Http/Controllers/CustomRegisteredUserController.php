@@ -24,6 +24,6 @@ class CustomRegisteredUserController extends Controller
             'password' => Hash::make($request->password),
         ])));
 
-        return redirect()->route('thanks');
+        return view('thanks');
     }
 }
