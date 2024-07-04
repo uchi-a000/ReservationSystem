@@ -25,9 +25,9 @@
                 <div class="reservation-form__ttl">予約</div>
                 <input type="hidden" name="shop_id" value="{{ $shop->id }}">
                 <div class="form__input-text">
-                    <input type="date" name="date" id="date" value="{{ $reservationDate }}" />
-                    <input type="time" name="time" id="time" value="{{ $reservationDate }}" />
-                    <select name="number_of_people">
+                    <input type="date" name="reservation_date" id="date" value="" required />
+                    <input type="time" name="reservation_time" id="time" value="17:00" required />
+                    <select name="number_of_people" required>
                         <option value="1">1人</option>
                         <option value="2">2人</option>
                         <option value="3">3人</option>

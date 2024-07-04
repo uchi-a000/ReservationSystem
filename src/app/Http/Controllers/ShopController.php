@@ -29,6 +29,7 @@ class ShopController extends Controller
 
         $shopId = $request->input('shop_id');
         $reservationDate = $request->input('reservation_date');
+        $reservationTime = $request->input('reservation_time');
         $numberOfPeople = $request->input('number_of_people');
 
 
@@ -36,6 +37,7 @@ class ShopController extends Controller
             'user_id' => $user->id,
             'shop_id' => $shopId,
             'reservation_date' => $reservationDate,
+            'reservation_time' => $reservationTime,
             'number_of_people' => $numberOfPeople
         ]);
 

@@ -13,6 +13,7 @@ class Reservation extends Model
         'user_id',
         'shop_id',
         'reservation_date',
+        'reservation_time',
         'number_of_people'
     ];
 
