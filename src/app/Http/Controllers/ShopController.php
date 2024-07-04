@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
-// use Illuminate\Http\Request;
-use App\Models\shop;
+use Illuminate\Http\Request;
+use App\Models\Reservation;
+use App\Models\Shop;
+use Illuminate\Support\Facades\Auth;
 
 class ShopController extends Controller
 {
@@ -19,5 +21,24 @@ class ShopController extends Controller
         $shop = Shop::find($id);
 
         return view('shop_detail', compact('shop'));
+    }
+
+    public function reservation(Request $request){
+
+        $user = Auth::user();
+
+        $shopId = $request->input('shop_id');
+        $reservationDate = $request->input('reservation_date');
+        $numberOfPeople = $request->input('number_of_people');
+
+
+        Reservation::create([
+            'user_id' => $user->id,
+            'shop_id' => $shopId,
+            'reservation_date' => $reservationDate,
+            'number_of_people' => $numberOfPeople
+        ]);
+
+        return view('done');
     }
 }

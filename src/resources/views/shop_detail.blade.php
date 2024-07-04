@@ -20,11 +20,13 @@
         </div>
 
         <div class="reservation-form__block">
-            <form class="reservation-form" action="" method="">
+            <form class="reservation-form" action="/done" method="post">
+                @csrf
                 <div class="reservation-form__ttl">予約</div>
+                <input type="hidden" name="shop_id" value="{{ $shop->id }}">
                 <div class="form__input-text">
-                    <input type="date" name="date" id="date" placeholder="年月日を選択してください" value="" />
-                    <input type="time" name="time" id="time" value="17:00" />
+                    <input type="date" name="date" id="date" value="{{ $reservationDate }}" />
+                    <input type="time" name="time" id="time" value="{{ $reservationDate }}" />
                     <select name="number_of_people">
                         <option value="1">1人</option>
                         <option value="2">2人</option>

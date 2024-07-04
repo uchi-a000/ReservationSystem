@@ -23,5 +23,5 @@ Route::get('/', [ShopController::class, 'index']);
 Route::get('/detail/{shop_id}', [ShopController::class, 'shop_detail'])->name('shop_detail');
 
 Route::middleware('auth')->group(function() {
-    Route::get('/', [ShopController::class, 'index']);
+    Route::post('/done', [ShopController::class, 'reservation'])->name('reservation');
 });
