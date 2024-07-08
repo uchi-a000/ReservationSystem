@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ShopController;
 use App\Http\Controllers\CustomRegisteredUserController;
+use App\Http\Controllers\FavoriteController;
 
 
 /*
@@ -23,5 +24,11 @@ Route::get('/', [ShopController::class, 'index']);
 Route::get('/detail/{shop_id}', [ShopController::class, 'shop_detail'])->name('shop_detail');
 
 Route::middleware('auth')->group(function() {
+    Route::get('/home', [ShopController::class, 'index']);
+    Route::get('/done', [ShopController::class, 'reservation'])->name('reservation');
     Route::post('/done', [ShopController::class, 'reservation'])->name('reservation');
+
+    Route::match(['post', 'delete'], '/favorites/{shop}', [FavoriteController::class, 'toggleFavorite'])->name('favorites');
+
+
 });

@@ -18,3 +18,18 @@ img {
     height: auto;
 }
 
+.shop-detail__content-inner{
+    display: flex;
+}
+
+.fa-solid::before {
+    content: f004;
+    font-size: 30px;
+    padding: 25px;
+
+}
+
+.content__favorites-submit {
+    border-style: none;
+    background: none;
+}

@@ -2,6 +2,7 @@
 
 @section('css')
 <link rel="stylesheet" href="{{ asset('css/shop_detail.css') }}">
+
 @endsection
 
 @section('content')
@@ -20,7 +21,7 @@
         </div>
 
         <div class="reservation-form__block">
-            <form class="reservation-form" action="/done" method="post">
+            <form class="reservation-form" action="/done" method="POST">
                 @csrf
                 <div class="reservation-form__ttl">予約</div>
                 <input type="hidden" name="shop_id" value="{{ $shop->id }}">
@@ -39,26 +40,37 @@
                         <option value="10">10人</option>
                     </select>
                 </div>
-                <div class="reservation-form__table">
-                    <table class="reservation-form__table-inner">
-                        <tr class="reservation-form__row">
-                            <th class="reservation-form__header">Shop</th>
-                            <td class="reservation-form__data">{{ $shop->shop_name }}</td>
+
+                @if(Auth::check())
+                @if($reservations->isEmpty())
+                <p>予約情報はありません</p>
+                @else
+                <div class="reservation-done__table">
+                    <table class="reservation-done__table-inner">
+                        <tr class="reservation-done__row">
+                            <th class="reservation-done__header">Shop</th>
+                            <td class="reservation-done__data">{{ $shop->shop_name }}</td>
                         </tr>
-                        <tr class="reservation-form__row">
-                            <th class="reservation-form__header">Date</th>
-                            <td class="reservation-form__data"></td>
+                        @foreach($reservations as $reservation)
+                        <tr class="reservation-done__row">
+                            <th class="reservation-done__header">Date</th>
+                            <td class="reservation-done__data">{{ $reservation->reservation_date }}</td>
                         </tr>
-                        <tr class="reservation-form__row">
-                            <th class="reservation-form__header">Time</th>
-                            <td class="reservation-form__data"></td>
+                        <tr class="reservation-done__row">
+                            <th class="reservation-done__header">Time</th>
+                            <td class="reservation-done__data">{{ substr( $reservation->reservation_time, 0, 5) }}</td>
                         </tr>
-                        <tr class="reservation-form__row">
-                            <th class="reservation-form__header">Number</th>
-                            <td class="reservation-form__data"></td>
+                        <tr class="reservation-done__row">
+                            <th class="reservation-done__header">Number</th>
+                            <td class="reservation-done__data">{{ $reservation->number_of_people }}</td>
                         </tr>
+                        @endforeach
                     </table>
                 </div>
+                @endif
+                @else
+                <p>ご予約はログインが必要です</p>
+                @endif
                 <div class="reservationーform__button">
                     <button class="reservationーform__button-submit" type="submit">予約する</button>
                 </div>
