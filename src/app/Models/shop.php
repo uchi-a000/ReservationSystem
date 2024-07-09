@@ -25,6 +25,6 @@ class shop extends Model
 
     public function favoriteBy(): BelongsToMany
     {
-        return $this->belongsToMany(user::class, 'favorites', 'shop_id', 'user_id');
+        return $this->belongsToMany(User::class, 'favorites', 'shop_id', 'user_id');
     }
 }

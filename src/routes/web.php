@@ -31,4 +31,5 @@ Route::middleware('auth')->group(function() {
     Route::match(['post', 'delete'], '/favorites/{shop}', [FavoriteController::class, 'toggleFavorite'])->name('favorites');
 
 
+
 });

@@ -22,19 +22,19 @@
                 <div class="shop-detail__content-inner">
                     <a class="" href="{{ route('shop_detail', $shop->id) }}">詳しく見る</a>
                     <div class="content__favorites-form">
-                        @if(Auth::check() && optional(Auth::user()->favorites)->contains('shop_id', $shop->id))
+                        @if(Auth::check() && Auth::user()->favorites->contains($shop))
                         <form action="{{ route('favorites', $shop->id) }}" method="POST">
                             @csrf
                             @method('DELETE')
                             <button class="content__favorites-submit" type="submit" name="favorites_destroy">
-                                <i class="fa-solid fa-heart" style="color: red;"></i>
+                                <i class="fa-solid fa-heart" style="color: #FF0000;"></i>
                             </button>
                         </form>
                         @else
                         <form action="{{ route('favorites', $shop->id) }}" method="POST">
                             @csrf
                             <button class="content__favorites-submit" type="submit" name="favorites_store">
-                                <i class="fa-solid fa-heart" style="color: #ccc;"></i>
+                                <i class=" fa-solid fa-heart" style="color: #ccc;"></i>
                             </button>
                         </form>
                         @endif
