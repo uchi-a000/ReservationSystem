@@ -11,7 +11,7 @@ class FavoriteController extends Controller
 {
     public function toggleFavorite(Shop $shop)
     {
-        $user = auth()->user();
+        $user = Auth::user();
         $favorite = Favorite::where('user_id', $user->id)
                             ->where('shop_id', $shop->id)
                             ->first();

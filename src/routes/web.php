@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ShopController;
 use App\Http\Controllers\CustomRegisteredUserController;
 use App\Http\Controllers\FavoriteController;
+use App\Http\Controllers\MypageController;
 
 
 /*
@@ -30,6 +31,7 @@ Route::middleware('auth')->group(function() {
 
     Route::match(['post', 'delete'], '/favorites/{shop}', [FavoriteController::class, 'toggleFavorite'])->name('favorites');
 
+    Route::get('/mypage', [MYpageController::class, 'my_page'])->name('my_page');
 
 
 });

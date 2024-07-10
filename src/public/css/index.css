@@ -1,11 +1,11 @@
-.card_container {
+.home__container {
     display: flex;
     flex-wrap: wrap;
     gap: 40px;
     padding: 80px;
 }
 
-.card__block {
+.home__block {
     flex: 1 0 21%;
     /* 4つのカードが横に並ぶように調整 (比率：伸びる・縮む・基本サイズ)*/
     background-color: #fff;
@@ -18,7 +18,7 @@ img {
     height: auto;
 }
 
-.shop-detail__content-inner{
+.shop-detail__inner{
     display: flex;
 }
 
@@ -29,7 +29,7 @@ img {
 
 }
 
-.content__favorites-submit {
+.favorites-submit {
     border-style: none;
     background: none;
 }

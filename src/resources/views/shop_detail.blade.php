@@ -13,13 +13,13 @@
                 <a class="shop_detail__home-link" href="/">&lt;</a>
                 <span class="shop_detail__ttl">{{ $shop->shop_name }}</span>
             </div>
-            <div class="shop_detail__card__img">
+            <div class="shop_detail__card-img">
                 <img src="{{ $shop->image_url }}" alt="" />
             </div>
             <p class="shop_detail__item">{{ $shop->area }} {{ $shop->genre }}</p>
             <p class="shop_detail__item">{{ $shop->description }}</p>
         </div>
-
+        <!-- 予約情報入力ページ -->
         <div class="reservation-form__block">
             <form class="reservation-form" action="/done" method="POST">
                 @csrf
@@ -40,7 +40,6 @@
                         <option value="10">10人</option>
                     </select>
                 </div>
-
                 @if(Auth::check())
                 @if($reservations->isEmpty())
                 <p>予約情報はありません</p>
