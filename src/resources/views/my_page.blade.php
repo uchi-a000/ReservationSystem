@@ -50,7 +50,7 @@
                                 <form class="favorites__form" action="{{ route('favorites', $favorite->shop->id) }}" method="POST">
                                     @csrf
                                     @method('DELETE')
-                                    <button class="favorites-submit" type="submit" name="favorites_destroy">
+                                    <button class="favorites-submit" type="submit" name="favorites">
                                         <i class="fa-solid fa-heart" style="color: #FF0000;"></i>
                                     </button>
                                 </form>
