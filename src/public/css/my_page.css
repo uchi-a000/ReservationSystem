@@ -1,0 +1,49 @@
+
+.information-header {
+    display: flex;
+    justify-content: space-around;
+}
+
+.mypage-information__inner {
+    display: flex;
+    justify-content: space-between;
+    width: 80%;
+    margin: 0 auto;
+}
+
+
+.favorite__content {
+    width: 50%;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+.favorite__img {
+
+}
+
+.reservation-done__table {
+    width: 50%;
+}
+
+.shop-detail__inner {
+    display: flex;
+}
+
+.fa-solid::before {
+    content: f004;
+    font-size: 30px;
+    padding: 25px;
+
+}
+
+.favorites-submit {
+    border-style: none;
+    background: none;
+}

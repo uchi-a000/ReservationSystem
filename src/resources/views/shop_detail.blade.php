@@ -19,6 +19,7 @@
             <p class="shop_detail__item">{{ $shop->area }} {{ $shop->genre }}</p>
             <p class="shop_detail__item">{{ $shop->description }}</p>
         </div>
+
         <!-- 予約情報入力ページ -->
         <div class="reservation-form__block">
             <form class="reservation-form" action="/done" method="POST">
