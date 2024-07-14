@@ -21,11 +21,12 @@ use App\Http\Controllers\MypageController;
 Route::post('/register', [CustomRegisteredUserController::class, 'store']);
 Route::get('/thanks', [CustomRegisteredUserController::class, 'store'])->name('thanks');
 
-Route::get('/', [ShopController::class, 'index']);
+Route::get('/', [ShopController::class, 'index'])->name('home');
 Route::get('/detail/{shop_id}', [ShopController::class, 'shop_detail'])->name('shop_detail');
+Route::get('/search', [ShopController::class, 'search'])->name('search');
 
 Route::middleware('auth')->group(function() {
-    Route::get('/home', [ShopController::class, 'index']);
+    Route::get('/home', [ShopController::class, 'index'])->name('home');
     Route::get('/done', [ShopController::class, 'reservation'])->name('reservation');
     Route::post('/done', [ShopController::class, 'reservation'])->name('reservation');
 

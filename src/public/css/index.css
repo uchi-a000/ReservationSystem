@@ -5,7 +5,9 @@
     padding: 80px;
 }
 
-.home__block {
+
+
+.home-shop__block {
     flex: 1 0 21%;
     /* 4つのカードが横に並ぶように調整 (比率：伸びる・縮む・基本サイズ)*/
     background-color: #fff;
@@ -26,7 +28,6 @@ img {
     content: f004;
     font-size: 30px;
     padding: 25px;
-
 }
 
 .favorites-submit {

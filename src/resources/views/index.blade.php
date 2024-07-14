@@ -7,13 +7,17 @@
 
 @section('content')
 <div class="home__container">
+    @if(isset($shops) && $shops->isNotEmpty())
     @foreach($shops as $shop)
-    <div class="home__block">
-        <div class="home__content">
-            <div class="home__img"><img src="{{ $shop->image_url }}" alt="" /></div>
-            <h2 class="home__ttl">{{ $shop->shop_name }}</h2>
-            <p class="home__tag">{{ $shop->area }} {{ $shop->genre }}</p>
-            <div class="home-shop-detail__form">
+    <div class="home-shop__block">
+        <div class="home-shop__inner">
+            <div class="shop__img"><img src="{{ $shop->image_url }}" alt="" /></div>
+            <h2 class="shop__ttl">{{ $shop->shop_name }}</h2>
+            <div class="shop__tag">
+                <p class="shop__tag-item">{{ $shop->area }} </p>
+                <p class="shop__tag-item">{{ $shop->genre }} </p>
+            </div>
+            <div class="shop-detail__form">
                 <div class="shop-detail__inner">
                     <a class="shop-detail__form" href="{{ route('shop_detail', $shop->id) }}">詳しく見る</a>
                     @if(Auth::check() && Auth::user()->favorites->contains($shop))
@@ -37,5 +41,8 @@
         </div>
     </div>
     @endforeach
+    @else
+    <p>該当する店舗が見つかりませんでした。</p>
+    @endif
 </div>
 @endsection

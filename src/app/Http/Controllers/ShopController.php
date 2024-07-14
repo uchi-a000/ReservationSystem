@@ -7,6 +7,7 @@ use App\Models\Reservation;
 use App\Models\Shop;
 use Illuminate\Support\Facades\Auth;
 
+
 class ShopController extends Controller
 {
     public function index()
@@ -41,7 +42,40 @@ class ShopController extends Controller
         $reservation->number_of_people = $request->input('number_of_people');
         $reservation->save();
 
-
         return view('done', compact('reservation'));
+    }
+
+    public function search(Request $request)
+    {
+
+        if ($request->has('reset')) {
+            return redirect('/');
+        }
+
+        $query = Shop::query();
+        $query = $this->getSearchQuery($request, $query);
+
+        $shops = $query->get();
+
+        return view('index', compact('shops'));
+    }
+
+    private function getSearchQuery($request, $query)
+    {
+        if (!empty($request->keyword)) {
+            $query->where(function ($q) use ($request) {
+                $q->where('shop_name', 'like', '%' . $request->keyword . '%');
+            });
+        }
+
+        if (!empty($request->area)) {
+            $query->where('area', '=', '#' . $request->area);
+        }
+
+        if (!empty($request->genre)) {
+            $query->where('genre', '=', '#'. $request->genre);
+        }
+
+        return $query;
     }
 }

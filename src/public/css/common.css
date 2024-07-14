@@ -2,10 +2,6 @@ body {
     background-color: #f2f2f2;
 }
 
-.header__ttl {
-    color: #3F5FED;
-}
-
 .header__inner {
     max-width: 1200px;
     margin: 0 auto;
@@ -21,7 +17,7 @@ body {
     height: 50px;
     background: #3F5FED;
     border: none;
-    border-radius: 8px;
+    border-radius: 5px;
     margin-right: 30px;
     box-shadow: 3px 3px 6px #0f030375;
 }
@@ -49,7 +45,19 @@ body {
     width: 10px;
 }
 
+.header__ttl {
+    color: #3F5FED;
+}
 
+.search__content{
+    margin: 0 0 0 auto;
+}
+
+.search-form {
+    display: flex;
+    align-items: stretch;
+    flex-wrap: wrap;
+}
 
 /* モーダル */
 .modal {
@@ -80,8 +88,8 @@ body {
     position: absolute;
     top: 50%;
     left: 50%;
-    width: 80%;
-    height: 80%;
+    width: 50%;
+    height: 50%;
     border: 1px solid #8B7969;
     background-color: #fff;
     box-shadow: 4px 4px 4px rgba(139, 121, 105, 0.25);
@@ -91,7 +99,6 @@ body {
 .modal__content {
     position: relative;
     padding: 64px 64px;
-    padding-top: 200px;
 }
 
 .modal-form__list {
@@ -124,8 +131,11 @@ body {
     top: 32px;
     width: 32px;
     height: 32px;
-    border: 1px solid #8B7969;
-    color: #8B7969;
+    color: #fff;
+    background: #3F5FED;
     text-align: center;
     text-decoration: none;
+    box-shadow: 3px 3px 6px #0f030375;
+    border-radius: 5px;
+   
 }

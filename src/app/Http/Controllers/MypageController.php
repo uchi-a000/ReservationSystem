@@ -2,10 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
 use App\Models\Favorite;
 use App\Models\Reservation;
-use App\Models\Shop;
 use Illuminate\Support\Facades\Auth;
 
 class MypageController extends Controller

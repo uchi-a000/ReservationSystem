@@ -23,6 +23,39 @@
                 </a>
             </div>
             <h1 class="header__ttl">Rese</h1>
+            @if(Request::is('/') || Request::is('home') || Request::is('search'))
+            <div class="search__content">
+                <div class="search__inner">
+                    <form class="search-form" action="/search" method="get">
+                        @csrf
+                        <div class="search-form__area">
+                            <select class="search-form__area-select" name="area">
+                                <option disabled selected>All area</option>
+                                <option value="東京都" @if( request('area')=='東京都' ) selected @endif>東京都</option>
+                                <option value="大阪府" @if( request('area')=='大阪府' ) selected @endif>大阪府</option>
+                                <option value="福岡県" @if( request('area')=='福岡県' ) selected @endif>福岡県</option>
+                            </select>
+                        </div>
+                        <div class="search-form__genre">
+                            <select class="search-form__genre-select" name="genre">
+                                <option disabled selected>All genre</option>
+                                <option value="焼肉" @if( request('genre')=='焼肉' ) selected @endif>焼肉</option>
+                                <option value="居酒屋" @if( request('genre')=='居酒屋' ) selected @endif>居酒屋</option>
+                                <option value="寿司" @if( request('genre')=='寿司' ) selected @endif>寿司</option>
+                                <option value="ラーメン" @if( request('genre')=='ラーメン' ) selected @endif>ラーメン</option>
+                                <option value="イタリアン" @if( request('genre')=='イタリアン' ) selected @endif>イタリアン</option>
+                            </select>
+                        </div>
+                        <input class="search-form__keyword-input" type="text" name="keyword" placeholder="Search..." value="{{request('keyword')}}">
+                        <div class="search-form__button">
+                            <button class="search-form__button-submit" type="submit">検索</button>
+                            <button class="search-form__button-submit__reset" type="submit" name="reset">リセット</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            @endif
+
         </div>
         <div class="header-menu">
             <div class="modal" id="menu-modal">
