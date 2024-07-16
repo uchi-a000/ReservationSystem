@@ -13,10 +13,8 @@
         <div class="home-shop__inner">
             <div class="shop__img"><img src="{{ $shop->image_url }}" alt="" /></div>
             <h2 class="shop__ttl">{{ $shop->shop_name }}</h2>
-            <div class="shop__tag">
-                <p class="shop__tag-item">{{ $shop->area }} </p>
-                <p class="shop__tag-item">{{ $shop->genre }} </p>
-            </div>
+            <p class="shop__tag">{{ $shop->area }} {{ $shop->genre }}</p>
+
             <div class="shop-detail__form">
                 <div class="shop-detail__inner">
                     <a class="shop-detail__form" href="{{ route('shop_detail', $shop->id) }}">詳しく見る</a>

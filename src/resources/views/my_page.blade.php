@@ -7,43 +7,44 @@
 
 @section('content')
 <div class="mypage-container">
-    <h2 class="mypage-alert heading">{{ Auth::user()->name }} さん</h2>
+    <h2 class="mypage__alert heading">{{ Auth::user()->name }} さん</h2>
 
-    <div class="information-header">
-        <h3 class="information-reservation__content ttl">予約状況</h3>
-        <h3 class="information-favorite__content ttl">お気に入り店舗</h3>
-    </div>
-
-    <div class="mypage-panel">
-        <div class="mypage-panel__inner">
+    <div class="mypage">
+        <div class="mypage__inner">
             <form class="mypage-form" action="/mypage" method="GET">
                 @csrf
-                <div class="mypage-information__block">
-                    <div class="mypage-information__inner">
+                <div class="information-ttl">
+                    <h3 class="reservation__ttl">予約状況</h3>
+                    <h3 class="favorite__ttl">お気に入り店舗</h3>
+                </div>
+                <div class="information__block">
+                    <div class="information__inner">
                         <!-- 予約状況 -->
-                        @if($reservation)
+                        @if($reservations->isEmpty())
+                        <p>予約情報はありません</p>
+                        @else
+                        @foreach($reservations as $reservation)
                         <div class="reservation-done__table">
                             <table class="reservation-done__table-inner">
                                 <tr class="reservation-done__row">
-                                    <th class="reservation-done__header">Shop</th>
+                                    <th class="reservation-done__label">Shop</th>
                                     <td class="reservation-done__data">{{ $reservation->shop->shop_name }}</td>
                                 </tr>
                                 <tr class="reservation-done__row">
-                                    <th class="reservation-done__header">Date</th>
+                                    <th class="reservation-done__label">Date</th>
                                     <td class="reservation-done__data">{{ $reservation->reservation_date }}</td>
                                 </tr>
                                 <tr class="reservation-done__row">
-                                    <th class="reservation-done__header">Time</th>
+                                    <th class="reservation-done__label">Time</th>
                                     <td class="reservation-done__data">{{ substr( $reservation->reservation_time, 0, 5) }}</td>
                                 </tr>
                                 <tr class="reservation-done__row">
-                                    <th class="reservation-done__header">Number</th>
+                                    <th class="reservation-done__label">Number</th>
                                     <td class="reservation-done__data">{{ $reservation->number_of_people }}</td>
                                 </tr>
                             </table>
                         </div>
-                        @else
-                        <p>予約情報はありません</p>
+                        @endforeach
                         @endif
 
                         <!-- お気に入り店舗 -->

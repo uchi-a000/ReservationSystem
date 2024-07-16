@@ -48,10 +48,6 @@ class ShopController extends Controller
     public function search(Request $request)
     {
 
-        if ($request->has('reset')) {
-            return redirect('/');
-        }
-
         $query = Shop::query();
         $query = $this->getSearchQuery($request, $query);
 
@@ -73,7 +69,7 @@ class ShopController extends Controller
         }
 
         if (!empty($request->genre)) {
-            $query->where('genre', '=', '#'. $request->genre);
+            $query->where('genre', '=', '#' . $request->genre);
         }
 
         return $query;

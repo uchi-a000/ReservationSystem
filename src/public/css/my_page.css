@@ -1,10 +1,10 @@
 
-.information-header {
+.information-ttl {
     display: flex;
     justify-content: space-around;
 }
 
-.mypage-information__inner {
+.information__inner {
     display: flex;
     justify-content: space-between;
     width: 80%;
@@ -24,9 +24,6 @@ img {
     height: auto;
 }
 
-.favorite__img {
-
-}
 
 .reservation-done__table {
     width: 50%;

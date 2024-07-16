@@ -1,0 +1,45 @@
+.register__container {
+    padding: 64px 96px;
+    width: 40vw;
+    border: 1px solid #C5B9B0;
+    border-radius: 8px;
+    background-color: #FDFEFE;
+    margin: 0 auto;
+}
+
+.form__input-name::before {
+    content: "";
+    background: url(../icon/user-icon.svg) no-repeat;
+    background-size: cover;
+    vertical-align: middle;
+    width: 40px;
+    height: 40px;
+    display: inline-block;
+}
+
+.form__input-mail::before {
+    content: "";
+    background: url(../icon/mail-icon.svg) no-repeat;
+    background-size: cover;
+    vertical-align: middle;
+    width: 40px;
+    height: 40px;
+    display: inline-block;
+}
+
+.form__input-password::before {
+    content: "";
+    background: url(../icon/password-icon.svg) no-repeat;
+    background-size: cover;
+    vertical-align: middle;
+    width: 40px;
+    height: 40px;
+    display: inline-block;
+}
+
+.form__input-text {
+    border: none;
+    outline: none;
+    border-bottom: 1px solid black;
+    width: 60%;
+}
