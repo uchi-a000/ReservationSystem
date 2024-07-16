@@ -1,16 +1,37 @@
 .register__container {
-    padding: 64px 96px;
-    width: 40vw;
-    border: 1px solid #C5B9B0;
-    border-radius: 8px;
-    background-color: #FDFEFE;
+    width: 30%;
+    background: #fff;
     margin: 0 auto;
+    border-radius: 5px;
+    box-shadow: 3px 3px 6px #0f030375;
 }
+
+.register__inner {
+    margin-top: 100px;
+}
+
+.register-form__heading {
+    padding: 5px 20px;
+    color: #fff;
+    background-color: #3F5FED;
+    border-radius: 5px 5px 0 0;
+    font-size: 15px;
+
+}
+
+.register-form{
+    padding: 30px;
+}
+
+.form__group {
+    margin-bottom: 10px;
+}
+
 
 .form__input-name::before {
     content: "";
     background: url(../icon/user-icon.svg) no-repeat;
-    background-size: cover;
+    background-size: 30px;
     vertical-align: middle;
     width: 40px;
     height: 40px;
@@ -20,7 +41,7 @@
 .form__input-mail::before {
     content: "";
     background: url(../icon/mail-icon.svg) no-repeat;
-    background-size: cover;
+    background-size: 30px;
     vertical-align: middle;
     width: 40px;
     height: 40px;
@@ -30,7 +51,7 @@
 .form__input-password::before {
     content: "";
     background: url(../icon/password-icon.svg) no-repeat;
-    background-size: cover;
+    background-size: 30px;
     vertical-align: middle;
     width: 40px;
     height: 40px;
@@ -41,5 +62,18 @@
     border: none;
     outline: none;
     border-bottom: 1px solid black;
-    width: 60%;
+    width: 85%;
+    font-size: 15px;
+}
+
+.btn {
+    display: block;
+    padding: 8px 20px;
+    margin: 0 0 0 auto;
+    border: none;
+    border-radius: 5px;
+    background-color: #3F5FED;
+    color: #FFF;
+    font-size: 16px;
+    cursor: pointer;
 }
