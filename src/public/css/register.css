@@ -38,7 +38,7 @@
     display: inline-block;
 }
 
-.form__input-mail::before {
+.form__input-email::before {
     content: "";
     background: url(../icon/mail-icon.svg) no-repeat;
     background-size: 30px;
