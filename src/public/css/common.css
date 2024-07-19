@@ -1,9 +1,10 @@
 body {
     background-color: #f2f2f2;
+    height: 100%;
 }
 
 .header__inner {
-    max-width: 1200px;
+    width: 1200px;
     margin: 0 auto;
     display: flex;
     align-items: center;
@@ -47,16 +48,6 @@ body {
 
 .header__ttl {
     color: #3F5FED;
-}
-
-.search__content{
-    margin: 0 0 0 auto;
-}
-
-.search-form {
-    display: flex;
-    align-items: stretch;
-    flex-wrap: wrap;
 }
 
 /* モーダル */
@@ -138,5 +129,98 @@ body {
     text-decoration: none;
     box-shadow: 3px 3px 6px #0f030375;
     border-radius: 5px;
-   
+}
+
+/* 検索フォーム */
+.search__content {
+    margin: 0 0 0 auto;
+}
+
+.search__inner {
+    border-radius: 5px;
+    box-shadow: 3px 3px 6px #0f030375;
+}
+
+.search-form {
+    display: flex;
+}
+
+select {
+    appearance: none;
+}
+
+.search-form__area,
+.search-form__genre,
+.search-form__keyword {
+    margin: 0;
+    position: relative;
+}
+
+.search-form__area::after,
+.search-form__genre::after {
+    content: "";
+    position: absolute;
+    top: 55%;
+    right: 30px;
+    width: 0;
+    height: 0;
+    border-top: 8px solid #ccc;
+    border-right: 6px solid transparent;
+    border-left: 6px solid transparent;
+    border-bottom: 4px solid transparent;
+    transform: translateY(-50%);
+}
+
+.search-form__genre::before,
+.search-form__keyword::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 1px;
+    background-color: #ccc;
+    height: 30px;
+    margin: 10px 0;
+}
+
+.search-form__area-select,
+.search-form__genre-select,
+.search-form__keyword-input {
+    border: 1px solid #ccc;
+    border-radius: 0;
+    font-size: 14px;
+    height: 50px;
+    padding: 15px;
+
+}
+
+.search-form__area-select {
+    border-right: none;
+    width: 120px;
+    border-radius: 5px 0 0 5px;
+}
+
+.search-form__genre-select {
+    border-left: none;
+    border-right: none;
+    width: 120px;
+    border-radius: 0;
+}
+
+.search-form__keyword-input {
+    background: url(../icon/search_icon.svg) no-repeat;
+    padding-left: 45px;
+    background-size: 20px;
+    background-position: 10px;
+    background-color: white;
+    width: 400px;
+    height: 50px;
+    border-radius: 0 5px 5px 0;
+    border-left: none;
+}
+
+.search-form__area-select:focus,
+.search-form__genre-select:focus,
+.search-form__keyword-input:focus {
+    outline: none;
 }

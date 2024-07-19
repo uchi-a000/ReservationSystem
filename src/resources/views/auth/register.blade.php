@@ -42,7 +42,7 @@
                     @enderror
                 </div>
             </div>
-            <input class="register-form__btn btn" type="submit" value="登録">
+            <button class="register-form__btn btn" >登録</button>
         </form>
     </div>
 </div>

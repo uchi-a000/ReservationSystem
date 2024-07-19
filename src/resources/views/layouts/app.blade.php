@@ -5,7 +5,6 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="https://kit.fontawesome.com/748afbedc1.js" crossorigin="anonymous"></script>
     <title>Rese</title>
     <link rel="stylesheet" href="{{ asset('css/sanitize.css') }}">
     <link rel="stylesheet" href="{{ asset('css/common.css') }}">
@@ -47,7 +46,9 @@
                                 <option value="イタリアン" @if( request('genre')=='イタリアン' ) selected @endif>イタリアン</option>
                             </select>
                         </div>
-                        <input class="search-form__keyword-input" type="text" name="keyword" placeholder="Search..." value="{{request('keyword')}}" onchange="this.form.submit()">
+                        <div class="search-form__keyword">
+                            <input class="search-form__keyword-input" type="text" name="keyword" placeholder="Search..." value="{{request('keyword')}}" onchange="this.form.submit()">
+                        </div>
                     </form>
                 </div>
             </div>

@@ -32,7 +32,7 @@
                     @enderror
                 </div>
             </div>
-            <input class="register-form__btn btn" type="submit" value="ログイン">
+            <button class="login-form__btn btn">ログイン</button>
         </form>
     </div>
 </div>

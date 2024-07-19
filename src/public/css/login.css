@@ -29,7 +29,7 @@
 
 .form__input-email::before {
     content: "";
-    background: url(../icon/mail-icon.svg) no-repeat;
+    background: url(../icon/email_icon.svg) no-repeat;
     background-size: 30px;
     vertical-align: middle;
     width: 40px;
@@ -39,7 +39,7 @@
 
 .form__input-password::before {
     content: "";
-    background: url(../icon/password-icon.svg) no-repeat;
+    background: url(../icon/password_icon.svg) no-repeat;
     background-size: 30px;
     vertical-align: middle;
     width: 40px;

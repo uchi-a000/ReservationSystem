@@ -48,29 +48,35 @@
                         @endif
 
                         <!-- お気に入り店舗 -->
-                        @if($favorites->isEmpty())
-                        <p>お気に入り店舗はありません</p>
-                        @else
-                        @foreach($favorites as $favorite)
-                        <div class="favorite__content">
-                            <div class="favorite__img"><img src="{{ $favorite->shop->image_url }}" alt="" /></div>
-                            <h2 class="favorite__ttl">{{ $favorite->shop->shop_name }}</h2>
-                            <p class="favorite_tag">{{ $favorite->shop->area }} {{ $favorite->shop->genre }}</p>
-                            <div class="shop-detail__form">
-                                <div class="shop-detail__inner">
-                                    <a class="shop-detail__link" href="{{ route('shop_detail', $favorite->shop->id) }}">詳しく見る</a>
-                                    <form class="favorites__form" action="{{ route('favorites', $favorite->shop->id) }}" method="POST">
-                                        @csrf
-                                        @method('DELETE')
-                                        <button class="favorites-submit" type="submit" name="favorites">
-                                            <i class="fa-solid fa-heart" style="color: #FF0000;"></i>
-                                        </button>
-                                    </form>
+                        <div class="shop__container">
+                            <div class="shop__inner">
+                                @if(isset($favorites) && $favorites->isNotEmpty())
+                                @foreach($favorites as $favorite)
+                                <div class="shop__block">
+                                    <div class="shop__img"><img src="{{ $favorite->shop->image_url }}" alt="" /></div>
+                                    <div class="shop__card-content">
+                                        <h2 class="shop__card-ttl">{{ $favorite->shop_name }}</h2>
+                                        <p class="shop__tag">{{ $favorite->shop->area }} {{ $favorite->shop->genre }}</p>
+                                        <div class="shop-detail__form">
+                                            <div class="shop-detail__inner">
+                                                <a class="shop-detail__form btn" href="{{ route('shop_detail', $favorite->shop->id) }}">詳しくみる</a>
+                                                <form class="favorites__form" action="{{ route('favorites', $favorite->shop->id) }}" method="POST">
+                                                    @csrf
+                                                    @method('DELETE')
+                                                    <button class="favorites-submit" type="submit" name="favorites_destroy">
+                                                        <img src="{{ asset('icon/red_heart.svg')}}" alt="" style="width: 35px; height: 35px;">
+                                                    </button>
+                                                </form>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
+                                @endforeach
+                                @else
+                                <p>該当する店舗が見つかりませんでした。</p>
+                                @endif
                             </div>
                         </div>
-                        @endforeach
-                        @endif
                     </div>
                 </div>
             </form>
