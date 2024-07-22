@@ -4,7 +4,7 @@
 
 .shop__inner {
     display: grid;
-    grid-template-columns: repeat(4, 310px);
+    grid-template-columns: repeat(4, 300px);
     gap: 15px;
     justify-content: center;
     margin: 50px 0;
@@ -32,7 +32,7 @@
 
 .shop__tag {
     margin: 5px;
-    font-size: 15px;
+    font-size: 12px;
 }
 
 .shop-detail__inner{
@@ -47,7 +47,7 @@
     border-radius: 5px;
     background-color: #3F5FED;
     color: #FFF;
-    font-size: 16px;
+    font-size: 13px;
     cursor: pointer;
     text-decoration: none;
 }

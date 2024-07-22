@@ -4,6 +4,8 @@
 
 .shop-detail__inner {
     display: flex;
+    justify-content: space-around;
+    margin: 30px 70px;
 }
 
 .shop_detail__block {
@@ -13,30 +15,150 @@
 .shop_detail__content {
     display: flex;
     text-align: center;
+    margin: 10px;
 }
 
-.shop_detail__content a {
+.shop_detail__home-link {
     box-sizing: border-box;
-        width: 35px;
-        height: 30px;
-        display: inline-block;
-        border: 1px solid blue;
-        color: blue;
-        text-decoration: none;
+    display: inline-block;
+    width: 35px;
+    height: 30px;
+    background-color: #fff;
+    color: black;
+    text-decoration: none;
+    box-shadow: 3px 3px 6px #0f030375;
+    border-radius: 5px;
+
 }
 
 .shop_detail__ttl {
     font-size: 25px;
     font-weight: bold;
+    padding-left: 20px;
 }
 
 
 img {
-    width: 50%;
+    width: 90%;
 }
 
+.shop_detail__description {
+    width: 85%;
+}
+
+
+.reservation-form__block {
+    width: 50%;
+    position: relative;
+}
+
+.reservation-form {
+    width: 40vw;
+    height: 690px;
+    position: absolute;
+    bottom: 10px;
+    left: 50px;
+    background: #3F5FED;
+    margin: 0 auto;
+    box-shadow: 3px 3px 6px #0f030375;
+    color: #fff;
+    padding: 25px 36px;
+    border-radius: 5px;
+}
 
 .reservation-form__ttl {
     font-size: 20px;
     font-weight: bold;
+    margin: 10px 0;
+}
+
+
+.reservation-formーdate,
+.reservation-formーtime,
+.reservation-formーnumber_of_people {
+    margin: 10px 0;
+}
+
+.reservation-formーtime__input,
+.number_of_people__select {
+    width: 100%;
+    border-radius: 4px;
+    border: none;
+}
+
+.reservation-formーdate__input {
+    border-radius: 4px;
+    border: none;
+    padding: 4px;
+
+}
+
+.reservation-formーtime__input {
+    padding: 4px;
+}
+
+.number_of_people__select {
+    padding: 6px;
+
+}
+
+.reservation-formーtime,
+.reservation-formーnumber_of_people {
+    position: relative;
+}
+
+.reservation-formーtime__input::-webkit-calendar-picker-indicator {
+        position: absolute;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        z-index: 1;
+        width: auto;
+        height: auto;
+        background: transparent;
+        top: 0;
+}
+
+.reservation-formーtime::after,
+.reservation-formーnumber_of_people::after {
+    content: "";
+    position: absolute;
+    top: 55%;
+    right: 30px;
+    width: 0;
+    height: 0;
+    border-top: 8px solid #ccc;
+    border-right: 6px solid transparent;
+    border-left: 6px solid transparent;
+    border-bottom: 4px solid transparent;
+    transform: translateY(-50%);
+}
+
+.reservation-done__table {
+    background-color: #5E7FEF;
+    height: 150px;
+    margin: 20px 0;
+    padding: 20px;
+    text-align: left;
+    border-radius: 5px;
+}
+
+.reservation-done__data {
+    padding: 0 25px;
+}
+
+
+.btn {
+    display: block;
+    width: 40vw;
+    padding: 15px;
+    background-color: blue;
+    font-size: 15px;
+    color: #fff;
+    border: none;
+    border-radius: 0 0 5px 5px;
+    position: absolute;
+    left: 50%;
+    top: 640px;
+    transform: translateX(-50%);
 }

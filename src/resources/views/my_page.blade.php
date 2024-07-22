@@ -23,9 +23,12 @@
                         @if($reservations->isEmpty())
                         <p>予約情報はありません</p>
                         @else
-                        @foreach($reservations as $reservation)
+                        @foreach($reservations as $index => $reservation)
                         <div class="reservation-done__table">
                             <table class="reservation-done__table-inner">
+                                <tr class="reservation-done__row">
+                                    <td class="reservation-done__ttl">予約 {{ $index + 1 }}</td>
+                                </tr>
                                 <tr class="reservation-done__row">
                                     <th class="reservation-done__label">Shop</th>
                                     <td class="reservation-done__data">{{ $reservation->shop->shop_name }}</td>
@@ -40,9 +43,22 @@
                                 </tr>
                                 <tr class="reservation-done__row">
                                     <th class="reservation-done__label">Number</th>
-                                    <td class="reservation-done__data">{{ $reservation->number_of_people }}</td>
+                                    <td class="reservation-done__data">{{ $reservation->number_of_people }}人</td>
                                 </tr>
                             </table>
+                            <!-- 日時変更 -->
+                            <form action="{{ route('reservations_update', $reservation->id) }}" method="POST">
+                                @csrf
+                                <input type="date" name="reservation_date" value="{{ $reservation->reservation_date }}">
+                                <input type="time" name="reservation_time" value="{{ substr($reservation->reservation_time, 0, 5) }}">
+                                <input type="number" name="number_of_people" value="{{ $reservation->number_of_people }}" min="1">
+                                <button type="submit">変更</button>
+                            </form>
+                            <!-- 削除 -->
+                            <form action="{{ route('reservations_delete', $reservation->id) }}" method="POST">
+                                @csrf
+                                <button class="delete__btn" type="submit">&times;</button>
+                            </form>
                         </div>
                         @endforeach
                         @endif
@@ -55,7 +71,7 @@
                                 <div class="shop__block">
                                     <div class="shop__img"><img src="{{ $favorite->shop->image_url }}" alt="" /></div>
                                     <div class="shop__card-content">
-                                        <h2 class="shop__card-ttl">{{ $favorite->shop_name }}</h2>
+                                        <h4 class="shop__card-ttl">{{ $favorite->shop->shop_name }}</h4>
                                         <p class="shop__tag">{{ $favorite->shop->area }} {{ $favorite->shop->genre }}</p>
                                         <div class="shop-detail__form">
                                             <div class="shop-detail__inner">

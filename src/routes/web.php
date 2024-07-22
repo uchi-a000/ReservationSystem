@@ -33,6 +33,8 @@ Route::middleware('auth')->group(function() {
     Route::match(['post', 'delete'], '/favorites/{shop}', [FavoriteController::class, 'toggleFavorite'])->name('favorites');
 
     Route::get('/mypage', [MYpageController::class, 'my_page'])->name('my_page');
+    Route::post('/reservations/update/{id}', [MypageController::class, 'updateReservation'])->name('reservations_update');
+    Route::post('/reservations/delete/{id}', [MypageController::class, 'deleteReservation'])->name('reservations_delete');
 
 
 });

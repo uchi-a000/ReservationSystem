@@ -1,27 +1,80 @@
+.mypage-container {
+    width: 100%;
+}
+
+.heading {
+    text-align: center;
+}
+
 
 .information-ttl {
     display: flex;
-    justify-content: space-around;
+    gap: 35%;
 }
+
+.reservation__ttl {
+    padding-left: 10%;
+}
+
 
 .information__inner {
     display: flex;
     justify-content: space-between;
-    width: 80%;
-    margin: 0 auto;
+    width: 100%;
+    gap: 20px;
+
 }
 
 /*予約状況 */
+.reservation-done__table {
+    width: 30%;
+    height: 300px;
+    background: #3F5FED;
+    margin: 0 auto;
+    border-radius: 5px;
+    box-shadow: 3px 3px 6px #0f030375;
+    color:#fff;
+    position: relative;
+    padding: 25px 36px;
+}
 
+.reservation-done__table-inner {
+    text-align: left;
+}
+
+.reservation-done__ttl::before {
+    content: "";
+    background: url(../icon/clock_icon.svg) no-repeat center;
+    background-size: 31px;
+    vertical-align: middle;
+    width: 30px;
+    height: 30px;
+    display: inline-block;
+    background-color: #fff;
+    border-radius: 50%;
+    margin-right: 25px;
+}
+
+.reservation-done__ttl {
+    padding-bottom: 20px;
+}
+
+.reservation-done__label {
+    padding-bottom: 10px;
+}
 
 
 
 /* お気に入り店舗 */
+
+.shop__container {
+    width: 50%;
+}
+
 .shop__inner {
     display: grid;
-    grid-template-columns: repeat(2, 310px);
-    gap: 15px;
-    margin: 50px 0;
+    grid-template-columns: repeat(2, 265px);
+    gap: 60px;
 }
 
 .shop__block {
@@ -46,7 +99,7 @@
 
 .shop__tag {
     margin: 5px;
-    font-size: 15px;
+    font-size: 12px;
 }
 
 .shop-detail__inner {
@@ -61,7 +114,7 @@
     border-radius: 5px;
     background-color: #3F5FED;
     color: #FFF;
-    font-size: 16px;
+    font-size: 13px;
     cursor: pointer;
     text-decoration: none;
 }
@@ -69,4 +122,19 @@
 .favorites-submit {
     border-style: none;
     background: none;
+}
+
+.delete__btn {
+    position: absolute;
+    background: #3F5FED;
+    top: 25px;
+    right: 32px;
+    width: 32px;
+    height: 33px;
+    border: 3px solid #FFF;
+    border-radius: 50%;
+    color: #FFF;
+    text-align: center;
+    text-decoration: none;
+    font-size: x-large;
 }

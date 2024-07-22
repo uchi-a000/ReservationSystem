@@ -13,7 +13,7 @@
         <div class="shop__block">
             <div class="shop__img"><img src="{{ $shop->image_url }}" alt="" /></div>
             <div class="shop__card-content">
-                <h2 class="shop__card-ttl">{{ $shop->shop_name }}</h2>
+                <h4 class="shop__card-ttl">{{ $shop->shop_name }}</h4>
                 <p class="shop__tag">{{ $shop->area }} {{ $shop->genre }}</p>
                 <div class="shop-detail__form">
                     <div class="shop-detail__inner">

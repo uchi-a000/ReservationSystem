@@ -17,7 +17,7 @@
                 <img src="{{ $shop->image_url }}" alt="" />
             </div>
             <p class="shop_detail__item">{{ $shop->area }} {{ $shop->genre }}</p>
-            <p class="shop_detail__item">{{ $shop->description }}</p>
+            <p class="shop_detail__description">{{ $shop->description }}</p>
         </div>
 
         <!-- 予約情報入力ページ -->
@@ -26,10 +26,14 @@
                 @csrf
                 <div class="reservation-form__ttl">予約</div>
                 <input type="hidden" name="shop_id" value="{{ $shop->id }}">
-                <div class="form__input-text">
-                    <input type="date" name="reservation_date" id="date" value="" required />
-                    <input type="time" name="reservation_time" id="time" value="17:00" required />
-                    <select name="number_of_people" required>
+                <div class="reservation-formーdate">
+                    <input class="reservation-formーdate__input" type="date" name="reservation_date" id="date" value="" required />
+                </div>
+                <div class="reservation-formーtime">
+                    <input class="reservation-formーtime__input" type="time" name="reservation_time" id="time" value="17:00" required />
+                </div>
+                <div class="reservation-formーnumber_of_people">
+                    <select class="number_of_people__select" name="number_of_people" required>
                         <option value="1">1人</option>
                         <option value="2">2人</option>
                         <option value="3">3人</option>
@@ -41,6 +45,7 @@
                         <option value="10">10人</option>
                     </select>
                 </div>
+
                 @if(Auth::check())
                 @if($reservations->isEmpty())
                 <p>予約情報はありません</p>
@@ -62,7 +67,7 @@
                         </tr>
                         <tr class="reservation-done__row">
                             <th class="reservation-done__header">Number</th>
-                            <td class="reservation-done__data">{{ $reservation->number_of_people }}</td>
+                            <td class="reservation-done__data">{{ $reservation->number_of_people }}人</td>
                         </tr>
                         @endforeach
                     </table>
@@ -71,9 +76,7 @@
                 @else
                 <p>ご予約はログインが必要です</p>
                 @endif
-                <div class="reservationーform__button">
-                    <button class="reservationーform__button-submit" type="submit">予約する</button>
-                </div>
+                    <button class="form__btn btn" type="submit">予約する</button>
             </form>
         </div>
     </div>
