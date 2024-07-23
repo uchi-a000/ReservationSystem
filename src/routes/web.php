@@ -1,11 +1,11 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\ShopController;
+use App\Http\Controllers\HomeController;
 use App\Http\Controllers\CustomRegisteredUserController;
 use App\Http\Controllers\FavoriteController;
 use App\Http\Controllers\MypageController;
-
+use App\Http\Controllers\ReservationController;
 
 /*
 |--------------------------------------------------------------------------
@@ -21,20 +21,20 @@ use App\Http\Controllers\MypageController;
 Route::post('/register', [CustomRegisteredUserController::class, 'store']);
 Route::get('/thanks', [CustomRegisteredUserController::class, 'store'])->name('thanks');
 
-Route::get('/', [ShopController::class, 'index'])->name('home');
-Route::get('/detail/{shop_id}', [ShopController::class, 'shop_detail'])->name('shop_detail');
-Route::get('/search', [ShopController::class, 'search'])->name('search');
+Route::get('/', [HomeController::class, 'index'])->name('home');
+Route::get('/detail/{shop_id}', [HomeController::class, 'shop_detail'])->name('shop_detail');
+Route::get('/search', [HomeController::class, 'search'])->name('search');
 
 Route::middleware('auth')->group(function() {
-    Route::get('/home', [ShopController::class, 'index'])->name('home');
-    Route::get('/done', [ShopController::class, 'reservation'])->name('reservation');
-    Route::post('/done', [ShopController::class, 'reservation'])->name('reservation');
+    Route::get('/home', [HomeController::class, 'index'])->name('home');
+
+    Route::get('/done', [ReservationController::class, 'reservation'])->name('reservation');
+    Route::post('/done', [ReservationController::class, 'reservation'])->name('reservation');
+    Route::patch('/reservations/update/{id}', [ReservationController::class, 'update'])->name('reservations_update');
+    Route::delete('/reservations/delete/{id}', [ReservationController::class, 'delete'])->name('reservations_delete');
 
     Route::match(['post', 'delete'], '/favorites/{shop}', [FavoriteController::class, 'toggleFavorite'])->name('favorites');
 
     Route::get('/mypage', [MYpageController::class, 'my_page'])->name('my_page');
-    Route::post('/reservations/update/{id}', [MypageController::class, 'updateReservation'])->name('reservations_update');
-    Route::post('/reservations/delete/{id}', [MypageController::class, 'deleteReservation'])->name('reservations_delete');
-
 
 });

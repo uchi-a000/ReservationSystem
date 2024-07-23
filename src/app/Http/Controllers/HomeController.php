@@ -8,7 +8,7 @@ use App\Models\Shop;
 use Illuminate\Support\Facades\Auth;
 
 
-class ShopController extends Controller
+class HomeController extends Controller
 {
     public function index()
     {
@@ -28,21 +28,6 @@ class ShopController extends Controller
                                     ->get();
 
         return view('shop_detail', compact('shop', 'reservations'));
-    }
-
-    public function reservation(Request $request){
-
-        $user = Auth::user();
-
-        $reservation = new Reservation();
-        $reservation->user_id = $user->id;
-        $reservation->shop_id = $request->input('shop_id');
-        $reservation->reservation_date = $request->input('reservation_date');
-        $reservation->reservation_time = $request->input('reservation_time');
-        $reservation->number_of_people = $request->input('number_of_people');
-        $reservation->save();
-
-        return view('done', compact('reservation'));
     }
 
     public function search(Request $request)

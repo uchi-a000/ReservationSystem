@@ -6,7 +6,6 @@
     text-align: center;
 }
 
-
 .information-ttl {
     display: flex;
     gap: 35%;
@@ -16,13 +15,11 @@
     padding-left: 10%;
 }
 
-
 .information__inner {
     display: flex;
     justify-content: space-between;
     width: 100%;
     gap: 20px;
-
 }
 
 /*予約状況 */
@@ -63,10 +60,137 @@
     padding-bottom: 10px;
 }
 
+.reservation-update__btn {
+    padding: 8px 12px;
+    border: 1px solid #5E7FEF;
+    background-color: #5E7FEF;
+    color: #fff;
+    text-decoration: none;
+    display: block;
+    margin: 5px;
+    text-align: center;
+}
 
+.reservation-update__alert {
+    text-align: center;
+    background: #00eaffba;
+    border-radius: 5px;
+}
+
+/* モーダル */
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    visibility: hidden;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    z-index: 10;
+}
+
+.modal:target {
+    visibility: visible;
+    opacity: 1;
+}
+
+.modal-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+
+.modal__inner {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 50%;
+    height: 50%;
+    border: 1px solid #8B7969;
+    background-color: #fff;
+    box-shadow: 4px 4px 4px rgba(139, 121, 105, 0.25);
+    transform: translate(-50%, -50%);
+}
+
+.modal__content {
+    position: relative;
+    padding: 64px 64px;
+}
+
+.update-form__item {
+    text-align: center;
+}
+
+label {
+    font-weight: 100;
+    color: black;
+}
+
+.update-form__item__input {
+    position: relative;
+    padding: 8px 12px;
+    min-width: 250px;
+    border: 1px solid #E3DED9;
+    background-color: #F4F4F4;
+    font-weight: 100;
+    margin: 20px;
+}
+
+.update-form__item__input::-webkit-calendar-picker-indicator {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 1;
+    width: auto;
+    height: auto;
+    background: transparent;
+}
+
+.update-form__item__input::after {
+    position: absolute;
+    top: 50%;
+    right: 12px;
+    width: 0;
+    height: 0;
+    border-top: 12px solid #ccc;
+    border-right: 8px solid transparent;
+    border-left: 8px solid transparent;
+    content: "";
+    transform: translateY(-50%);
+}
+
+.update__btn {
+    display: block;
+    margin: 0 auto;
+    border: none;
+    border-radius: 5px;
+    background-color: #3F5FED;
+    color: #FFF;
+    font-size: 16px;
+    cursor: pointer;
+    padding: 8px 20px;
+
+}
+
+.modal__close-btn {
+    position: absolute;
+    top: 32px;
+    width: 32px;
+    height: 32px;
+    color: #fff;
+    background: #3F5FED;
+    text-align: center;
+    text-decoration: none;
+    box-shadow: 3px 3px 6px #0f030375;
+    border-radius: 5px;
+}
 
 /* お気に入り店舗 */
-
 .shop__container {
     width: 50%;
 }
