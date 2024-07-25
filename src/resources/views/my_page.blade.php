@@ -57,11 +57,11 @@
                         <!-- 日時変更 -->
                         <div class="reservation-update">
                             <a class="reservation-update__btn" href="#update-modal-{{ $reservation->id }}">ご予約の変更</a>
+                            @if((session('success')) && session('success')['reservation_id'] == $reservation->id)
                             <div class="reservation-update__alert">
-                                @if(session('success'))
-                                {{ session('success') }}
-                                @endif
+                                {{ session('success')['message'] }}
                             </div>
+                            @endif
                         </div>
                         <div class="reservation-update-modal">
                             <div class="modal" id="update-modal-{{ $reservation->id }}">

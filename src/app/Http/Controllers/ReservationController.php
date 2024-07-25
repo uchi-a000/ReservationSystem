@@ -26,7 +26,13 @@ class ReservationController extends Controller
         $reservation = $request->all();
         Reservation::find($request->id)->update($reservation);
 
-        return redirect()->back()->with('success', '予約情報が変更されました');
+        session()->flash('success', [
+            'message' => '予約情報が変更されました',
+            'reservation_id' => $request->id
+        ]);
+
+
+        return redirect()->back();
     }
 
     public function delete($id)

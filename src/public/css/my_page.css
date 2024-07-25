@@ -73,8 +73,11 @@
 
 .reservation-update__alert {
     text-align: center;
-    background: #00eaffba;
     border-radius: 5px;
+    border-color: #badbcc;
+    background-color: #d1e7dd;
+    color: #0f5132;
+    padding: 3px 30px;
 }
 
 /* モーダル */
