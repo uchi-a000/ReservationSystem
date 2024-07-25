@@ -27,24 +27,35 @@
                 <div class="reservation-form__ttl">予約</div>
                 <input type="hidden" name="shop_id" value="{{ $shop->id }}">
                 <div class="reservation-formーdate">
-                    <input class="reservation-formーdate__input" type="date" name="reservation_date" id="date" value="" required />
+                    <div class="form__error">
+                        @error('reservation_date')
+                        {{ $message }}
+                        @enderror
+                    </div>
+                    <input class="reservation-formーdate__input" type="date" name="reservation_date" value="{{ old('reservation_date') }}" />
                 </div>
+
                 <div class="reservation-formーtime">
-                    <input class="reservation-formーtime__input" type="time" name="reservation_time" id="time" value="17:00" required />
+                    <div class="form__error">
+                        @error('reservation_time')
+                        {{ $message }}
+                        @enderror
+                    </div>
+                    <input class="reservation-formーtime__input" type="time" name="reservation_time" value="{{ old('reservation_time', '17:00') }}" />
                 </div>
                 <div class="reservation-formーnumber_of_people">
-                    <select class="number_of_people__select" name="number_of_people" required>
-                        <option value="1">1人</option>
-                        <option value="2">2人</option>
-                        <option value="3">3人</option>
-                        <option value="4">4人</option>
-                        <option value="5">5人</option>
-                        <option value="6">6人</option>
-                        <option value="8">8人</option>
-                        <option value="9">9人</option>
-                        <option value="10">10人</option>
+                    <div class="form__error">
+                        @error('number_of_people')
+                        {{ $message }}
+                        @enderror
+                    </div>
+                    <select class="number_of_people__select" name="number_of_people">
+                        @foreach($numberOfPeopleOptions as $option)
+                        <option value="{{ $option }}">{{ $option }}人</option>
+                        @endforeach
                     </select>
                 </div>
+
 
                 @if(Auth::check())
                 @if($reservations->isEmpty())
@@ -76,7 +87,7 @@
                 @else
                 <p>ご予約はログインが必要です</p>
                 @endif
-                    <button class="form__btn btn" type="submit">予約する</button>
+                <button class="form__btn btn" type="submit">予約する</button>
             </form>
         </div>
     </div>

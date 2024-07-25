@@ -27,7 +27,9 @@ class HomeController extends Controller
                                     ->where('user_id', $user_id)
                                     ->get();
 
-        return view('shop_detail', compact('shop', 'reservations'));
+        $numberOfPeopleOptions = range(1, 15);
+
+        return view('shop_detail', compact('shop', 'reservations', 'numberOfPeopleOptions'));
     }
 
     public function search(Request $request)

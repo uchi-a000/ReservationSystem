@@ -228,3 +228,7 @@ select {
 .search-form__keyword-input:focus {
     outline: none;
 }
+
+.form__error {
+    color: red;
+}

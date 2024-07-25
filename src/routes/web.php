@@ -7,6 +7,7 @@ use App\Http\Controllers\FavoriteController;
 use App\Http\Controllers\MypageController;
 use App\Http\Controllers\ReservationController;
 
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
