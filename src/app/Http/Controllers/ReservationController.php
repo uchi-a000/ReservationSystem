@@ -31,7 +31,6 @@ class ReservationController extends Controller
             'reservation_id' => $request->id
         ]);
 
-
         return redirect()->back();
     }
 

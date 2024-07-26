@@ -4,7 +4,7 @@
 
 .shop__inner {
     display: grid;
-    grid-template-columns: repeat(4, 300px);
+    grid-template-columns: repeat(4, 20%);
     gap: 15px;
     justify-content: center;
     margin: 50px 0;
