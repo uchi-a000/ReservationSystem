@@ -19,15 +19,18 @@
     display: flex;
     justify-content: space-between;
     width: 100%;
-    gap: 20px;
+}
+
+.reservation-done__container,
+.shop__container {
+    width: 50%;
 }
 
 /*予約状況 */
 .reservation-done__table {
-    width: 30%;
-    height: 300px;
+    width: 60%;
     background: #3F5FED;
-    margin: 0 auto;
+    margin: 0 0 5% 20%;
     border-radius: 5px;
     box-shadow: 3px 3px 6px #0f030375;
     color:#fff;
@@ -200,8 +203,8 @@ label {
 
 .shop__inner {
     display: grid;
-    grid-template-columns: repeat(2, 265px);
-    gap: 60px;
+    grid-template-columns: repeat(2, 42%);
+    gap: 25px;
 }
 
 .shop__block {
@@ -222,6 +225,8 @@ label {
 
 .shop__card-ttl {
     margin: 5px;
+    font-weight: bold;
+    font-size: 18px;
 }
 
 .shop__tag {

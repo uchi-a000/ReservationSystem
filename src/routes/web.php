@@ -31,6 +31,7 @@ Route::middleware('auth')->group(function() {
 
     Route::get('/done', [ReservationController::class, 'reservation'])->name('reservation');
     Route::post('/done', [ReservationController::class, 'reservation'])->name('reservation');
+
     Route::patch('/reservations/update/{id}', [ReservationController::class, 'update'])->name('reservations_update');
     Route::delete('/reservations/delete/{id}', [ReservationController::class, 'delete'])->name('reservations_delete');
 
