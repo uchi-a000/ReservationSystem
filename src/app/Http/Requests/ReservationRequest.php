@@ -33,7 +33,7 @@ class ReservationRequest extends FormRequest
     public function messages()
     {
         return [
-            'reservation_date.required' => '日にちを選択してください',
+            'reservation_date.required' => '日付を選択してください',
             'reservation_time.required' => '時間を選択してください',
             'number_of_people.required' => '人数を入力してください',
         ];

@@ -79,7 +79,7 @@ img {
     margin: 20px 0;
 }
 
-.reservation-formーtime__input,
+.time__select,
 .number_of_people__select {
     width: 100%;
     border-radius: 4px;
@@ -93,8 +93,8 @@ img {
 
 }
 
-.reservation-formーtime__input {
-    padding: 4px;
+.time__select {
+    padding: 7px;
 }
 
 .number_of_people__select {
@@ -107,23 +107,11 @@ img {
     position: relative;
 }
 
-.reservation-formーtime__input::-webkit-calendar-picker-indicator {
-        position: absolute;
-        right: 0;
-        bottom: 0;
-        left: 0;
-        z-index: 1;
-        width: auto;
-        height: auto;
-        background: transparent;
-        top: 0;
-}
-
 .reservation-formーtime::after,
 .reservation-formーnumber_of_people::after {
     content: "";
     position: absolute;
-    top: 55%;
+    top: 72%;
     right: 30px;
     width: 0;
     height: 0;

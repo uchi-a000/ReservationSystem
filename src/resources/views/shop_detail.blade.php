@@ -32,7 +32,7 @@
                         {{ $message }}
                         @enderror
                     </div>
-                    <input class="reservation-formーdate__input" type="date" name="reservation_date" value="{{ old('reservation_date') }}" />
+                    <input class="date__input" type="date" name="reservation_date" value="{{ old('reservation_date') }}" />
                 </div>
 
                 <div class="reservation-formーtime">
@@ -41,7 +41,12 @@
                         {{ $message }}
                         @enderror
                     </div>
-                    <input class="reservation-formーtime__input" type="time" name="reservation_time" value="{{ old('reservation_time', '17:00') }}" />
+                    <select class="time__select" name="reservation_time">
+                        <option value="">時間を選択してください</option>
+                        @foreach($timeOptions as $time)
+                        <option value="{{ $time }}" @if( old('reservation_time')==$time )selected @endif>{{ $time }}</option>
+                        @endforeach
+                    </select>
                 </div>
                 <div class="reservation-formーnumber_of_people">
                     <div class="form__error">
@@ -50,8 +55,9 @@
                         @enderror
                     </div>
                     <select class="number_of_people__select" name="number_of_people">
+                        <option value="">人数を選択してください</option>
                         @foreach($numberOfPeopleOptions as $option)
-                        <option value="{{ $option }}">{{ $option }}人</option>
+                        <option value="{{ $option }}" @if( old('number_of_people')==$option )selected @endif>{{ $option }}人</option>
                         @endforeach
                     </select>
                 </div>

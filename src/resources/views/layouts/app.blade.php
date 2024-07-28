@@ -65,7 +65,7 @@
                         <nav class="modal-form__group-nav">
                             <ul class="modal-form__list">
                                 <li class="modal-form__list-item"><a href="/">Home</a></li>
-                                <li class="modal-form__list-item"><a href="/register">Register</a></li>
+                                <li class="modal-form__list-item"><a href="/register">Registration</a></li>
                                 <li class="modal-form__list-item"><a href="/login">Login</a></li>
                             </ul>
                         </nav>

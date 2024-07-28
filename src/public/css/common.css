@@ -84,8 +84,8 @@ body {
     position: absolute;
     top: 50%;
     left: 50%;
-    width: 50%;
-    height: 50%;
+    width: 100%;
+    height: 100%;
     border: 1px solid #8B7969;
     background-color: #fff;
     box-shadow: 4px 4px 4px rgba(139, 121, 105, 0.25);
@@ -98,12 +98,13 @@ body {
 }
 
 .modal-form__list {
-    font-size: 20px;
+    font-size: 35px;
     text-align: center;
+    margin: 200px;
 }
 
 .modal-form__list-item {
-    padding: 20px;
+    padding: 10px;
 }
 
 .modal-form__list-item a {
@@ -124,15 +125,17 @@ body {
 
 .modal__close-btn {
     position: absolute;
-    top: 32px;
-    width: 32px;
-    height: 32px;
+    top: 50px;
+    width: 50px;
+    height: 50px;
     color: #fff;
     background: #3F5FED;
     text-align: center;
     text-decoration: none;
     box-shadow: 3px 3px 6px #0f030375;
     border-radius: 5px;
+    font-size: 30px;
+    
 }
 
 /* 検索フォーム */
