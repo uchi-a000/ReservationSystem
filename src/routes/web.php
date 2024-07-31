@@ -6,7 +6,8 @@ use App\Http\Controllers\CustomRegisteredUserController;
 use App\Http\Controllers\FavoriteController;
 use App\Http\Controllers\MypageController;
 use App\Http\Controllers\ReservationController;
-
+use Illuminate\Foundation\Auth\EmailVerificationRequest;
+use Illuminate\Http\Request;
 
 /*
 |--------------------------------------------------------------------------
@@ -19,12 +20,36 @@ use App\Http\Controllers\ReservationController;
 |
 */
 
-Route::post('/register', [CustomRegisteredUserController::class, 'store']);
-Route::get('/thanks', [CustomRegisteredUserController::class, 'store'])->name('thanks');
-
 Route::get('/', [HomeController::class, 'index'])->name('home');
 Route::get('/detail/{shop_id}', [HomeController::class, 'shop_detail'])->name('shop_detail');
 Route::get('/search', [HomeController::class, 'search'])->name('search');
+
+Route::post('/register', [CustomRegisteredUserController::class, 'store'])->name('register');
+
+// メール認証の通知
+Route::get('/email/verify', function () {
+    return view('auth.verify-email');
+})->middleware('auth')->name('verification.notice');
+
+// メール認証処理（ユーザーがメール内のリンクをクリックした時に処理）
+Route::get('/email/verify/{id}/{hash}', function (EmailVerificationRequest $request) {
+    $request->fulfill();
+
+// 認証後に登録完了ページにリダイレクト
+    return redirect()->route('thanks');
+})->middleware(['auth', 'signed'])->name('verification.verify');
+
+// メール認証再送信
+Route::post('/email/verification-notification', function (Request $request) {
+    $request->user()->sendEmailVerificationNotification();
+
+    return back()->with('status', 'verification-link-sent');
+})->middleware(['auth', 'throttle:6,1'])->name('verification.send');
+
+Route::get('/thanks', function () {
+    return view('thanks');
+})->name('thanks');
+
 
 Route::middleware('auth')->group(function() {
     Route::get('/home', [HomeController::class, 'index'])->name('home');
@@ -38,5 +63,6 @@ Route::middleware('auth')->group(function() {
     Route::match(['post', 'delete'], '/favorites/{shop}', [FavoriteController::class, 'toggleFavorite'])->name('favorites');
 
     Route::get('/mypage', [MYpageController::class, 'my_page'])->name('my_page');
+
 
 });
