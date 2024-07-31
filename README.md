@@ -19,6 +19,10 @@ php・laravelを学習中で練習のために作成しました。
 ・PHP 8.0
 ・laravel 10.0
 ・MySQL  8.0
+・Fortify
+・Mailhog(テストメール)
+
+
 
 ## テーブル設計
 
