@@ -29,7 +29,7 @@ class HomeController extends Controller
         $numberOfPeopleOptions = range(1, 15);
 
         $startTime = Carbon::today()->hour(11)->minute(0);
-        $endTime = Carbon::today()->hour(22)->minute(0);
+        $endTime = Carbon::today()->hour(21)->minute(0);
         $interval = 30;
 
         $timeOptions = [];

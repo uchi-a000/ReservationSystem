@@ -48,6 +48,13 @@
                                 </tr>
                             </table>
 
+                            @php
+                            $now = \Carbon\Carbon::now();
+                            $reservationDateTime = \Carbon\Carbon::createFromFormat('Y-m-d H:i:s', $reservation->reservation_date . '' . $reservation->reservation_time);
+                            $dayBefore = $reservationDateTime->copy()->subDay();
+                            @endphp
+
+                            @if($now->lt($dayBefore))
                             <!-- 削除 -->
                             <form action="{{ route('reservations_delete', $reservation->id) }}" method="POST">
                                 @method('DELETE')
@@ -91,6 +98,19 @@
                                     </div>
                                 </div>
                             </div>
+                            @else
+                            <p class="day-before__alert">変更・キャンセルは店舗へ直接ご連絡ください</p>
+                            @endif
+
+                            <!-- 来店確認のQRコード -->
+                            @if (isset( $qrCodes[$reservation->id]))
+                            <div class="qr-code">
+                                <p>来店確認のため以下QRコードを提示してください</p>
+                                {!! $qrCodes[$reservation->id] !!}
+                            </div>
+                            @else
+                            <p style="text-align: center;">予約日時にQRコードが表示されます</p>
+                            @endif
                         </div>
                         @endforeach
                         @endif
@@ -131,4 +151,6 @@
         </div>
     </div>
 </div>
+
+
 @endsection

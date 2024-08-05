@@ -4,6 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
+
 class ReservationRequest extends FormRequest
 {
     /**
@@ -24,7 +25,7 @@ class ReservationRequest extends FormRequest
     public function rules()
     {
         return [
-            'reservation_date' => ['required'],
+            'reservation_date' => ['required', 'after_or_equal:today'],
             'reservation_time' => ['required'],
             'number_of_people' => ['required'],
         ];
@@ -34,8 +35,9 @@ class ReservationRequest extends FormRequest
     {
         return [
             'reservation_date.required' => '日付を選択してください',
+            'reservation_date.after_or_equal' => '予約日は本日以降の日付を選択してください',
             'reservation_time.required' => '時間を選択してください',
-            'number_of_people.required' => '人数を入力してください',
+            'number_of_people.required' => '人数を選択してください',
         ];
     }
 }

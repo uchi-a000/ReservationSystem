@@ -82,8 +82,8 @@ img {
 .time__select,
 .number_of_people__select {
     width: 100%;
-    border-radius: 4px;
     border: none;
+    border-radius: 4px;
 }
 
 .reservation-formーdate__input {

@@ -137,8 +137,18 @@ label {
     font-size: 16px;
     cursor: pointer;
     padding: 8px 20px;
-
 }
+
+.day-before__alert {
+    text-align: center;
+    background-color: red;
+}
+
+.qr-code {
+    text-align: center;
+}
+
+
 
 /* お気に入り店舗 */
 .shop__container {

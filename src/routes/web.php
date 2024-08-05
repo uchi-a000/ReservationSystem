@@ -65,4 +65,5 @@ Route::middleware('auth')->group(function() {
     Route::get('/mypage', [MYpageController::class, 'my_page'])->name('my_page');
 
 
+
 });

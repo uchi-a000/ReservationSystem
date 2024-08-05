@@ -3,7 +3,7 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
-use Illuminate\Validation\Rules\Unique;
+
 
 class RegisterRequest extends FormRequest
 {
@@ -40,7 +40,7 @@ class RegisterRequest extends FormRequest
             'email.required' => 'メールアドレスを入力してください',
             'email.string' => 'メールアドレスを文字列で入力してください',
             'email.email' => '有効なメールアドレス形式を入力してください',
-            'email.unique:users,email' => 'すでに使用されているメールアドレスです',
+            'email.unique' => 'すでに使用されているメールアドレスです',
             'email.max' => 'メールアドレスを255文字以下で入力してください',
             'password.required' => 'パスワードを入力してください',
             'password.max' => 'パスワードを191文字以下で入力してください',
