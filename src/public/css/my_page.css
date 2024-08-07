@@ -22,8 +22,16 @@
 }
 
 .reservation-done__container,
-.shop__container {
+.favorites-shop__container {
     width: 50%;
+}
+
+.reservation-done__not {
+    padding: 50px 145px;
+}
+
+.favorites-shop__not {
+    padding: 50px 0;
 }
 
 /*予約状況 */
@@ -83,7 +91,8 @@
     padding: 3px 30px;
 }
 
-.update-form__item {
+/* モーダル予約変更 */
+.modal-update-form__item {
     text-align: center;
 }
 
@@ -92,7 +101,7 @@ label {
     color: black;
 }
 
-.update-form__item__input {
+.modal-update-form__item__input {
     position: relative;
     padding: 8px 12px;
     min-width: 250px;
@@ -102,7 +111,7 @@ label {
     margin: 20px;
 }
 
-.update-form__item__input::-webkit-calendar-picker-indicator {
+.modal-update-form__item__input::-webkit-calendar-picker-indicator {
     position: absolute;
     top: 0;
     right: 0;
@@ -114,7 +123,7 @@ label {
     background: transparent;
 }
 
-.update-form__item__input::after {
+.modal-update-form__item__input::after {
     position: absolute;
     top: 50%;
     right: 12px;
@@ -127,7 +136,7 @@ label {
     transform: translateY(-50%);
 }
 
-.update__btn {
+.modal-update__btn {
     display: block;
     margin: 0 auto;
     border: none;
@@ -139,51 +148,67 @@ label {
     padding: 8px 20px;
 }
 
+
 .day-before__alert {
     text-align: center;
-    background-color: red;
+    background-color: rgba(255, 0, 0, 0.7);
 }
+
 
 .qr-code {
     text-align: center;
 }
 
+.qr-code__alert {
+    text-align: center;
+}
+
+.qr-code-form__btn {
+    border: 1px solid #5E7FEF;
+    padding: 10px 50px;
+    background-color: #5E7FEF;
+    color: #fff;
+    text-decoration: none;
+    margin: 5px;
+    font-size: 15px;
+}
+
 
 
 /* お気に入り店舗 */
-.shop__container {
+.favorites-shop__container {
     width: 50%;
 }
 
-.shop__inner {
+.favorites-shop__inner {
     display: grid;
     grid-template-columns: repeat(2, 42%);
     gap: 25px;
 }
 
-.shop__block {
+.favorites-shop__block {
     background-color: #fff;
     border-radius: 8px;
     box-shadow: 3px 3px 6px #0f030375;
 }
 
-.shop__img img {
+.favorites-shop__img img {
     width: 100%;
     height: 165px;
     border-radius: 5px 5px 0 0;
 }
 
-.shop__card-content {
+.favorites-shop__card-content {
     margin: 20px;
 }
 
-.shop__card-ttl {
+.favorites-shop__card-ttl {
     margin: 5px;
     font-weight: bold;
     font-size: 18px;
 }
 
-.shop__tag {
+.favorites-shop__tag {
     margin: 5px;
     font-size: 12px;
 }

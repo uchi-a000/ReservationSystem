@@ -22,7 +22,7 @@
                 <div class="information__inner">
                     <div class="reservation-done__container">
                         @if($reservations->isEmpty())
-                        <p>予約情報はありません</p>
+                        <p class="reservation-done__not">予約情報はありません</p>
                         @else
                         @foreach($reservations as $index => $reservation)
                         <div class="reservation-done__table">
@@ -48,13 +48,7 @@
                                 </tr>
                             </table>
 
-                            @php
-                            $now = \Carbon\Carbon::now();
-                            $reservationDateTime = \Carbon\Carbon::createFromFormat('Y-m-d H:i:s', $reservation->reservation_date . '' . $reservation->reservation_time);
-                            $dayBefore = $reservationDateTime->copy()->subDay();
-                            @endphp
-
-                            @if($now->lt($dayBefore))
+                            @if($now->lt($reservation->dayBefore))
                             <!-- 削除 -->
                             <form action="{{ route('reservations_delete', $reservation->id) }}" method="POST">
                                 @method('DELETE')
@@ -76,22 +70,22 @@
                                     <a href="#!" class="modal-overlay"></a>
                                     <div class="modal__inner">
                                         <div class="modal__content">
-                                            <form class="reservation-update-form" action="{{ route('reservations_update', $reservation->id) }}" method="POST">
+                                            <form class="modal-reservation-update-form" action="{{ route('reservations_update', $reservation->id) }}" method="POST">
                                                 @method('PATCH')
                                                 @csrf
-                                                <div class="update-form__item">
+                                                <div class="modal-update-form__item">
                                                     <label for="date">年月日：</label>
-                                                    <input class="update-form__item__input" type="date" name="reservation_date" value="{{ $reservation->reservation_date }}">
+                                                    <input class="modal-update-form__item__input" type="date" name="reservation_date" value="{{ $reservation->reservation_date }}">
                                                 </div>
-                                                <div class="update-form__item">
+                                                <div class="modal-update-form__item">
                                                     <label for="time" style="margin-left: 15px;">時間：</label>
-                                                    <input class="update-form__item__input" type="time" name="reservation_time" value="{{ substr($reservation->reservation_time, 0, 5) }}">
+                                                    <input class="modal-update-form__item__input" type="time" name="reservation_time" value="{{ substr($reservation->reservation_time, 0, 5) }}">
                                                 </div>
-                                                <div class="update-form__item">
+                                                <div class="modal-update-form__item">
                                                     <label for="number_of_people" style="margin-left: 15px;">人数：</label>
-                                                    <input class="update-form__item__input" type="number" name="number_of_people" value="{{ $reservation->number_of_people }}" min="1">
+                                                    <input class="modal-update-form__item__input" type="number" name="number_of_people" value="{{ $reservation->number_of_people }}" min="1">
                                                 </div>
-                                                <button class="update__btn" type="submit">変更</button>
+                                                <button class="modal-update__btn" type="submit">変更</button>
                                             </form>
                                             <a href="#" class="modal__close-btn">&times;</a>
                                         </div>
@@ -103,13 +97,15 @@
                             @endif
 
                             <!-- 来店確認のQRコード -->
-                            @if (isset( $qrCodes[$reservation->id]))
+                            @if ($now->gt($reservation->reservationDateTime))
                             <div class="qr-code">
-                                <p>来店確認のため以下QRコードを提示してください</p>
-                                {!! $qrCodes[$reservation->id] !!}
+                                <form class="qr-code-form" action="{{ route('generate_qr_code', $reservation->id)  }}" method="POST">
+                                    @csrf
+                                    <button class="qr-code-form__btn" type="submit">QRコードを発行</button>
+                                </form>
                             </div>
                             @else
-                            <p style="text-align: center;">予約日時にQRコードが表示されます</p>
+                            <p class="qr-code__alert">ご予約日時になりましたら <br> 来店確認のためQRコードが発行されます</p>
                             @endif
                         </div>
                         @endforeach
@@ -117,15 +113,15 @@
                     </div>
 
                     <!-- お気に入り店舗 -->
-                    <div class="shop__container">
-                        <div class="shop__inner">
+                    <div class="favorites-shop__container">
+                        <div class="favorites-shop__inner">
                             @if(isset($favorites) && $favorites->isNotEmpty())
                             @foreach($favorites as $favorite)
-                            <div class="shop__block">
-                                <div class="shop__img"><img src="{{ $favorite->shop->image_url }}" alt="" /></div>
-                                <div class="shop__card-content">
-                                    <p class="shop__card-ttl">{{ $favorite->shop->shop_name }}</p>
-                                    <p class="shop__tag">{{ $favorite->shop->area }} {{ $favorite->shop->genre }}</p>
+                            <div class="favorites-shop__block">
+                                <div class="favorites-shop__img"><img src="{{ $favorite->shop->image_url }}" alt="" /></div>
+                                <div class="favorites-shop__card-content">
+                                    <p class="favorites-shop__card-ttl">{{ $favorite->shop->shop_name }}</p>
+                                    <p class="favorites-shop__tag">{{ $favorite->shop->area }} {{ $favorite->shop->genre }}</p>
                                     <div class="shop-detail__form">
                                         <div class="shop-detail__inner">
                                             <a class="shop-detail__form btn" href="{{ route('shop_detail', $favorite->shop->id) }}">詳しくみる</a>
@@ -142,7 +138,7 @@
                             </div>
                             @endforeach
                             @else
-                            <p>該当する店舗が見つかりませんでした。</p>
+                            <p class="favorites-shop__not">お気に入り店舗はありません</p>
                             @endif
                         </div>
                     </div>

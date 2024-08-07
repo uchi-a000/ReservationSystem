@@ -62,8 +62,8 @@ Route::middleware('auth')->group(function() {
 
     Route::match(['post', 'delete'], '/favorites/{shop}', [FavoriteController::class, 'toggleFavorite'])->name('favorites');
 
-    Route::get('/mypage', [MYpageController::class, 'my_page'])->name('my_page');
-
-
+    Route::get('/mypage', [MypageController::class, 'my_page'])->name('my_page');
+    Route::post('/generate_qr_code{id}', [MypageController::class, 'generateQrCode'])->name('generate_qr_code');
+    Route::get('/checkin/{id}', [MypageController::class, 'checkIn'])->name('checkin');
 
 });
