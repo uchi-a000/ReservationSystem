@@ -19,7 +19,7 @@ class shop extends Model
         'image_url',
     ];
 
-    public function reservation(): HasMany
+    public function reservations(): HasMany
     {
         return $this->hasMany(Reservation::class);
     }
@@ -27,5 +27,10 @@ class shop extends Model
     public function favorites(): BelongsToMany
     {
         return $this->belongsToMany(User::class, 'favorites', 'shop_id', 'user_id');
+    }
+
+    public function review(): HasMany
+    {
+        return $this->hasMany(Review::class);
     }
 }

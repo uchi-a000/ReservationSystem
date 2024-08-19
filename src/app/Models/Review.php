@@ -5,20 +5,18 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
-use Illuminate\Database\Eloquent\Relations\HasMany;
-use Carbon\Carbon;
 
-
-class Reservation extends Model
+class Review extends Model
 {
     use HasFactory;
 
     protected $fillable = [
-        'user_id',
-        'shop_id',
-        'reservation_date',
-        'reservation_time',
-        'number_of_people'
+            'user_id',
+            'shop_id',
+            'reservation_id',
+            'rating',
+            'comment'
+
     ];
 
     public function user(): BelongsTo
@@ -31,9 +29,8 @@ class Reservation extends Model
         return $this->belongsTo(Shop::class);
     }
 
-    public function reviews(): HasMany
+    public function reservation(): BelongsTo
     {
-        return $this->hasMany(Review::class);
+        return $this->belongsTo(Reservation::class);
     }
-
 }

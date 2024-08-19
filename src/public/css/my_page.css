@@ -21,8 +21,8 @@
     width: 100%;
 }
 
-.reservation-done__container,
-.favorites-shop__container {
+.reservation-done__content,
+.favorites-shop__content {
     width: 50%;
 }
 
@@ -148,12 +148,21 @@ label {
     padding: 8px 20px;
 }
 
+/* 前日以前の案内〜当日QRコード発行〜評価 */
+.review-done {
+    text-align: center;
+}
+
+.check_in-alert {
+    text-align: center;
+    background-color: #d1e7dd;
+    color: #0f5132;
+}
 
 .day-before__alert {
     text-align: center;
     background-color: rgba(255, 0, 0, 0.7);
 }
-
 
 .qr-code {
     text-align: center;
@@ -165,13 +174,25 @@ label {
 
 .qr-code-form__btn {
     border: 1px solid #5E7FEF;
-    padding: 10px 50px;
+    padding: 10px 110px;
     background-color: #5E7FEF;
     color: #fff;
     text-decoration: none;
     margin: 5px;
     font-size: 15px;
 }
+
+.review-form__btn {
+    border: 1px solid #5E7FEF;
+    padding: 12px 110px;
+    background-color: #5E7FEF;
+    color: #fff;
+    text-decoration: none;
+    margin: 5px;
+    font-size: 15px;
+}
+
+
 
 
 
@@ -249,3 +270,5 @@ label {
     text-decoration: none;
     font-size: x-large;
 }
+
+

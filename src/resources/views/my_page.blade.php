@@ -20,7 +20,7 @@
             <!-- 予約状況 -->
             <div class="information__block">
                 <div class="information__inner">
-                    <div class="reservation-done__container">
+                    <div class="reservation-done__content">
                         @if($reservations->isEmpty())
                         <p class="reservation-done__not">予約情報はありません</p>
                         @else
@@ -92,20 +92,31 @@
                                     </div>
                                 </div>
                             </div>
-                            @else
+                            @elseif($reservation->check_in == 1 )
+                            <p class="check_in-alert">ご来店済み</p>
+                            @elseif($now->gt($reservation->dayBefore))
                             <p class="day-before__alert">変更・キャンセルは店舗へ直接ご連絡ください</p>
                             @endif
 
-                            <!-- 来店確認のQRコード -->
-                            @if ($now->gt($reservation->reservationDateTime))
+                            <!-- 当日QRコード発行〜評価機能 -->
+                            @if($reservation->reviews->isNotEmpty())
+                            <p class="review-done">口コミ投稿済み</p>
+                            @elseif($reservation->check_in == 1 && $reservation->reviews->isEmpty())
+                            <div class="review__content">
+                                <form class="review-form" action="{{ route('review', $reservation->id) }}" method="GET">
+                                    @csrf
+                                    <button class="review-form__btn" type="submit">口コミを投稿する</button>
+                                </form>
+                            </div>
+                            @elseif($now->gt($reservation->reservationDateTime))
                             <div class="qr-code">
                                 <form class="qr-code-form" action="{{ route('generate_qr_code', $reservation->id)  }}" method="POST">
                                     @csrf
                                     <button class="qr-code-form__btn" type="submit">QRコードを発行</button>
                                 </form>
                             </div>
-                            @else
-                            <p class="qr-code__alert">ご予約日時になりましたら <br> 来店確認のためQRコードが発行されます</p>
+                            @elseif($now->lt($reservation->reservationDateTime))
+                            <p class="qr-code__alert">ご予約時間に来店確認のため<br>QRコードが発行されます</p>
                             @endif
                         </div>
                         @endforeach
@@ -113,7 +124,7 @@
                     </div>
 
                     <!-- お気に入り店舗 -->
-                    <div class="favorites-shop__container">
+                    <div class="favorites-shop__content">
                         <div class="favorites-shop__inner">
                             @if(isset($favorites) && $favorites->isNotEmpty())
                             @foreach($favorites as $favorite)
@@ -147,6 +158,4 @@
         </div>
     </div>
 </div>
-
-
 @endsection

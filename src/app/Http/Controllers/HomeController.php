@@ -18,7 +18,7 @@ class HomeController extends Controller
         return view('index', compact('shops'));
     }
 
-    public function shop_detail($id)
+    public function shopDetail($id)
     {
         $shop = Shop::find($id);
         $user_id = Auth::id();

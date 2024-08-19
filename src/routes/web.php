@@ -21,7 +21,7 @@ use Illuminate\Http\Request;
 */
 
 Route::get('/', [HomeController::class, 'index'])->name('home');
-Route::get('/detail/{shop_id}', [HomeController::class, 'shop_detail'])->name('shop_detail');
+Route::get('/detail/{shop_id}', [HomeController::class, 'shopDetail'])->name('shop_detail');
 Route::get('/search', [HomeController::class, 'search'])->name('search');
 
 Route::post('/register', [CustomRegisteredUserController::class, 'store'])->name('register');
@@ -62,8 +62,10 @@ Route::middleware('auth')->group(function() {
 
     Route::match(['post', 'delete'], '/favorites/{shop}', [FavoriteController::class, 'toggleFavorite'])->name('favorites');
 
-    Route::get('/mypage', [MypageController::class, 'my_page'])->name('my_page');
-    Route::post('/generate_qr_code{id}', [MypageController::class, 'generateQrCode'])->name('generate_qr_code');
-    Route::get('/checkin/{id}', [MypageController::class, 'checkIn'])->name('checkin');
+    Route::get('/mypage', [MypageController::class, 'myPage'])->name('my_page');
+    Route::post('/generate_qr_code/{id}', [MypageController::class, 'generateQrCode'])->name('generate_qr_code');
+    Route::get('/checkin/{id}', [MypageController::class, 'checkIn'])->name('check_in');
+    Route::get('/review/{id}', [MypageController::class, 'review'])->name('review');
+    Route::post('/review_thanks', [MypageController::class, 'reviewThanks'])->name('review_thanks');
 
 });
