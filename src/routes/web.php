@@ -8,6 +8,7 @@ use App\Http\Controllers\MypageController;
 use App\Http\Controllers\ReservationController;
 use Illuminate\Foundation\Auth\EmailVerificationRequest;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Admin\AdminController;
 
 /*
 |--------------------------------------------------------------------------
@@ -35,7 +36,7 @@ Route::get('/email/verify', function () {
 Route::get('/email/verify/{id}/{hash}', function (EmailVerificationRequest $request) {
     $request->fulfill();
 
-// 認証後に登録完了ページにリダイレクト
+    // 認証後に登録完了ページにリダイレクト
     return redirect()->route('thanks');
 })->middleware(['auth', 'signed'])->name('verification.verify');
 
@@ -51,7 +52,7 @@ Route::get('/thanks', function () {
 })->name('thanks');
 
 
-Route::middleware('auth')->group(function() {
+Route::middleware('auth')->group(function () {
     Route::get('/home', [HomeController::class, 'index'])->name('home');
 
     Route::get('/done', [ReservationController::class, 'reservation'])->name('reservation');
@@ -67,5 +68,9 @@ Route::middleware('auth')->group(function() {
     Route::get('/checkin/{id}', [MypageController::class, 'checkIn'])->name('check_in');
     Route::get('/review/{id}', [MypageController::class, 'review'])->name('review');
     Route::post('/review_thanks', [MypageController::class, 'reviewThanks'])->name('review_thanks');
+});
 
+Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'role:admin']], function () {
+    Route::get('/representatives', [AdminController::class, 'adminIndex'])->name('admin.admin_index');
+    Route::post('/representatives', [AdminController::class, 'store'])->name('admin.admin_store');
 });

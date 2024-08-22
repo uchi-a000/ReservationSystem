@@ -10,7 +10,7 @@
         <div class="register-form__heading">
             <h2>Registration</h2>
         </div>
-        <form class="register-form" action="/register" method="post">
+        <form class="register-form" action="/register" method="POST">
             @csrf
             <div class="form__group">
                 <div class="form__input-name">

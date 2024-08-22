@@ -80,6 +80,11 @@
                                     <button type="submit" class="modal-form__list-item__button">Logout</button>
                                 </form>
                                 <li class="modal-form__list-item"><a href="/mypage">Mypage</a></li>
+
+                                <!-- 管理者メニュー -->
+                                @if(Auth::user()->hasRole('admin'))
+                                <li class="modal-form__list-item"><a href="/admin/representatives">Admin</a></li>
+                                @endif
                             </ul>
                             @endif
                         </nav>

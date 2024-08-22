@@ -1,0 +1,55 @@
+.admin__container {
+    text-align: center;
+
+}
+
+.admin-nav__item {
+    text-align: right;
+}
+
+.admin-nav__link {
+    color: black;
+    text-decoration: none;
+    background: linear-gradient(transparent 75%, #3F5FED 75%);
+    padding: 10px 15px;
+    margin: 0 150px;
+    background-color: #F2F2F2;
+    border-radius: 5px;
+}
+
+.admin__alert--success {
+    padding: 10px 30px;
+    border-color: #badbcc;
+    background-color: #d1e7dd;
+    color: #0f5132;
+}
+
+
+
+.admin-form__group {
+    margin-bottom: 32px;
+}
+
+.admin-form__group-input {
+    display: block;
+    padding: 8px 12px;
+    margin: 0 auto;
+    width: 30%;
+    height: 50px;
+    border-radius: 5px;
+    border: 1px solid #909090;
+    background-color: #F2F2F2;
+    color: #909090;
+}
+
+.btn {
+    display: block;
+    padding: 8px 60px;
+    margin: 0 auto;
+    border: none;
+    border-radius: 5px;
+    background-color: #3F5FED;
+    color: #FFF;
+    font-size: 16px;
+    cursor: pointer;
+}

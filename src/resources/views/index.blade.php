@@ -39,8 +39,6 @@
             </div>
         </div>
         @endforeach
-        @else
-        <p>該当する店舗が見つかりませんでした。</p>
         @endif
     </div>
 </div>
