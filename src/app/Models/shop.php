@@ -12,6 +12,7 @@ class shop extends Model
     use HasFactory;
 
     public $fillable = [
+        'user_id',
         'shop_name',
         'area',
         'genre',

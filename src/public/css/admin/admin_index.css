@@ -1,0 +1,72 @@
+.admin__container {
+    text-align: center;
+
+}
+
+.admin__alert--success {
+    padding: 10px 30px;
+    border-color: #badbcc;
+    background-color: #d1e7dd;
+    color: #0f5132;
+}
+
+.admin-form__item {
+    margin-bottom: 32px;
+}
+
+.admin-form__item-input {
+    display: block;
+    padding: 8px 12px;
+    margin: 0 auto;
+    width: 30%;
+    height: 50px;
+    border-radius: 5px;
+    border: 1px solid #909090;
+    background-color: #F2F2F2;
+    color: black;
+}
+
+.btn {
+    display: block;
+    padding: 8px 60px;
+    margin: 0 auto;
+    border: none;
+    border-radius: 5px;
+    background-color: #3F5FED;
+    color: #FFF;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+/* 店舗代表者一覧 */
+.shop-rep-list__content {
+    margin: 100px;
+}
+
+.shop-rep-list__table {
+    margin: 0 auto;
+    width: 80%;
+    border-collapse: collapse;
+}
+
+.shop-rep-list__row {
+    border-top: 1px solid #909090;
+    text-align: center;
+    height: 70px;
+}
+
+.shop-rep-list__label,
+.shop-rep-list__data {
+    padding: 16px 8px;
+}
+
+.shop-rep-list__label:last-of-type,
+.shop-rep-list__data:last-of-type {
+    padding-right: 48px;
+}
+
+.shop-rep-list__label {
+    color: #000;
+    text-align: center;
+    font-weight: bold;
+}

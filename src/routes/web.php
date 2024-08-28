@@ -9,6 +9,7 @@ use App\Http\Controllers\ReservationController;
 use Illuminate\Foundation\Auth\EmailVerificationRequest;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Admin\AdminController;
+use App\Http\Controllers\ShopRep\ShopRepController;
 
 /*
 |--------------------------------------------------------------------------
@@ -70,7 +71,18 @@ Route::middleware('auth')->group(function () {
     Route::post('/review_thanks', [MypageController::class, 'reviewThanks'])->name('review_thanks');
 });
 
+//管理者
 Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'role:admin']], function () {
     Route::get('/representatives', [AdminController::class, 'adminIndex'])->name('admin.admin_index');
-    Route::post('/representatives', [AdminController::class, 'store'])->name('admin.admin_store');
+    Route::post('/representatives', [AdminController::class, 'store'])->name('admin.store');
+});
+
+//店舗代表者
+Route::group(['prefix' => 'shop', 'middleware' => ['auth', 'role:shop_representative']], function() {
+    Route::get('/info', [ShopRepController::class, 'shopRepIndex'])->name('shop_rep.shop_rep_index');
+    Route::post('/confirm', [ShopRepController::class, 'confirm'])->name('shop_rep.confirm');
+    Route::post('/done', [ShopRepController::class, 'store'])->name('shop_rep.store');
+    Route::patch('/update', [ShopRepController::class, 'update'])->name('shop_rep.update');
+    Route::get('/reservations', [ShopRepController::class, 'reservations'])->name('shop_rep.reservations');
+
 });
