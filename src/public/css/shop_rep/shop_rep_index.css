@@ -4,7 +4,7 @@
 
 .shop-rep-nav__item {
     text-align: right;
-    padding: 0 50px;
+    padding: 0 150px;
 }
 
 .shop-rep-nav__link {
@@ -22,6 +22,11 @@
     background-color: #d1e7dd;
     color: #0f5132;
     padding: 3px 30px;
+}
+
+.shop-rep-nav__link:disabled {
+    color: #eee;
+    cursor: not-allowed;
 }
 
 /* 登録 */

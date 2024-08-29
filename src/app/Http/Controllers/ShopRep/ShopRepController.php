@@ -4,9 +4,9 @@ namespace App\Http\Controllers\ShopRep;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\Models\Shop;
 use App\Http\Requests\ShopRepRequest;
-
+use App\Models\Shop;
+use App\Models\Reservation;
 
 class ShopRepController extends Controller
 {
@@ -16,8 +16,15 @@ class ShopRepController extends Controller
         $areas = ['#東京都','#大阪府','#福岡県'];
         $genres = ['#焼肉', '#居酒屋', '#寿司','#ラーメン', '#イタリアン'];
 
-        return view('shop_rep.shop_rep_index', compact('shop', 'areas', 'genres'));
+        $status = 0;
+
+        if($shop && $shop->id){
+            $status = 1;
+        }
+
+        return view('shop_rep.shop_rep_index', compact('shop', 'areas', 'genres', 'status'));
     }
+
 
     public function confirm(ShopRepRequest $request)
     {
@@ -35,7 +42,6 @@ class ShopRepController extends Controller
         }
 
         $user = auth()->user();
-
         Shop::create([
             'user_id' => $user->id,
             'shop_name' => $request->shop_name,
@@ -58,15 +64,21 @@ class ShopRepController extends Controller
         $shop = $request->only(['shop_name', 'area', 'genre', 'description', 'image_url']);
         Shop::find($request->id)->update($shop);
 
-
         return redirect()->route('shop_rep.shop_rep_index')->with('message', '店舗情報を変更しました');
     }
 
 
-    public function reservations()
+    public function reservations(Request $request)
     {
-        $reservations = auth()->user()->shop->reservations;
+        $shop = auth()->user()->shop;
+        $reservationsQuery = Reservation::where('shop_id', $shop->id)
+                                        ->with('user');
 
-        return view('shop_rep.reservations', compact('reservations'));
+        if($request->has('reservation_id')) {
+            $reservationsQuery->where('id', $request->reservation_id);
+        }
+        $reservations = $reservationsQuery->get();
+
+        return view('shop_rep.reservations', compact('shop', 'reservations'));
     }
 }

@@ -7,7 +7,9 @@
 @section('content')
 <div class="shop-rep__container">
     <div class="shop-rep-nav__item">
-        <a class="shop-rep-nav__link" href="">予約一覧はこちら</a>
+        @if($status == 1)
+        <a class="shop-rep-nav__link" href="/shop/reservations">予約情報はこちら</a>
+        @endif
     </div>
     <div class="shop-rep__alert">
         @if(session('message'))
