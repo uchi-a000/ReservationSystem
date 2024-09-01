@@ -6,7 +6,10 @@
 
 @section('content')
 <div class="notify__container">
-    <h2>お知らせメール作成</h2>
+    <div class="notify__heading">
+        <a class="representatives-link" href="/admin/representatives">&lt;</a>
+        <h2>お知らせメール作成</h2>
+    </div>
     <div class="notify__alert">
         @if(session('message'))
         <div class="notify__alert--success">
