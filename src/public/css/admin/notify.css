@@ -1,0 +1,52 @@
+.notify__container {
+    text-align: center;
+}
+
+.notify__alert--success {
+    text-align: center;
+    border-radius: 5px;
+    border-color: #badbcc;
+    background-color: #d1e7dd;
+    color: #0f5132;
+    padding: 3px 30px;
+}
+
+.form__group {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.form__label {
+    padding: 15px;
+}
+
+.subject {
+    display: block;
+    width: 50%;
+    height: 50px;
+    border-radius: 5px;
+    border: 1px solid #909090;
+    background-color: #fff;
+    color: black;
+}
+
+.message {
+    border: 1px solid #909090;
+    border-radius: 6px;
+    padding: 0 10px;
+    width: 50%;
+    height: 400px;
+    background-color: #fff;
+    font-family: auto;
+}
+
+.notify__btn {
+    border: 1px solid #5E7FEF;
+    padding: 10px 60px;
+    background-color: #5E7FEF;
+    color: #fff;
+    text-decoration: none;
+    margin: 5px;
+    font-size: 15px;
+}

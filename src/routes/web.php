@@ -9,6 +9,7 @@ use App\Http\Controllers\ReservationController;
 use Illuminate\Foundation\Auth\EmailVerificationRequest;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Admin\AdminController;
+use App\Http\Controllers\Admin\AdminNotificationController;
 use App\Http\Controllers\ShopRep\ShopRepController;
 
 /*
@@ -75,6 +76,10 @@ Route::middleware('auth')->group(function () {
 Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'role:admin']], function () {
     Route::get('/representatives', [AdminController::class, 'adminIndex'])->name('admin.admin_index');
     Route::post('/representatives', [AdminController::class, 'store'])->name('admin.store');
+    // お知らせメール
+    Route::get('/notify', [AdminNotificationController::class, 'showNotificationForm'])->name('admin.notify');
+    Route::post('/confirm', [AdminNotificationController::class, 'confirmNotification'])->name('admin.notify.confirm');
+    Route::post('/notify', [AdminNotificationController::class, 'sendNotification'])->name('admin.notify.send');
 });
 
 //店舗代表者

@@ -1,6 +1,18 @@
 .admin__container {
     text-align: center;
+}
 
+.admin-notify-nav {
+    text-align: right;
+    padding: 0 150px;
+}
+
+.admin-notify-nav__link {
+    color: #000;
+    text-decoration: none;
+    font-size: 20px;
+    font-weight: bold;
+    background: linear-gradient(transparent 75%, #3F5FED 75%);
 }
 
 .admin__alert--success {

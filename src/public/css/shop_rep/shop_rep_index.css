@@ -24,11 +24,6 @@
     padding: 3px 30px;
 }
 
-.shop-rep-nav__link:disabled {
-    color: #eee;
-    cursor: not-allowed;
-}
-
 /* 登録 */
 .shop-rep__item {
     display: flex;
@@ -63,8 +58,6 @@
 .shop-rep__item-option {
     color: #909090;
 }
-
-
 
 .shop-rep__item-textarea {
     border: 1px solid #909090;

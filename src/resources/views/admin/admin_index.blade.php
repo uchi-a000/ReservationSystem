@@ -6,6 +6,9 @@
 
 @section('content')
 <div class="admin__container">
+    <div class="admin-notify-nav">
+        <a class="admin-notify-nav__link" href="/admin/notify">利用者へお知らせメールはこちら</a>
+    </div>
     <div class="admin__alert">
         @if(session('message'))
         <div class="admin__alert--success">
