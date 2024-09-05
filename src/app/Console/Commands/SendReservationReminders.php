@@ -47,7 +47,8 @@ class SendReservationReminders extends Command
         $reservations = Reservation::whereDate('reservation_date', $today)->get();
 
         foreach($reservations as $reservation) {
-            Mail::to($reservation->user->email)->send(new ReservationReminderMail($reservation));
+            $shopName = $reservation->shop->shop_name;
+            Mail::to($reservation->user->email)->send(new ReservationReminderMail($reservation, $shopName));
             $this->info("リマインダーを送信しました:" . $reservation->user->email);
         }
 

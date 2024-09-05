@@ -12,15 +12,17 @@ class ReservationReminderMail extends Mailable
     use Queueable, SerializesModels;
 
     public $reservation;
+    public $shopName;
 
     /**
      * Create a new message instance.
      *
      * @return void
      */
-    public function __construct(Reservation $reservation)
+    public function __construct(Reservation $reservation, $shopName)
     {
         $this->reservation = $reservation;
+        $this->shopName = $shopName;
     }
 
     /**
@@ -32,6 +34,9 @@ class ReservationReminderMail extends Mailable
     {
         return $this->subject('ご予約リマインドメール')
                     ->view('emails.reservation_reminder')
-                    ->with([ 'reservation' => $this->reservation, ]);
+                    ->with([
+                        'reservation' => $this->reservation,
+                        '$shopName' => $this->shopName,
+                    ]);
     }
 }
