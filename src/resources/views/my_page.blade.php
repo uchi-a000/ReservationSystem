@@ -12,119 +12,120 @@
         <div class="mypage__inner">
             <form class="mypage-form" action="/mypage" method="GET">
                 @csrf
-                <div class="information-ttl">
-                    <h3 class="reservation__ttl">予約状況</h3>
-                    <h3 class="favorite__ttl">お気に入り店舗</h3>
-                </div>
             </form>
             <!-- 予約状況 -->
             <div class="information__block">
                 <div class="information__inner">
                     <div class="reservation-done__content">
-                        @if($reservations->isEmpty())
-                        <p class="reservation-done__not">予約情報はありません</p>
-                        @else
-                        @foreach($reservations as $index => $reservation)
-                        <div class="reservation-done__table">
-                            <table class="reservation-done__table-inner">
-                                <tr class="reservation-done__row">
-                                    <td class="reservation-done__ttl">予約 {{ $index + 1 }}</td>
-                                </tr>
-                                <tr class="reservation-done__row">
-                                    <th class="reservation-done__label">Shop</th>
-                                    <td class="reservation-done__data">{{ $reservation->shop->shop_name }}</td>
-                                </tr>
-                                <tr class="reservation-done__row">
-                                    <th class="reservation-done__label">Date</th>
-                                    <td class="reservation-done__data">{{ $reservation->reservation_date }}</td>
-                                </tr>
-                                <tr class="reservation-done__row">
-                                    <th class="reservation-done__label">Time</th>
-                                    <td class="reservation-done__data">{{ substr( $reservation->reservation_time, 0, 5) }}</td>
-                                </tr>
-                                <tr class="reservation-done__row">
-                                    <th class="reservation-done__label">Number</th>
-                                    <td class="reservation-done__data">{{ $reservation->number_of_people }}人</td>
-                                </tr>
-                            </table>
+                        <div class="reservation-done__inner">
+                            <h3 class="reservation__ttl">予約状況</h3>
+                            @if($reservations->isEmpty())
+                            <p class="reservation-done__not">予約情報はありません</p>
+                            @else
+                            @foreach($reservations as $index => $reservation)
+                            <div class="reservation-done__table">
+                                <table class="reservation-done__table-inner">
+                                    <tr class="reservation-done__row">
+                                        <td class="reservation-done__ttl">予約 {{ $index + 1 }}</td>
+                                    </tr>
+                                    <tr class="reservation-done__row">
+                                        <th class="reservation-done__label">Shop</th>
+                                        <td class="reservation-done__data">{{ $reservation->shop->shop_name }}</td>
+                                    </tr>
+                                    <tr class="reservation-done__row">
+                                        <th class="reservation-done__label">Date</th>
+                                        <td class="reservation-done__data">{{ $reservation->reservation_date }}</td>
+                                    </tr>
+                                    <tr class="reservation-done__row">
+                                        <th class="reservation-done__label">Time</th>
+                                        <td class="reservation-done__data">{{ substr( $reservation->reservation_time, 0, 5) }}</td>
+                                    </tr>
+                                    <tr class="reservation-done__row">
+                                        <th class="reservation-done__label">Number</th>
+                                        <td class="reservation-done__data">{{ $reservation->number_of_people }}人</td>
+                                    </tr>
+                                </table>
 
-                            @if($now->lt($reservation->dayBefore))
-                            <!-- 削除 -->
-                            <form action="{{ route('reservations_delete', $reservation->id) }}" method="POST">
-                                @method('DELETE')
-                                @csrf
-                                <button class="delete__btn" type="submit">&times;</button>
-                            </form>
 
-                            <!-- 日時変更 -->
-                            <div class="reservation-update">
-                                <a class="reservation-update__btn" href="#update-modal-{{ $reservation->id }}">ご予約の変更</a>
-                                @if((session('success')) && session('success')['reservation_id'] == $reservation->id)
-                                <div class="reservation-update__alert">
-                                    {{ session('success')['message'] }}
+                                @if($now->lt($reservation->dayBefore))
+                                <!-- 削除 -->
+                                <form action="{{ route('reservations_delete', $reservation->id) }}" method="POST">
+                                    @method('DELETE')
+                                    @csrf
+                                    <button class="delete__btn" type="submit">&times;</button>
+                                </form>
+
+                                <!-- 日時変更 -->
+                                <div class="reservation-update">
+                                    <a class="reservation-update__btn" href="#update-modal-{{ $reservation->id }}">ご予約の変更</a>
+                                    @if((session('success')) && session('success')['reservation_id'] == $reservation->id)
+                                    <div class="reservation-update__alert">
+                                        {{ session('success')['message'] }}
+                                    </div>
+                                    @endif
                                 </div>
-                                @endif
-                            </div>
-                            <div class="reservation-update-modal">
-                                <div class="modal" id="update-modal-{{ $reservation->id }}">
-                                    <a href="#!" class="modal-overlay"></a>
-                                    <div class="modal__inner">
-                                        <div class="modal__content">
-                                            <form class="modal-reservation-update-form" action="{{ route('reservations_update', $reservation->id) }}" method="POST">
-                                                @method('PATCH')
-                                                @csrf
-                                                <div class="modal-update-form__item">
-                                                    <label for="date">年月日：</label>
-                                                    <input class="modal-update-form__item__input" type="date" name="reservation_date" value="{{ $reservation->reservation_date }}">
-                                                </div>
-                                                <div class="modal-update-form__item">
-                                                    <label for="time" style="margin-left: 15px;">時間：</label>
-                                                    <input class="modal-update-form__item__input" type="time" name="reservation_time" value="{{ substr($reservation->reservation_time, 0, 5) }}">
-                                                </div>
-                                                <div class="modal-update-form__item">
-                                                    <label for="number_of_people" style="margin-left: 15px;">人数：</label>
-                                                    <input class="modal-update-form__item__input" type="number" name="number_of_people" value="{{ $reservation->number_of_people }}" min="1">
-                                                </div>
-                                                <button class="modal-update__btn" type="submit">変更</button>
-                                            </form>
-                                            <a href="#" class="modal__close-btn">&times;</a>
+                                <div class="reservation-update-modal">
+                                    <div class="modal" id="update-modal-{{ $reservation->id }}">
+                                        <a href="#!" class="modal-overlay"></a>
+                                        <div class="modal__inner">
+                                            <div class="modal__content">
+                                                <form class="modal-reservation-update-form" action="{{ route('reservations_update', $reservation->id) }}" method="POST">
+                                                    @method('PATCH')
+                                                    @csrf
+                                                    <div class="modal-update-form__item">
+                                                        <label for="date">年月日：</label>
+                                                        <input class="modal-update-form__item__input" type="date" name="reservation_date" value="{{ $reservation->reservation_date }}">
+                                                    </div>
+                                                    <div class="modal-update-form__item">
+                                                        <label for="time" style="margin-left: 15px;">時間：</label>
+                                                        <input class="modal-update-form__item__input" type="time" name="reservation_time" value="{{ substr($reservation->reservation_time, 0, 5) }}">
+                                                    </div>
+                                                    <div class="modal-update-form__item">
+                                                        <label for="number_of_people" style="margin-left: 15px;">人数：</label>
+                                                        <input class="modal-update-form__item__input" type="number" name="number_of_people" value="{{ $reservation->number_of_people }}" min="1">
+                                                    </div>
+                                                    <button class="modal-update__btn" type="submit">変更</button>
+                                                </form>
+                                                <a href="#" class="modal__close-btn">&times;</a>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
-                            </div>
-                            @elseif($reservation->check_in == 1 )
-                            <p class="check_in-alert">ご来店済み</p>
-                            @elseif($now->gt($reservation->dayBefore))
-                            <p class="day-before__alert">変更・キャンセルは店舗へ直接ご連絡ください</p>
-                            @endif
+                                @elseif($reservation->check_in == 1 )
+                                <p class="check_in-alert">ご来店済み</p>
+                                @elseif($now->gt($reservation->dayBefore))
+                                <p class="day-before__alert">変更・キャンセルは店舗へ直接ご連絡ください</p>
+                                @endif
 
-                            <!-- 当日QRコード発行〜評価機能 -->
-                            @if($reservation->reviews->isNotEmpty())
-                            <p class="review-done">口コミ投稿済み</p>
-                            @elseif($reservation->check_in == 1 && $reservation->reviews->isEmpty())
-                            <div class="review__content">
-                                <form class="review-form" action="{{ route('review', $reservation->id) }}" method="GET">
-                                    @csrf
-                                    <button class="review-form__btn" type="submit">口コミを投稿する</button>
-                                </form>
+                                <!-- 当日QRコード発行〜評価機能 -->
+                                @if($reservation->reviews->isNotEmpty())
+                                <p class="review-done">口コミ投稿済み</p>
+                                @elseif($reservation->check_in == 1 && $reservation->reviews->isEmpty())
+                                <div class="review__content">
+                                    <form class="review-form" action="{{ route('review', $reservation->id) }}" method="GET">
+                                        @csrf
+                                        <button class="review-form__btn" type="submit">口コミを投稿する</button>
+                                    </form>
+                                </div>
+                                @elseif($now->gt($reservation->reservationDateTime))
+                                <div class="qr-code">
+                                    <form class="qr-code-form" action="{{ route('generate_qr_code', $reservation->id)  }}" method="POST">
+                                        @csrf
+                                        <button class="qr-code-form__btn" type="submit">QRコードを発行</button>
+                                    </form>
+                                </div>
+                                @elseif($now->lt($reservation->reservationDateTime))
+                                <p class="qr-code__alert">ご予約時間に来店確認のため<br>QRコードが発行されます</p>
+                                @endif
                             </div>
-                            @elseif($now->gt($reservation->reservationDateTime))
-                            <div class="qr-code">
-                                <form class="qr-code-form" action="{{ route('generate_qr_code', $reservation->id)  }}" method="POST">
-                                    @csrf
-                                    <button class="qr-code-form__btn" type="submit">QRコードを発行</button>
-                                </form>
-                            </div>
-                            @elseif($now->lt($reservation->reservationDateTime))
-                            <p class="qr-code__alert">ご予約時間に来店確認のため<br>QRコードが発行されます</p>
+                            @endforeach
                             @endif
                         </div>
-                        @endforeach
-                        @endif
                     </div>
 
                     <!-- お気に入り店舗 -->
                     <div class="favorites-shop__content">
+                        <h3 class="favorite__ttl">お気に入り店舗</h3>
                         <div class="favorites-shop__inner">
                             @if(isset($favorites) && $favorites->isNotEmpty())
                             @foreach($favorites as $favorite)

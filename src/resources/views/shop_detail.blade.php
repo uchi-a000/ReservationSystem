@@ -93,7 +93,9 @@
                 @else
                 <p>ご予約はログインが必要です</p>
                 @endif
-                <button class="form__btn btn" type="submit">予約する</button>
+                <div class="form__btn">
+                    <button class="btn"  type="submit">予約する</button>
+                </div>
             </form>
         </div>
     </div>

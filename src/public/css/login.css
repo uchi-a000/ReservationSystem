@@ -1,10 +1,11 @@
 .login__container {
-    width: 30%;
+    width: 40%;
     background: #fff;
     margin: 0 auto;
     border-radius: 5px;
     box-shadow: 3px 3px 6px #0f030375;
 }
+
 
 .login__inner {
     margin-top: 100px;
