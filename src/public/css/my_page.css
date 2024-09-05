@@ -14,7 +14,7 @@
 
 @media screen and (max-width: 768px) {
     .information__inner, .reservation-done__content,
-        .favorites-shop__content{
+        .favorites-shop__content, .review-form__btn, .qr-code-form__btn{
         flex-direction: column;
         width: 100% !important;
         margin: 50px;

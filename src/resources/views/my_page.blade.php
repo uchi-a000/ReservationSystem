@@ -7,7 +7,7 @@
 
 @section('content')
 <div class="mypage-container">
-    <h2 class="mypage__alert heading">{{ Auth::user()->name }} さん</h2>
+    <h2 class="mypage__alert heading">{{ Auth::user()->name }} さんのページ</h2>
     <div class="mypage">
         <div class="mypage__inner">
             <form class="mypage-form" action="/mypage" method="GET">

@@ -15,6 +15,12 @@
     background: linear-gradient(transparent 75%, #3F5FED 75%);
 }
 
+@media screen and (max-width: 768px) {
+    .admin-notify-nav {
+        text-align: center;
+    }
+}
+
 .admin__alert--success {
     padding: 10px 30px;
     border-color: #badbcc;

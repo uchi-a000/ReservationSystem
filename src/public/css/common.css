@@ -21,6 +21,15 @@ body {
     }
 }
 
+
+@media screen and (max-width: 480px) {
+    .search-form {
+        flex-direction: column;
+        align-items: flex-start;
+        margin: 0 20px;
+    }
+}
+
 .header-menu-icon,
 .header__ttl {
     margin-bottom: 10px;

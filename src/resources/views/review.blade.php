@@ -20,11 +20,11 @@
                 </p>
                 <select class="review-form-item__select" name="rating" id="rating">
                     <option value="">選択してください</option>
-                    <option value="1" {{ old('rating') == 5 ? 'selected' : '' }}>5</option>
-                    <option value="2" {{ old('rating') == 4 ? 'selected' : '' }}>4</option>
+                    <option value="5" {{ old('rating') == 5 ? 'selected' : '' }}>5</option>
+                    <option value="4" {{ old('rating') == 4 ? 'selected' : '' }}>4</option>
                     <option value="3" {{ old('rating') == 3 ? 'selected' : '' }}>3</option>
-                    <option value="4" {{ old('rating') == 2 ? 'selected' : '' }}>2</option>
-                    <option value="5" {{ old('rating') == 1 ? 'selected' : '' }}>1</option>
+                    <option value="2" {{ old('rating') == 2 ? 'selected' : '' }}>2</option>
+                    <option value="1" {{ old('rating') == 1 ? 'selected' : '' }}>1</option>
                 </select>
                 <div class="form__error">
                     @error('rating')
