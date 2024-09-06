@@ -102,7 +102,7 @@
                                 <p class="review-done">口コミ投稿済み</p>
                                 @elseif($reservation->check_in == 1 && $reservation->reviews->isEmpty())
                                 <div class="review__content">
-                                    <form class="review-form" action="{{ route('review', $reservation->id) }}" method="GET">
+                                    <form class="review" action="{{ route('review', $reservation->id) }}" method="GET">
                                         @csrf
                                         <button class="review-form__btn" type="submit">口コミを投稿する</button>
                                     </form>

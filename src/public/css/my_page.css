@@ -168,13 +168,18 @@ label {
     text-align: center;
 }
 
+.review {
+    text-align: center;
+}
+
 .qr-code__alert {
     text-align: center;
 }
 
 .qr-code-form__btn {
+    width: 85%;
     border: 1px solid #5E7FEF;
-    padding: 10px 110px;
+    padding: 10px;
     background-color: #5E7FEF;
     color: #fff;
     text-decoration: none;
@@ -183,8 +188,9 @@ label {
 }
 
 .review-form__btn {
+    width: 85%;
     border: 1px solid #5E7FEF;
-    padding: 12px 110px;
+    padding: 10px;
     background-color: #5E7FEF;
     color: #fff;
     text-decoration: none;

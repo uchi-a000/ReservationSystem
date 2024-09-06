@@ -36,7 +36,7 @@ class ReservationReminderMail extends Mailable
                     ->view('emails.reservation_reminder')
                     ->with([
                         'reservation' => $this->reservation,
-                        '$shopName' => $this->shopName,
+                        'shopName' => $this->shopName,
                     ]);
     }
 }

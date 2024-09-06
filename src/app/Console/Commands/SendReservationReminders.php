@@ -43,6 +43,7 @@ class SendReservationReminders extends Command
      */
     public function handle()
     {
+
         $today = Carbon::today();
         $reservations = Reservation::whereDate('reservation_date', $today)->get();
 

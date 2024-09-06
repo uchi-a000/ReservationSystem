@@ -51,7 +51,7 @@ img {
 }
 
 .reservation-form {
-    width: 40vw;
+    width: 500px;
     height: 612px;
     position: absolute;
     bottom: 10px;
@@ -65,10 +65,23 @@ img {
 }
 
 @media screen and (max-width: 768px) {
-    .shop-detail__container, .reservation-form {
-        height: 580px;
+    .shop-detail__container,.shop-detail__inner, .reservation-form {
+        flex-direction: column;
         position: static;
-        margin: 25px;
+        margin: 25px 50px;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .btn{
+        margin: 25px 160px;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .shop_detail__block {
+        margin: 0 50px;
+        width: 100%;
     }
 }
 
@@ -141,7 +154,7 @@ img {
 
 .btn {
     display: block;
-    width: 40vw;
+    width: 100%;
     padding: 15px;
     background-color: blue;
     font-size: 15px;
