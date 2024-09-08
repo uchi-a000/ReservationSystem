@@ -162,7 +162,7 @@
     top: 50%;
     left: 50%;
     width: 50%;
-    height: 90%;
+    height: 700px;
     border: 1px solid #8B7969;
     background-color: #fff;
     box-shadow: 4px 4px 4px rgba(139, 121, 105, 0.25);
@@ -170,7 +170,7 @@
 }
 
 .confirm-modal__content {
-    margin-top: 200px;
+    margin-top: 250px;
 }
 
 .confirm-modal__btn {

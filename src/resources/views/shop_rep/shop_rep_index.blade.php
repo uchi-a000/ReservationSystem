@@ -94,7 +94,7 @@
             </div>
             <div class="update__item">
                 <label class="update__item-label" for="shop_name">店舗名:</label>
-                <input class="update__item-input" type="text" name="shop-name" value="{{ $shop->shop_name }}" />
+                <input class="update__item-input" type="text" name="shop_name" value="{{ $shop->shop_name }}" />
             </div>
             <div class="form__error">
                 @error('area')
@@ -155,7 +155,6 @@
                 <div class="confirm-modal__inner">
                     <div class="confirm-modal__content">
                         <h3>変更してよろしいですか？</h3>
-
                         <input type="hidden" name="id" value="{{ $shop->id }}">
                         <input type="hidden" name="user_id" value="{{ $shop->user_id }}">
                         <button class="confirm-modal__btn" type="submit">変更する</button>

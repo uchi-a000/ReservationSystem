@@ -34,6 +34,6 @@ class AdminNotificationController extends Controller
             $user ->notify(new UserNotification($request->subject, $request->message));
         }
 
-        return redirect()->route('admin.notify')->with('success', 'お知らせメールが送信されました。');
+        return redirect()->route('admin.notify')->with('message', 'お知らせメールが送信されました');
     }
 }
