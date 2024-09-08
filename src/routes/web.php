@@ -34,27 +34,23 @@ Route::get('/email/verify', function () {
     return view('auth.verify-email');
 })->middleware('auth')->name('verification.notice');
 
-// メール認証処理（ユーザーがメール内のリンクをクリックした時に処理）
+// メール認証処理
 Route::get('/email/verify/{id}/{hash}', function (EmailVerificationRequest $request) {
     $request->fulfill();
-
-    // 認証後に登録完了ページにリダイレクト
     return redirect()->route('thanks');
 })->middleware(['auth', 'signed'])->name('verification.verify');
 
 // メール認証再送信
 Route::post('/email/verification-notification', function (Request $request) {
     $request->user()->sendEmailVerificationNotification();
-
-    return back()->with('status', 'verification-link-sent');
+    return back()->with('status', '確認メールを再送信しました');
 })->middleware(['auth', 'throttle:6,1'])->name('verification.send');
 
 Route::get('/thanks', function () {
-    return view('thanks');
-})->name('thanks');
+    return view('thanks');})->name('thanks');
 
 
-Route::middleware('auth')->group(function () {
+Route::middleware('auth', 'verified')->group(function () {
     Route::get('/home', [HomeController::class, 'index'])->name('home');
 
     Route::get('/done', [ReservationController::class, 'reservation'])->name('reservation');

@@ -5,6 +5,9 @@ namespace App\Http\Controllers;
 use App\Models\User;
 use Illuminate\Support\Facades\Hash;
 use App\Http\Requests\RegisterRequest;
+use Illuminate\Auth\Events\Registered;
+use Illuminate\Support\Facades\Auth;
+
 
 class CustomRegisteredUserController extends Controller
 {
@@ -16,9 +19,10 @@ class CustomRegisteredUserController extends Controller
             'password' => Hash::make($request->password),
         ]);
 
-        $user->sendEmailVerificationNotification();
+        event(new Registered($user));
+
+        Auth::login($user);
 
         return redirect()->route('verification.notice');
-
     }
 }

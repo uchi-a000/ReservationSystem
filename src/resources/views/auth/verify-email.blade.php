@@ -1,32 +1,33 @@
-@extends('layouts.app')
+<!DOCTYPE html>
+<html lang="ja">
 
-@section('css')
-<link rel="stylesheet" href="{{ asset('css/verify-email.css') }}">
-@endsection
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ asset('css/verify-email.css') }}">
+</head>
 
-@section('content')
-<div class="content__head">
-    <div class="content__head--inner">
-        <h2 class="email__form">メールアドレスの確認</h2>
-        <p class="email__form--content">会員登録ありがとうございます！
-            <br /> ご登録アドレスにメールを送信しました。
-            <br /> 利用を開始する前に、メールを確認し、指示に従ってアカウントを確認してください。
-            <br />もしメールが届かない場合は、別のリンクを送信します。
-        </p>
+<body>
+    <div class="content__head">
+        <div class="content__head--inner">
+            <h2 class="email__form">メールアドレスの確認</h2>
+            <p class="email__form--content">
+                <br /> ご登録アドレスにメールを送信しました。
+                <br /> 利用を開始する前に、メール認証をしてください。
+                <br />もしメールが届かない場合は、再送信をしてください。
+            </p>
 
-        @if (session('status') == 'verification-link-sent')
-        <div class="alert alert-success" role="alert" >
-            メールアドレスへの確認用リンクを再送信しました。
-        </div>
-        @endif
+            @if (session('status'))
+            <div class="alert">{{ session('status') }}</div>
+            @endif
 
-        <form method="POST" action="{{ route('verification.send') }}">
-            @csrf
-            <button class="email--form__submit" type="submit">確認メールを再送信</button>
-        </form>
-        <div class="register--form">
-            <a class="register--form__btn" href="/register">会員登録画面へ</a>
+            <form method="POST" action="{{ route('verification.send') }}">
+                @csrf
+                <button class="email--form__submit" type="submit">確認メールを再送信</button>
+            </form>
         </div>
     </div>
-</div>
-@endsection
+</body>
+
+</html>

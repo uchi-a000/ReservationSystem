@@ -13,6 +13,7 @@ use App\Http\Requests\LoginRequest;
 
 
 
+
 class FortifyServiceProvider extends ServiceProvider
 {
     /**
@@ -28,6 +29,7 @@ class FortifyServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
+
         Fortify::createUsersUsing(CreateNewUser::class);
 
         Fortify::registerView(function() {

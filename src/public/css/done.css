@@ -12,7 +12,8 @@
 }
 
 .done-page__message {
-    padding: 80px 17px 20px 71px;
+    text-align: center;
+    padding-top: 100px;
     font-size: 23px;
 }
 

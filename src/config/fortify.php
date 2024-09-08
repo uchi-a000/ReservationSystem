@@ -74,7 +74,11 @@ return [
     |
     */
 
-    'redirects' => ['register' => '/thanks',],
+    'redirects' => [
+        'login' => '/home',
+        'register' => '/email/verify',
+        'email-verification' => '/thanks',
+    ],
 
     /*
     |--------------------------------------------------------------------------
