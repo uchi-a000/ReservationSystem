@@ -91,8 +91,12 @@
                                         </div>
                                     </div>
                                 </div>
+                                @elseif($reservation->paid == 1)
+                                <p class="check_in-alert">ご来店済み</p>
+                                <p class="paid-alert">お支払い完了</p>
                                 @elseif($reservation->check_in == 1 )
                                 <p class="check_in-alert">ご来店済み</p>
+                                <a class="payment" href="/payment/{{ $reservation->id }}">お支払い</a>
                                 @elseif($now->gt($reservation->dayBefore))
                                 <p class="day-before__alert">変更・キャンセルは店舗へ直接ご連絡ください</p>
                                 @endif

@@ -66,6 +66,14 @@ Route::middleware('auth', 'verified')->group(function () {
     Route::get('/checkin/{id}', [MypageController::class, 'checkIn'])->name('check_in');
     Route::get('/review/{id}', [MypageController::class, 'review'])->name('review');
     Route::post('/review_thanks', [MypageController::class, 'reviewThanks'])->name('review_thanks');
+    Route::get('/payment/{id}', [MypageController::class, 'showPayment'])->name('stripe.payment_form');
+    Route::post('/checkout', [MypageController::class, 'checkout'])->name('checkout');
+    Route::get('/payment/success/{id}', function ($id) {
+        return view('stripe.success'); // 成功時のビュー
+    })->name('stripe.success');
+    Route::get('/payment/cancel/{id}', function ($id) {
+        return view('stripe.cancel'); // キャンセル時のビュー
+    })->name('stripe.cancel');
 });
 
 //管理者

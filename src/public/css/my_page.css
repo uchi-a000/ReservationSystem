@@ -149,10 +149,25 @@ label {
     text-align: center;
 }
 
+.paid-alert {
+    text-align: center;
+}
+
 .check_in-alert {
     text-align: center;
     background-color: #d1e7dd;
     color: #0f5132;
+}
+
+.payment {
+    display: block;
+    text-align: center;
+    text-decoration: none;
+    border: 1px solid #5E7FEF;
+    padding: 10px;
+    background-color: #5E7FEF;
+    color: #fff;
+    margin: 0 26px;
 }
 
 .day-before__alert {

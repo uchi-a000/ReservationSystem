@@ -1,0 +1,21 @@
+.payment {
+    text-align: center;
+}
+
+.amount {
+    font-size: 20px;
+}
+
+.number {
+    padding: 5px 10px;
+}
+
+.submit {
+    border: 1px solid #5E7FEF;
+    padding: 10px;
+    background-color: #5E7FEF;
+    color: #fff;
+    text-decoration: none;
+    margin: 5px;
+    font-size: 15px;
+}

@@ -1,0 +1,14 @@
+.success {
+    text-align: center;
+}
+
+.back_btn {
+    padding: 8px 20px;
+    margin: 0 auto;
+    border-radius: 5px;
+    background-color: #3F5FED;
+    color: #FFF;
+    font-size: 16px;
+    cursor: pointer;
+    text-decoration: none;
+}
