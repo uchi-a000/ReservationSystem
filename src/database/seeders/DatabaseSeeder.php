@@ -38,7 +38,8 @@ class DatabaseSeeder extends Seeder
         $adminUser = User::create([
             'name' => '管理者',
             'email' => 'admin@example.com',
-            'password' => bcrypt('pppp0000')
+            'password' => bcrypt('pppp0000'),
+            'email_verified_at' => now()
         ]);
 
         $adminUser->assignRole('admin');
