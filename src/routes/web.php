@@ -69,10 +69,10 @@ Route::middleware('auth', 'verified')->group(function () {
     Route::get('/payment/{id}', [MypageController::class, 'showPayment'])->name('stripe.payment_form');
     Route::post('/checkout', [MypageController::class, 'checkout'])->name('checkout');
     Route::get('/payment/success/{id}', function ($id) {
-        return view('stripe.success'); // 成功時のビュー
+        return view('stripe.success');
     })->name('stripe.success');
     Route::get('/payment/cancel/{id}', function ($id) {
-        return view('stripe.cancel'); // キャンセル時のビュー
+        return view('stripe.cancel');
     })->name('stripe.cancel');
 });
 

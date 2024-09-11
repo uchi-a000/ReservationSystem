@@ -99,8 +99,6 @@ class MypageController extends Controller
         Stripe::setApiKey(config('services.stripe.secret'));
 
         $reservation = Reservation::find($request->input('reservation_id'));
-        $reservation->paid = true;
-        $reservation->save();
 
         try {
             $amount = $request->input('amount');
@@ -127,6 +125,18 @@ class MypageController extends Controller
             return redirect()->route('stripe.payment_form', $reservation->id)->with('error', '決済に失敗しました。もう一度お試しください.
             ' . $e->getMessage()) ;
         }
+    }
+
+    public function success($id) {
+
+        stripe::setApiKey(config('services.stripe.secret'));
+        $reservation = Reservation::find($id);
+
+        if($reservation) {
+            $reservation->paid = true;
+            $reservation->save();
+        }
+        return view('stripe.success', compact('reservation'));
     }
 
 }

@@ -12,10 +12,22 @@
 
 .submit {
     border: 1px solid #5E7FEF;
-    padding: 10px;
+    padding: 10px 20px;
+    border-radius: 5px;
     background-color: #5E7FEF;
     color: #fff;
     text-decoration: none;
     margin: 5px;
     font-size: 15px;
+}
+
+.back_btn {
+    padding: 8px 10px;
+    margin: 0 auto;
+    border-radius: 5px;
+    background-color: #9496a1;
+    color: #FFF;
+    font-size: 16px;
+    cursor: pointer;
+    text-decoration: none;
 }

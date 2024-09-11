@@ -22,5 +22,6 @@
             @enderror
         </div>
     </form>
+    <a class="back_btn" href="/mypage">戻る</a>
 </div>
 @endsection
