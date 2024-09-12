@@ -46,14 +46,47 @@
                                     </tr>
                                 </table>
 
-
                                 @if($now->lt($reservation->dayBefore))
                                 <!-- 削除 -->
-                                <form action="{{ route('reservations_delete', $reservation->id) }}" method="POST">
-                                    @method('DELETE')
-                                    @csrf
-                                    <button class="delete__btn" type="submit">&times;</button>
-                                </form>
+                                <div class="reservation-delete">
+                                    <a class="reservation-delete__btn" href="#delete-modal-{{ $reservation->id }}">&times;</a>
+                                    <div class="reservation-delete-modal">
+                                        <div class="modal" id="delete-modal-{{ $reservation->id }}">
+                                            <a href="#!" class="modal-overlay"></a>
+                                            <div class="modal__inner">
+                                                <div class="modal__content">
+                                                    <form class="modal-reservation-delete-form" action="{{ route('reservations_delete', $reservation->id) }}" method="POST">
+                                                        @method('DELETE')
+                                                        @csrf
+                                                        <div class="modal-delete-form__item">
+                                                            <p class="modal-delete__text">本当に削除してよろしいですか？</p>
+                                                            <button class="modal-delete__btn" type="submit">削除</button>
+                                                            <a href="#" class="modal__close__btn">戻る</a>
+                                                            <table class="delete-info__table">
+                                                                <tr class="delete-info__row">
+                                                                    <th class="delete-info__label">Shop:</th>
+                                                                    <td class="delete-info__data">{{ $reservation->shop->shop_name }}</td>
+                                                                </tr>
+                                                                <tr class="delete-info__row">
+                                                                    <th class="delete-info__label">Date:</th>
+                                                                    <td class="delete-info__data">{{ $reservation->reservation_date }}</td>
+                                                                </tr>
+                                                                <tr class="delete-info__row">
+                                                                    <th class="delete-info__label">Time:</th>
+                                                                    <td class="delete-info__data">{{ substr( $reservation->reservation_time, 0, 5) }}</td>
+                                                                </tr>
+                                                                <tr class="delete-info__row">
+                                                                    <th class="delete-info__label">Number:</th>
+                                                                    <td class="delete-info__data">{{ $reservation->number_of_people }}人</td>
+                                                                </tr>
+                                                            </table>
+                                                        </div>
+                                                    </form>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
 
                                 <!-- 日時変更 -->
                                 <div class="reservation-update">

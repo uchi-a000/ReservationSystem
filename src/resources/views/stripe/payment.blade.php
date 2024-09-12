@@ -14,7 +14,7 @@
         @csrf
         <input type="hidden" name="reservation_id" value="{{ $reservation->id }}">
         <label class="amount" for="amount">金額:</label>
-        <input class="number" type="number" name="amount" id="amount" min="500" value="{{ old('amount') }}">
+        <input class="number" type="number" name="amount" id="amount" value="{{ old('amount') }}">
         <button class="submit" type="submit">Stripe決済</button>
         <div class="form__error">
             @error('amount')

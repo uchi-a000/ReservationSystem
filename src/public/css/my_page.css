@@ -86,6 +86,105 @@
     padding: 3px 30px;
 }
 
+/* モーダル予約削除 */
+.reservation-delete__btn {
+    position: absolute;
+    background: #3F5FED;
+    top: 25px;
+    right: 32px;
+    width: 32px;
+    height: 33px;
+    border: 3px solid #FFF;
+    border-radius: 50%;
+    color: #FFF;
+    text-align: center;
+    text-decoration: none;
+}
+
+.modal-delete-form__item__input::-webkit-calendar-picker-indicator {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 1;
+    width: auto;
+    height: auto;
+    background: transparent;
+}
+
+.modal-delete-form__item__input::after {
+    position: absolute;
+    top: 50%;
+    right: 12px;
+    width: 0;
+    height: 0;
+    border-top: 12px solid #ccc;
+    border-right: 8px solid transparent;
+    border-left: 8px solid transparent;
+    content: "";
+    transform: translateY(-50%);
+}
+
+.modal-delete {
+    display: block;
+    margin: 0 auto;
+    border: none;
+    border-radius: 5px;
+    background-color: #3F5FED;
+    color: #FFF;
+    font-size: 16px;
+    cursor: pointer;
+    padding: 8px 20px;
+}
+
+.modal-delete-form__item {
+    text-align: center;
+}
+
+.modal-delete__text {
+    color: black;
+    font-weight: bold;
+    font-size: 25px;
+}
+
+.modal-delete__btn {
+    padding: 10px 65px;
+    border: 1px solid #ee7878;
+    background-color: #ee7878;
+    color: #fff;
+    text-decoration: none;
+    margin: 5px;
+    text-align: center;
+    font-size: 16px;
+}
+
+.modal__close__btn {
+    padding: 8px 10px;
+    margin: 0 auto;
+    border-radius: 5px;
+    background-color: #9496a1;
+    color: #FFF;
+    font-size: 16px;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.delete-info__table {
+    color: black;
+    margin: 0 auto;
+}
+
+.delete-info__row {
+    display: block;
+    margin: 10px;
+}
+
+.delete-info__label {
+    padding-right: 20px;
+}
+
+
 /* モーダル予約変更 */
 .modal-update-form__item {
     text-align: center;
@@ -268,19 +367,6 @@ label {
     background: none;
 }
 
-.delete__btn {
-    position: absolute;
-    background: #3F5FED;
-    top: 25px;
-    right: 32px;
-    width: 32px;
-    height: 33px;
-    border: 3px solid #FFF;
-    border-radius: 50%;
-    color: #FFF;
-    text-align: center;
-    text-decoration: none;
-    font-size: x-large;
-}
+
 
 

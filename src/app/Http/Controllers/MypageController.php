@@ -136,6 +136,7 @@ class MypageController extends Controller
             $reservation->paid = true;
             $reservation->save();
         }
+
         return view('stripe.success', compact('reservation'));
     }
 
