@@ -17,7 +17,9 @@ class Reservation extends Model
         'shop_id',
         'reservation_date',
         'reservation_time',
-        'number_of_people'
+        'number_of_people',
+        'check_in',
+        'paid'
     ];
 
     public function user(): BelongsTo

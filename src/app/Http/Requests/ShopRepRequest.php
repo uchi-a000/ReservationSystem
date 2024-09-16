@@ -28,7 +28,7 @@ class ShopRepRequest extends FormRequest
             'area' => ['required'],
             'genre' => ['required'],
             'description' => ['required', 'min:50', 'max:150'],
-            'image_url' => ['required', 'url'],
+            'image_url' => ['required', 'image', 'max:2048'],
         ];
     }
 
@@ -43,8 +43,9 @@ class ShopRepRequest extends FormRequest
             'description.required' => '説明文を入力してください',
             'description.min' => '説明文は50文字以上で入力してください',
             'description.max' => '説明文は150文字以内で入力してください',
-            'image_url.required' => '画像のURLを入力てください',
-            'image_url.url' => '有効なURL形式で入力してください',
+            'image_url.required' => '画像を添付してください',
+            'image_url.image' => 'jpeg、png、jpg形式のファイルでなければなりません',
+            'image_url.max' => 'ファイルサイズは2MBまでしか許可されません',
         ];
     }
 }

@@ -11,7 +11,13 @@
         @if(isset($shops) && $shops->isNotEmpty())
         @foreach($shops as $shop)
         <div class="shop__block">
-            <div class="shop__img"><img src="{{ $shop->image_url }}" alt="" /></div>
+            <div class="shop__img">
+                @if(Storage::disk('public')->exists('images/' . $shop['image_url']))
+                <img src="{{ Storage::url('images/' . $shop['image_url']) }}" alt="ストレージ画像">
+                @else
+                <img src="{{ $shop->image_url }}" alt="ダミー画像" />
+                @endif
+            </div>
             <div class="shop__card-content">
                 <h2 class="shop__card-ttl">{{ $shop->shop_name }}</h2>
                 <p class="shop__tag">{{ $shop->area }} {{ $shop->genre }}</p>

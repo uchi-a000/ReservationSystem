@@ -9,7 +9,7 @@
     <div class="confirm__heading">
         <h2>ご登録内容確認</h2>
     </div>
-    <form class="form" action="/shop/done" method="post">
+    <form class="form" action="/shop/done" method="post" enctype="multipart/form-data">
         @csrf
         <div class="confirm-table">
             <table class="confirm-table__inner">
@@ -38,15 +38,15 @@
                     </td>
                 </tr>
                 <tr class="confirm-table__row">
-                    <th class="confirm-table__header">画像</th>
+                    <th class="confirm-table__header">画像URL</th>
                     <td class="confirm-table__text">
-                        <input type="text" name="image_url" value="{{ $shop['image_url'] }}" readonly />
+                        <input type="text" name="image_url" value="{{ $shop['image_url'] }}">
                     </td>
                 </tr>
             </table>
         </div>
         <div class="img">
-            <img src="{{ $shop['image_url'] }}" alt="確認用画像" style="max-width: 300px; height: auto;">
+            <img src="{{ Storage::url('temp/' . $shop['image_url']) }}" alt="確認用画像" style="max-width: 300px;">
         </div>
         <div class="form__button">
             <input class="send__btn" type="submit" value="送信" name="send">

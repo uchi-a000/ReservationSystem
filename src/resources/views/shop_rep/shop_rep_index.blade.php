@@ -19,28 +19,26 @@
         @endif
     </div>
     @if(!$shop)
-    <div class="shop-reo__content">
-        <h2 class="shop-rep-ttl">店舗情報登録</h2>
-        <form class="shop-rep-form" action="/shop/confirm" method="POST">
+    <div class="registration__content">
+        <h2 class="registration-ttl">店舗情報登録</h2>
+        <form class="form" action="/shop/confirm" method="POST" enctype="multipart/form-data">
             @csrf
             <div class="form__error">
                 @error('shop_name')
                 {{ $message }}
                 @enderror
             </div>
-            <div class="shop-rep__item">
-                <label class="shop-rep__item-label" for="shop_name">店舗名:</label>
-                <input class="shop-rep__item-input" type="text" name="shop_name" placeholder="店舗名を入力してください" value="{{ old('shop_name') }}" />
+            <div class="item">
+                <input class="input" type="text" name="shop_name" placeholder="店舗名を入力してください" value="{{ old('shop_name') }}" />
             </div>
             <div class="form__error">
                 @error('area')
                 {{ $message }}
                 @enderror
             </div>
-            <div class="shop-rep__item">
-                <label class="shop-rep__item-label" for="area">エリア:</label>
-                <select class="shop-rep__item-select" name="area">
-                    <option class="shop-rep__item-option" value="" @if( request('areas')=='' ) selected @endif>選択してください</option>
+            <div class="item">
+                <select class="select" name="area">
+                    <option value="" @if( request('areas')=='' ) selected @endif>エリアを選択してください</option>
                     @foreach($areas as $area)
                     <option value="{{ $area }}" @if((request('area')==$area || old('area')==$area )) selected @endif>{{ $area }}</option>
                     @endforeach
@@ -51,12 +49,11 @@
                 {{ $message }}
                 @enderror
             </div>
-            <div class="shop-rep__item">
-                <label class="shop-rep__item-label" for="genre">ジャンル:</label>
-                <select class="shop-rep__item-select" name="genre">
-                    <option class="shop-rep__item-option" value="" @if( request('genres')=='' ) selected @endif>選択してください</option>
+            <div class="item">
+                <select class="select" name="genre">
+                    <option value="" @if( request('genres')=='' ) selected @endif>ジャンルを選択してください</option>
                     @foreach($genres as $genre)
-                    <option class="shop-rep__item-option" value="{{ $genre }}" @if((request('genre')==$genre || old('genre')==$genre )) selected @endif>{{ $genre }}</option>
+                    <option value="{{ $genre }}" @if((request('genre')==$genre || old('genre')==$genre )) selected @endif>{{ $genre }}</option>
                     @endforeach
                 </select>
             </div>
@@ -65,26 +62,24 @@
                 {{ $message }}
                 @enderror
             </div>
-            <div class="shop-rep__item">
-                <label class="shop-rep__item-label" for="description">説明:</label>
-                <textarea class="update__item-textarea" name="description" placeholder="50~150文字以内で入力してください">{{ old('description') }}</textarea>
+            <div class="item">
+                <textarea class="textarea" name="description" placeholder="50~150文字以内でお店の説明を入力してください">{{ old('description') }}</textarea>
             </div>
             <div class="form__error">
                 @error('image_url')
                 {{ $message }}
                 @enderror
             </div>
-            <div class="shop-rep__item">
-                <label class="shop-rep__item-label" for="image_url">画像:</label>
-                <input class="shop-rep__item-input" type="text" name="image_url" placeholder="画像のURLを貼り付けてください" value="{{ old('image_url') }}" />
+            <div class="item">
+                <input class="file" type="file" name="image_url" accept="image/*" />
             </div>
-            <button class="shop-rep-form__btn btn">登録</button>
+            <button class="form__btn">登録</button>
         </form>
     </div>
     @else
     <div class="update__content">
         <h2 class="update-ttl">店舗情報変更</h2>
-        <form class="confirm--modal-form" action="{{ route('shop_rep.update', $shop->id) }}" method="POST">
+        <form class="form" action="{{ route('shop_rep.update', $shop->id) }}" method="POST" enctype="multipart/form-data">
             @method('PATCH')
             @csrf
             <div class="form__error">
@@ -92,19 +87,17 @@
                 {{ $message }}
                 @enderror
             </div>
-            <div class="update__item">
-                <label class="update__item-label" for="shop_name">店舗名:</label>
-                <input class="update__item-input" type="text" name="shop_name" value="{{ $shop->shop_name }}" />
+            <div class="item">
+                <input class="input" type="text" name="shop_name" value="{{ $shop->shop_name }}" />
             </div>
             <div class="form__error">
                 @error('area')
                 {{ $message }}
                 @enderror
             </div>
-            <div class="update__item">
-                <label class="update__item-label" for="area">エリア:</label>
-                <select class="update__item-select" name="area">
-                    <option class="update__item-option">{{ $shop->area }}</option>
+            <div class="item">
+                <select class="select" name="area">
+                    <option>{{ $shop->area }}</option>
                     @foreach($areas as $area)
                     @if($area !== $shop->area )
                     <option value="{{ $area }}" @if((request('area')==$area || old('area')==$area )) selected @endif>{{ $area }}</option>
@@ -117,10 +110,9 @@
                 {{ $message }}
                 @enderror
             </div>
-            <div class="update__item">
-                <label class="update__item-label" for="genre">ジャンル:</label>
-                <select class="update__item-select" name="genre">
-                    <option class="update__item-option">{{ $shop->genre }}</option>
+            <div class="item">
+                <select class="select" name="genre">
+                    <option>{{ $shop->genre }}</option>
                     @foreach($genres as $genre)
                     @if($genre !== $shop->genre )
                     <option value="{{ $genre }}" @if((request('genre')==$genre || old('genre')==$genre )) selected @endif>{{ $genre }}</option>
@@ -133,18 +125,16 @@
                 {{ $message }}
                 @enderror
             </div>
-            <div class="update__item">
-                <label class="update__item-label" for="description">説明:</label>
-                <textarea class="update__item-textarea" name="description">{{ $shop->description }}</textarea>
+            <div class="item">
+                <textarea class="textarea" name="description">{{ $shop->description }}</textarea>
             </div>
             <div class="form__error">
                 @error('image_url')
                 {{ $message }}
                 @enderror
             </div>
-            <div class="update__item">
-                <label class="update__item-label" for="image_url">画像:</label>
-                <input class="update__item-input" type="text" name="image_url" value="{{ $shop->image_url }}" />
+            <div class="item">
+                <input class="file" type="file" name="image_url" accept="image/*" />
             </div>
 
             <div class="confirm-modal-update">

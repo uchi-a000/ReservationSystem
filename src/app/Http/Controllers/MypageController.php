@@ -129,13 +129,10 @@ class MypageController extends Controller
 
     public function success($id) {
 
-        stripe::setApiKey(config('services.stripe.secret'));
         $reservation = Reservation::find($id);
 
-        if($reservation) {
             $reservation->paid = true;
             $reservation->save();
-        }
 
         return view('stripe.success', compact('reservation'));
     }

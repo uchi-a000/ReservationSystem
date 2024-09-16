@@ -68,9 +68,7 @@ Route::middleware('auth', 'verified')->group(function () {
     Route::post('/review_thanks', [MypageController::class, 'reviewThanks'])->name('review_thanks');
     Route::get('/payment/{id}', [MypageController::class, 'showPayment'])->name('stripe.payment_form');
     Route::post('/checkout', [MypageController::class, 'checkout'])->name('checkout');
-    Route::get('/payment/success/{id}', function ($id) {
-        return view('stripe.success');
-    })->name('stripe.success');
+    Route::get('/payment/success/{id}', [MypageController::class, 'success'])->name('stripe.success');
     Route::get('/payment/cancel/{id}', function ($id) {
         return view('stripe.cancel');
     })->name('stripe.cancel');

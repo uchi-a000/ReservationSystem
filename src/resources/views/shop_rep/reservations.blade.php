@@ -10,8 +10,8 @@
         <a class="info-link" href="/shop/info">&lt;</a>
         <h2 class="alert">{{ $shop->shop_name }}の予約情報</h2>
     </div>
-    @if(!$reservations)
-    <p>予約情報はありません</p>
+    @if($reservations->isEmpty())
+    <p class="message">予約情報はありません</p>
     @else
     @foreach($reservations as $index => $reservation)
     <div class="reservations__table">

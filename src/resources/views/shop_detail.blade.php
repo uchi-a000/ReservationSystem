@@ -14,7 +14,11 @@
                 <span class="shop_detail__ttl">{{ $shop->shop_name }}</span>
             </div>
             <div class="shop_detail__card-img">
-                <img src="{{ $shop->image_url }}" alt="" />
+                @if(Storage::disk('public')->exists('images/' . $shop['image_url']))
+                <img src="{{ Storage::url('images/' . $shop['image_url']) }}" alt="ストレージ画像">
+                @else
+                <img src="{{ $shop->image_url }}" alt="ダミー画像" />
+                @endif
             </div>
             <p class="shop_detail__item">{{ $shop->area }} {{ $shop->genre }}</p>
             <p class="shop_detail__description">{{ $shop->description }}</p>
@@ -94,7 +98,7 @@
                 <p>ご予約はログインが必要です</p>
                 @endif
                 <div class="form__btn">
-                    <button class="btn"  type="submit">予約する</button>
+                    <button class="btn" type="submit">予約する</button>
                 </div>
             </form>
         </div>

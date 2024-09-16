@@ -8,6 +8,8 @@ use App\Http\Requests\ShopRepRequest;
 use App\Models\Shop;
 use App\Models\Reservation;
 
+
+
 class ShopRepController extends Controller
 {
     public function shopRepIndex()
@@ -30,6 +32,12 @@ class ShopRepController extends Controller
     {
         $shop = $request->all();
 
+        $imagePath = $request->file('image_url')->store('public/temp');
+        $imageName = basename($imagePath);
+
+        $shop['image_url'] = $imageName;
+
+
         return view('shop_rep.confirm', compact('shop'));
     }
 
@@ -42,13 +50,19 @@ class ShopRepController extends Controller
         }
 
         $user = auth()->user();
+
+        $tempPath = storage_path('app/public/temp/' . $request->image_url);
+        $newPath = storage_path('app/public/images/' . $request->image_url);
+
+        rename($tempPath, $newPath);
+
         Shop::create([
             'user_id' => $user->id,
             'shop_name' => $request->shop_name,
             'area' => $request->area,
             'genre' => $request->genre,
             'description' => $request->description,
-            'image_url' => $request->image_url,
+            'image_url' => $request->image_url
         ]);
 
         return view('shop_rep.done');
@@ -61,8 +75,16 @@ class ShopRepController extends Controller
             return redirect('/shop/info')->withInput();
         }
 
-        $shop = $request->only(['shop_name', 'area', 'genre', 'description', 'image_url']);
-        Shop::find($request->id)->update($shop);
+        $shop = Shop::find($request->id);
+
+        if($request->hasFile('image_url')) {
+            $imagePath = $request->file('image_url')->store('public/images');
+            $imageName = basename($imagePath);
+            $shop->image_url =$imageName;
+        }
+
+        $shopData = $request->only(['shop_name', 'area', 'genre', 'description']);
+        $shop->update($shopData);
 
         return redirect()->route('shop_rep.shop_rep_index')->with('message', '店舗情報を変更しました');
     }

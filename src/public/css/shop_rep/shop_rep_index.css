@@ -24,27 +24,14 @@
     padding: 3px 30px;
 }
 
-/* 登録 */
-.shop-rep__item {
+
+.item {
     display: flex;
     justify-content: center;
     margin-bottom: 20px;
 }
 
-.shop-rep__item-label {
-    padding: 15px;
-}
-
-.shop-rep__item:nth-child(7) {
-    margin-right: 15px;
-}
-
-.shop-rep__item:nth-child(n+8) {
-    margin-left: 15px;
-}
-
-.shop-rep__item-input,
-.shop-rep__item-select {
+.input,.select {
     display: block;
     padding: 8px 12px;
     width: 30%;
@@ -52,14 +39,15 @@
     border-radius: 5px;
     border: 1px solid #909090;
     background-color: #fff;
+}
+
+.input::placeholder,
+.textarea::placeholder {
     color: black;
+    opacity: 1;
 }
 
-.shop-rep__item-option {
-    color: #909090;
-}
-
-.shop-rep__item-textarea {
+.textarea {
     border: 1px solid #909090;
     border-radius: 6px;
     padding: 0 10px;
@@ -69,7 +57,15 @@
     font-family: auto;
 }
 
-.shop-rep-form__btn {
+.file::file-selector-button{
+    border: 1px solid #909090;
+    border-radius: 6px;
+    padding: 0 10px;
+    height: 30px;
+    background-color: #fff;
+}
+
+.form__btn {
     border: 1px solid #5E7FEF;
     padding: 10px 60px;
     background-color: #5E7FEF;
@@ -79,46 +75,6 @@
     font-size: 15px;
 }
 
-
-/* 変更 */
-.update__item {
-    display: flex;
-    justify-content: center;
-    margin-bottom: 30px;
-}
-
-.update__item-label {
-    padding: 15px;
-}
-
-.update__item:nth-child(8) {
-    margin-right: 15px;
-}
-
-.update__item:nth-child(n+10) {
-    margin-left: 15px;
-}
-
-.update__item-input,
-.update__item-select {
-    display: block;
-    padding: 8px 12px;
-    width: 30%;
-    height: 50px;
-    border-radius: 5px;
-    border: 1px solid #909090;
-    background-color: #fff;
-}
-
-.update__item-textarea{
-    border: 1px solid #909090;
-    border-radius: 6px;
-    padding: 0 10px;
-    width: 30%;
-    height: 90px;
-    background-color: #fff;
-    font-family: auto;
-}
 
 .confirm-modal__link{
     padding: 8px 20px;
