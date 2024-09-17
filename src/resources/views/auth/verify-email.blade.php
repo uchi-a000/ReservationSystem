@@ -13,15 +13,13 @@
         <div class="content__head--inner">
             <h2 class="email__form">メールアドレスの確認</h2>
             <p class="email__form--content">
-                <br /> ご登録アドレスにメールを送信しました。
-                <br /> 利用を開始する前に、メール認証をしてください。
-                <br />もしメールが届かない場合は、再送信をしてください。
+                ご登録アドレスにメールを送信しました<br />
+                利用を開始する前に、メール認証をしてください<br />
+                もしメールが届かない場合は、再送信をしてください
             </p>
-
             @if (session('status'))
             <div class="alert">{{ session('status') }}</div>
             @endif
-
             <form method="POST" action="{{ route('verification.send') }}">
                 @csrf
                 <button class="email--form__submit" type="submit">確認メールを再送信</button>
@@ -29,5 +27,4 @@
         </div>
     </div>
 </body>
-
 </html>

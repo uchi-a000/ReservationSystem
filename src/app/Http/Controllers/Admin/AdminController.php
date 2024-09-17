@@ -26,6 +26,7 @@ class AdminController extends Controller
         ]);
 
         $user->assignRole('shop_representative');
+        $user->markEmailAsVerified();
 
         return redirect()->route('admin.admin_index')->with('message', '店舗代表者が作成されました');
     }

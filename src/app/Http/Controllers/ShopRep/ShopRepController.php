@@ -32,10 +32,10 @@ class ShopRepController extends Controller
     {
         $shop = $request->all();
 
-        $imagePath = $request->file('image_url')->store('public/temp');
+        $imagePath = $request->file('image')->store('public/temp');
         $imageName = basename($imagePath);
 
-        $shop['image_url'] = $imageName;
+        $shop['image'] = $imageName;
 
 
         return view('shop_rep.confirm', compact('shop'));
@@ -62,7 +62,7 @@ class ShopRepController extends Controller
             'area' => $request->area,
             'genre' => $request->genre,
             'description' => $request->description,
-            'image_url' => $request->image_url
+            'image' => $request->image_url
         ]);
 
         return view('shop_rep.done');
@@ -77,8 +77,8 @@ class ShopRepController extends Controller
 
         $shop = Shop::find($request->id);
 
-        if($request->hasFile('image_url')) {
-            $imagePath = $request->file('image_url')->store('public/images');
+        if($request->hasFile('image')) {
+            $imagePath = $request->file('image')->store('public/images');
             $imageName = basename($imagePath);
             $shop->image_url =$imageName;
         }

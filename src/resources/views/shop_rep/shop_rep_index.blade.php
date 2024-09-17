@@ -66,12 +66,12 @@
                 <textarea class="textarea" name="description" placeholder="50~150文字以内でお店の説明を入力してください">{{ old('description') }}</textarea>
             </div>
             <div class="form__error">
-                @error('image_url')
+                @error('image')
                 {{ $message }}
                 @enderror
             </div>
             <div class="item">
-                <input class="file" type="file" name="image_url" accept="image/*" />
+                <input class="file" type="file" name="image" accept="image/*" />
             </div>
             <button class="form__btn">登録</button>
         </form>
@@ -129,12 +129,12 @@
                 <textarea class="textarea" name="description">{{ $shop->description }}</textarea>
             </div>
             <div class="form__error">
-                @error('image_url')
+                @error('image')
                 {{ $message }}
                 @enderror
             </div>
             <div class="item">
-                <input class="file" type="file" name="image_url" accept="image/*" />
+                <input class="file" type="file" name="image" accept="image/*" />
             </div>
 
             <div class="confirm-modal-update">

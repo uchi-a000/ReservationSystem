@@ -13,9 +13,9 @@
         <div class="shop__block">
             <div class="shop__img">
                 @if(Storage::disk('public')->exists('images/' . $shop['image_url']))
-                <img src="{{ Storage::url('images/' . $shop['image_url']) }}" alt="ストレージ画像">
+                <img src="{{ Storage::url('images/' . $shop['image']) }}" alt="ストレージ画像">
                 @else
-                <img src="{{ $shop->image_url }}" alt="ダミー画像" />
+                <img src="{{ $shop->image }}" alt="ダミー画像" />
                 @endif
             </div>
             <div class="shop__card-content">

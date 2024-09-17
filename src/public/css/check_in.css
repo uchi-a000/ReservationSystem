@@ -1,3 +1,11 @@
 .check_in__container {
-    text-align: center;
+    width: 40%;
+    height: 300px;
+    background: #fff;
+    margin: 0 auto;
+    border-radius: 5px;
+    box-shadow: 3px 3px 6px #0f030375;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }

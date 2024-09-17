@@ -40,13 +40,13 @@
                 <tr class="confirm-table__row">
                     <th class="confirm-table__header">画像URL</th>
                     <td class="confirm-table__text">
-                        <input type="text" name="image_url" value="{{ $shop['image_url'] }}">
+                        <input type="text" name="image" value="{{ $shop['image'] }}">
                     </td>
                 </tr>
             </table>
         </div>
         <div class="img">
-            <img src="{{ Storage::url('temp/' . $shop['image_url']) }}" alt="確認用画像" style="max-width: 300px;">
+            <img src="{{ Storage::url('temp/' . $shop['image']) }}" alt="確認用画像" style="max-width: 300px;">
         </div>
         <div class="form__button">
             <input class="send__btn" type="submit" value="送信" name="send">

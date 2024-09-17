@@ -47,9 +47,46 @@
                                 </table>
 
                                 @if($now->lt($reservation->dayBefore))
+                                <!-- 日時変更 -->
+                                <div class="reservation-update">
+                                    <a class="reservation-update__btn" href="#update-modal-{{ $reservation->id }}">ご予約の変更</a>
+                                    @if((session('success')) && session('success')['reservation_id'] == $reservation->id)
+                                    <div class="reservation-update__alert">
+                                        {{ session('success')['message'] }}
+                                    </div>
+                                    @endif
+                                </div>
+                                <div class="reservation-update-modal">
+                                    <div class="modal" id="update-modal-{{ $reservation->id }}">
+                                        <a href="#!" class="modal-overlay"></a>
+                                        <div class="modal__inner">
+                                            <div class="modal__content">
+                                                <p class="modal-update__text">必要な箇所を変更してください</p>
+                                                <form class="modal-reservation-update-form" action="{{ route('reservations_update', $reservation->id) }}" method="POST">
+                                                    @method('PATCH')
+                                                    @csrf
+                                                    <div class="modal-update-form__item">
+                                                        <label for="date">年月日：</label>
+                                                        <input class="modal-update-form__item__input" type="date" name="reservation_date" value="{{ $reservation->reservation_date }}">
+                                                    </div>
+                                                    <div class="modal-update-form__item">
+                                                        <label for="time" style="margin-left: 15px;">時間：</label>
+                                                        <input class="modal-update-form__item__input" type="time" name="reservation_time" value="{{ substr($reservation->reservation_time, 0, 5) }}">
+                                                    </div>
+                                                    <div class="modal-update-form__item">
+                                                        <label for="number_of_people" style="margin-left: 15px;">人数：</label>
+                                                        <input class="modal-update-form__item__input" type="number" name="number_of_people" value="{{ $reservation->number_of_people }}" min="1">
+                                                    </div>
+                                                    <button class="modal-update__btn" type="submit">変更</button>
+                                                    <a href="#" class="modal__close__btn">戻る</a>
+                                                </form>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
                                 <!-- 削除 -->
                                 <div class="reservation-delete">
-                                    <a class="reservation-delete__btn" href="#delete-modal-{{ $reservation->id }}">&times;</a>
+                                    <a class="reservation-delete__btn" href="#delete-modal-{{ $reservation->id }}">削除</a>
                                     <div class="reservation-delete-modal">
                                         <div class="modal" id="delete-modal-{{ $reservation->id }}">
                                             <a href="#!" class="modal-overlay"></a>
@@ -59,9 +96,7 @@
                                                         @method('DELETE')
                                                         @csrf
                                                         <div class="modal-delete-form__item">
-                                                            <p class="modal-delete__text">本当に削除してよろしいですか？</p>
-                                                            <button class="modal-delete__btn" type="submit">削除</button>
-                                                            <a href="#" class="modal__close__btn">戻る</a>
+                                                            <p class="modal-delete__text">削除してよろしいですか？</p>
                                                             <table class="delete-info__table">
                                                                 <tr class="delete-info__row">
                                                                     <th class="delete-info__label">Shop:</th>
@@ -80,46 +115,11 @@
                                                                     <td class="delete-info__data">{{ $reservation->number_of_people }}人</td>
                                                                 </tr>
                                                             </table>
+                                                            <button class="modal-delete__btn" type="submit">削除</button>
+                                                            <a href="#" class="modal__close__btn">戻る</a>
                                                         </div>
                                                     </form>
                                                 </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <!-- 日時変更 -->
-                                <div class="reservation-update">
-                                    <a class="reservation-update__btn" href="#update-modal-{{ $reservation->id }}">ご予約の変更</a>
-                                    @if((session('success')) && session('success')['reservation_id'] == $reservation->id)
-                                    <div class="reservation-update__alert">
-                                        {{ session('success')['message'] }}
-                                    </div>
-                                    @endif
-                                </div>
-                                <div class="reservation-update-modal">
-                                    <div class="modal" id="update-modal-{{ $reservation->id }}">
-                                        <a href="#!" class="modal-overlay"></a>
-                                        <div class="modal__inner">
-                                            <div class="modal__content">
-                                                <form class="modal-reservation-update-form" action="{{ route('reservations_update', $reservation->id) }}" method="POST">
-                                                    @method('PATCH')
-                                                    @csrf
-                                                    <div class="modal-update-form__item">
-                                                        <label for="date">年月日：</label>
-                                                        <input class="modal-update-form__item__input" type="date" name="reservation_date" value="{{ $reservation->reservation_date }}">
-                                                    </div>
-                                                    <div class="modal-update-form__item">
-                                                        <label for="time" style="margin-left: 15px;">時間：</label>
-                                                        <input class="modal-update-form__item__input" type="time" name="reservation_time" value="{{ substr($reservation->reservation_time, 0, 5) }}">
-                                                    </div>
-                                                    <div class="modal-update-form__item">
-                                                        <label for="number_of_people" style="margin-left: 15px;">人数：</label>
-                                                        <input class="modal-update-form__item__input" type="number" name="number_of_people" value="{{ $reservation->number_of_people }}" min="1">
-                                                    </div>
-                                                    <button class="modal-update__btn" type="submit">変更</button>
-                                                </form>
-                                                <a href="#" class="modal__close-btn">&times;</a>
                                             </div>
                                         </div>
                                     </div>
@@ -167,7 +167,7 @@
                             @if(isset($favorites) && $favorites->isNotEmpty())
                             @foreach($favorites as $favorite)
                             <div class="favorites-shop__block">
-                                <div class="favorites-shop__img"><img src="{{ $favorite->shop->image_url }}" alt="" /></div>
+                                <div class="favorites-shop__img"><img src="{{ $favorite->shop->image }}" alt="" /></div>
                                 <div class="favorites-shop__card-content">
                                     <p class="favorites-shop__card-ttl">{{ $favorite->shop->shop_name }}</p>
                                     <p class="favorites-shop__tag">{{ $favorite->shop->area }} {{ $favorite->shop->genre }}</p>

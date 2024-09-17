@@ -14,10 +14,10 @@
                 <span class="shop_detail__ttl">{{ $shop->shop_name }}</span>
             </div>
             <div class="shop_detail__card-img">
-                @if(Storage::disk('public')->exists('images/' . $shop['image_url']))
-                <img src="{{ Storage::url('images/' . $shop['image_url']) }}" alt="ストレージ画像">
+                @if(Storage::disk('public')->exists('images/' . $shop['image']))
+                <img src="{{ Storage::url('images/' . $shop['image']) }}" alt="ストレージ画像">
                 @else
-                <img src="{{ $shop->image_url }}" alt="ダミー画像" />
+                <img src="{{ $shop->image }}" alt="ダミー画像" />
                 @endif
             </div>
             <p class="shop_detail__item">{{ $shop->area }} {{ $shop->genre }}</p>
