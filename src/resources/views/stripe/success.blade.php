@@ -6,9 +6,12 @@
 
 @section('content')
 <div class="success">
-    <h1>Payment Successful!</h1>
-    <p>お支払い完了しました。<br> ご利用ありがとうございました。</p>
-    <p>口コミ投稿お待ちしてます！</p>
-    <a class="back_btn" href="/mypage">戻る</a>
+    <div class="success__inner">
+        <h1>Payment Successful!</h1>
+        <p class="message">お支払い完了しました <br />
+        ご利用ありがとうございました <br />
+        口コミ投稿お待ちしてます！</p>
+        <a class="back_btn" href="/mypage">戻る</a>
+    </div>
 </div>
 @endsection

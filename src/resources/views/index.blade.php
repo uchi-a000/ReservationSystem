@@ -12,7 +12,7 @@
         @foreach($shops as $shop)
         <div class="shop__block">
             <div class="shop__img">
-                @if(Storage::disk('public')->exists('images/' . $shop['image_url']))
+                @if(Storage::disk('public')->exists('images/' . $shop['image']))
                 <img src="{{ Storage::url('images/' . $shop['image']) }}" alt="ストレージ画像">
                 @else
                 <img src="{{ $shop->image }}" alt="ダミー画像" />

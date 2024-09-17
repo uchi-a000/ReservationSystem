@@ -12,4 +12,4 @@
         <a class="my_page__link__btn" href="/mypage">マイページへ戻る</a>
     </div>
 </div>
-    @endsection
+@endsection

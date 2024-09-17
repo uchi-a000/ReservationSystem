@@ -6,8 +6,10 @@
 
 @section('content')
 <div class="cancel">
-    <h1>Payment Cancelled</h1>
-    <p>お支払いがキャンセルされました。</p>
-    <a class="back_btn" href="/mypage">戻る</a>
+    <div class="cancel__inner">
+        <h1>Payment Cancelled</h1>
+        <p class="message">お支払いをキャンセルしました</p>
+        <a class="back_btn" href="/mypage">戻る</a>
+    </div>
 </div>
 @endsection

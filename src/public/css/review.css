@@ -1,5 +1,3 @@
-
-
 .review__ttl {
     color: black;
     text-align: center;
@@ -50,7 +48,7 @@
     margin-left: 40px;
     padding: 0 10px;
     width: 100%;
-    height: 200px;
+    height: 150px;
     background: #eaedf2;
     font-size: 18px;
 }

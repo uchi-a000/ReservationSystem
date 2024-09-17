@@ -51,8 +51,8 @@ class ShopRepController extends Controller
 
         $user = auth()->user();
 
-        $tempPath = storage_path('app/public/temp/' . $request->image_url);
-        $newPath = storage_path('app/public/images/' . $request->image_url);
+        $tempPath = storage_path('app/public/temp/' . $request->image);
+        $newPath = storage_path('app/public/images/' . $request->image);
 
         rename($tempPath, $newPath);
 
@@ -62,7 +62,7 @@ class ShopRepController extends Controller
             'area' => $request->area,
             'genre' => $request->genre,
             'description' => $request->description,
-            'image' => $request->image_url
+            'image' => $request->image
         ]);
 
         return view('shop_rep.done');
@@ -80,7 +80,7 @@ class ShopRepController extends Controller
         if($request->hasFile('image')) {
             $imagePath = $request->file('image')->store('public/images');
             $imageName = basename($imagePath);
-            $shop->image_url =$imageName;
+            $shop->image =$imageName;
         }
 
         $shopData = $request->only(['shop_name', 'area', 'genre', 'description']);

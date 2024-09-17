@@ -17,7 +17,7 @@ class shop extends Model
         'area',
         'genre',
         'description',
-        'image_url',
+        'image',
     ];
 
     public function reservations(): HasMany

@@ -13,15 +13,18 @@
     <form action="{{ route('checkout') }}" method="POST">
         @csrf
         <input type="hidden" name="reservation_id" value="{{ $reservation->id }}">
-        <label class="amount" for="amount">金額:</label>
-        <input class="number" type="number" name="amount" id="amount" value="{{ old('amount') }}">
-        <button class="submit" type="submit">Stripe決済</button>
         <div class="form__error">
             @error('amount')
             {{ $message }}
             @enderror
         </div>
+        <label class="amount" for="amount">金額:</label>
+        <input class="number" type="number" name="amount" id="amount" value="{{ old('amount') }}">
+        <div>
+            <button class="submit" type="submit">Stripe決済</button>
+            <a class="back_btn" href="/mypage">戻る</a>
+        </div>
+
     </form>
-    <a class="back_btn" href="/mypage">戻る</a>
 </div>
 @endsection

@@ -34,7 +34,7 @@ class ReviewRequest extends FormRequest
         return[
             'rating.required' => '満足度を選択してください',
             'comment.required' => 'コメントを入力してください',
-            'comment.max' => 'お問い合わせ内容は1000文字以内で入力してください',
+            'comment.max' => 'コメントは1000文字以内で入力してください',
         ];
     }
 }

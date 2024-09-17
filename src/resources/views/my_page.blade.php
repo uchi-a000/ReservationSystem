@@ -167,7 +167,14 @@
                             @if(isset($favorites) && $favorites->isNotEmpty())
                             @foreach($favorites as $favorite)
                             <div class="favorites-shop__block">
-                                <div class="favorites-shop__img"><img src="{{ $favorite->shop->image }}" alt="" /></div>
+
+                                <div class="favorites-shop__img">
+                                    @if(Storage::disk('public')->exists('images/' . $favorite->shop['image']))
+                                    <img src="{{ Storage::url('images/' . $favorite->shop['image']) }}" alt="ストレージ画像">
+                                    @else
+                                    <img src="{{ $favorite->shop->image }}" alt="ダミー画像" />
+                                    @endif
+                                </div>
                                 <div class="favorites-shop__card-content">
                                     <p class="favorites-shop__card-ttl">{{ $favorite->shop->shop_name }}</p>
                                     <p class="favorites-shop__tag">{{ $favorite->shop->area }} {{ $favorite->shop->genre }}</p>
