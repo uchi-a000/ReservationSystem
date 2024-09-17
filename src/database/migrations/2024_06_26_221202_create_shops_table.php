@@ -20,7 +20,7 @@ class CreateShopsTable extends Migration
             $table->string('area');
             $table->string('genre');
             $table->text('description');
-            $table->string('image_url');
+            $table->string('image');
             $table->timestamps();
         });
     }
