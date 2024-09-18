@@ -46,14 +46,19 @@ php・laravelを学習中で練習のために作成しました。
 5.  php artisan key:generate (アプリケーションを実行)
 6.  php artisan migrate（マイグレーション）
 7.  php artisan db:seed（シーディング）
-
 8. QRコード作成  
    composer require simplesoftwareio/simple-qrcode（インストール）  
-
 9. 管理画面  
     composer require spatie/laravel-permission（Spatie Laravel Permissionパッケージインストール）  
-    php artisan db:seed（シーディング）
+    php artisan db:seed（シーディング）  
+10. 画像ストレージ保存  
+    php artisan storage:link（ストレージに保存した画像を表示）
+11. stripe決済  
+    composer require stripe/stripe-php （Stripeパッケージのインストール）
 
+## 管理画面
+メールアドレス：admin@example.com  
+パスワード：pppp0000
 
 ## その他（機能詳細）
 ・【マイページ画面について（利用者向け）】  
@@ -68,8 +73,8 @@ php・laravelを学習中で練習のために作成しました。
 ・【管理画面】管理者と店舗代表者と利用者の3つの権限を作成  
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;店舗代表者が店舗情報の作成、更新と予約情報の確認ができる管理画面を作成（予約情報の確認は登録後にできる）  
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;管理者側は店舗代表者を作成、店舗代表者一覧を確認でき、お知らせメールを送れる管理画面を作成  
-<!-- ・【ストレージ】お店の画像をストレージに保存することができる   -->
-・【認証】メールによって本人確認を行うことができる  
+・【ストレージ】お店の画像をストレージに保存することができる  
+・【認証】メールによって本人確認を行うことができる（管理者・店舗代表者除く）  
 ・【メール送信】管理者からユーザーへお知らせメールを送信できる  
 ・【リマインダー】タスクスケジューラーを利用して、予約当日の朝に予約情報のリマインダーを送る  
 ・【QRコード】利用者が来店した際に店舗側に見せるQRコードを発行し、お店側は照合することができる  
