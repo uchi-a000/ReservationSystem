@@ -131,7 +131,7 @@
 
 .confirm-modal__btn {
     border: 1px solid #5E7FEF;
-    padding: 10px 110px;
+    padding: 10px 50px;
     background-color: #5E7FEF;
     color: #fff;
     text-decoration: none;
@@ -142,7 +142,7 @@
 .confirm-modal__close__btn {
     display: inline-block;
     border: 1px solid rgb(216, 194, 194);
-    padding: 5px;
+    padding: 10px 40px;
     margin: 10px;
     background-color: rgb(216, 194, 194);;
     color: #fff;

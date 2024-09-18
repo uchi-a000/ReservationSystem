@@ -137,9 +137,7 @@
                 <input class="file" type="file" name="image" accept="image/*" />
             </div>
 
-            <div class="confirm-modal-update">
-                <a class="confirm-modal__link" href="#confirm-modal-{{ $shop->id }}">変更</a>
-            </div>
+            <a class="confirm-modal__link" href="#confirm-modal-{{ $shop->id }}">変更</a>
             <div class="confirm-modal" id="confirm-modal-{{ $shop->id }}">
                 <a href="#!" class="confirm-modal-overlay"></a>
                 <div class="confirm-modal__inner">
