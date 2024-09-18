@@ -1,0 +1,71 @@
+.reservation-update {
+    text-align: center;
+}
+
+.update__text {
+    color: black;
+    font-size: 20px;
+}
+
+label {
+    font-weight: 100;
+    color: black;
+}
+
+.update-form__item__input {
+    position: relative;
+    padding: 8px 12px;
+    min-width: 250px;
+    border: 1px solid #E3DED9;
+    background-color: #fff;
+    font-weight: 100;
+    margin: 20px;
+}
+
+.update-form__item__input::-webkit-calendar-picker-indicator {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 1;
+    width: auto;
+    height: auto;
+    background: transparent;
+}
+
+.update-form__item__input::after {
+    position: absolute;
+    top: 50%;
+    right: 12px;
+    width: 0;
+    height: 0;
+    border-top: 12px solid #ccc;
+    border-right: 8px solid transparent;
+    border-left: 8px solid transparent;
+    content: "";
+    transform: translateY(-50%);
+}
+
+.update__btn {
+    background-color: #3F5FED;
+    padding: 10px 65px;
+    border: 1px solid #3F5FED;
+    color: #fff;
+    border-radius: 5px;
+    text-decoration: none;
+    margin: 5px;
+    text-align: center;
+    font-size: 16px;
+}
+
+.back__btn {
+    padding: 15px 60px;
+    margin: 0 auto;
+    border-radius: 5px;
+    background-color: #9496a1;
+    color: #FFF;
+    font-size: 16px;
+    cursor: pointer;
+    text-decoration: none;
+}

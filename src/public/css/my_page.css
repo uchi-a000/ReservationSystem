@@ -67,85 +67,15 @@
     padding-bottom: 10px;
 }
 
-.reservation-update__btn {
-    padding: 8px 12px;
+.update-form__btn {
+    width: 90%;
     border: 1px solid #5E7FEF;
+    padding: 10px;
     background-color: #5E7FEF;
     color: #fff;
     text-decoration: none;
-    display: block;
-    margin: 5px;
-    text-align: center;
-}
-
-.reservation-update__alert {
-    text-align: center;
-    border-color: #badbcc;
-    background-color: #d1e7dd;
-    color: #0f5132;
-    padding: 3px 30px;
-}
-
-/* モーダル予約変更 */
-.reservation-update-modal {
-    text-align: center;
-}
-
-.modal-update__text {
-    color: black;
-    font-size: 20px;
-}
-
-label {
-    font-weight: 100;
-    color: black;
-}
-
-.modal-update-form__item__input {
-    position: relative;
-    padding: 8px 12px;
-    min-width: 250px;
-    border: 1px solid #E3DED9;
-    background-color: #F4F4F4;
-    font-weight: 100;
-    margin: 20px;
-}
-
-.modal-update-form__item__input::-webkit-calendar-picker-indicator {
-    position: absolute;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    z-index: 1;
-    width: auto;
-    height: auto;
-    background: transparent;
-}
-
-.modal-update-form__item__input::after {
-    position: absolute;
-    top: 50%;
-    right: 12px;
-    width: 0;
-    height: 0;
-    border-top: 12px solid #ccc;
-    border-right: 8px solid transparent;
-    border-left: 8px solid transparent;
-    content: "";
-    transform: translateY(-50%);
-}
-
-.modal-update__btn {
-    background-color: #3F5FED;
-    padding: 10px 65px;
-    border: 1px solid #3F5FED;
-    color: #fff;
-    border-radius: 5px;
-    text-decoration: none;
-    margin: 5px;
-    text-align: center;
-    font-size: 16px;
+    margin: 5px 20px;
+    font-size: 15px;
 }
 
 /* モーダル予約削除 */
@@ -160,7 +90,6 @@ label {
     color: #FFF;
     text-align: center;
     text-decoration: none;
-    padding: 3px;
 }
 
 .modal-delete-form__item {

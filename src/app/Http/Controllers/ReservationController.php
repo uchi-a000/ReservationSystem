@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
 use App\Models\Reservation;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Requests\ReservationRequest;
@@ -22,17 +21,22 @@ class ReservationController extends Controller
         return view('done', compact('reservation'));
     }
 
-    public function update(Request $request)
+    public function showUpdate($id)
     {
-        $reservation = $request->all();
-        Reservation::find($request->id)->update($reservation);
+        $reservation = Reservation::find($id);
 
-        session()->flash('success', [
-            'message' => '予約情報が変更されました',
-            'reservation_id' => $request->id
-        ]);
+        return view('reservation_update', compact('reservation'));
+    }
 
-        return redirect()->back();
+    public function update(ReservationRequest $request)
+    {
+        $reservation = Reservation::find($request->id);
+
+        $reservationData = $request->only(['reservation_date', 'reservation_time', 'number_of_people']);
+
+        $reservation->update($reservationData);
+
+        return view('reservation_update_done', compact('reservation'));
     }
 
     public function delete($id)
