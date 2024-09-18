@@ -25,7 +25,7 @@ class ReviewRequest extends FormRequest
     {
         return [
             'rating' => ['required'],
-            'comment' => ['required', 'max:1000']
+            'comment' => ['required', 'min:10', 'max:1000']
         ];
     }
 
@@ -34,6 +34,7 @@ class ReviewRequest extends FormRequest
         return[
             'rating.required' => '満足度を選択してください',
             'comment.required' => 'コメントを入力してください',
+            'comment.min' => 'コメントは10文字以上で入力してください',
             'comment.max' => 'コメントは1000文字以内で入力してください',
         ];
     }
