@@ -4,7 +4,6 @@
 
 .admin-notify-nav {
     text-align: right;
-    padding: 0 150px;
 }
 
 .admin-notify-nav__link {
@@ -37,7 +36,7 @@
     display: block;
     padding: 8px 12px;
     margin: 0 auto;
-    width: 30%;
+    width: 30em;
     height: 50px;
     border-radius: 5px;
     border: 1px solid #909090;
@@ -59,7 +58,7 @@
 
 /* 店舗代表者一覧 */
 .shop-rep-list__content {
-    margin: 100px;
+    margin-top: 100px;
 }
 
 .shop-rep-list__table {

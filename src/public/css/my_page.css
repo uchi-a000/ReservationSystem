@@ -9,21 +9,18 @@
 .information__inner {
     display: flex;
     justify-content: space-between;
-    width: 100% ;
 }
 
 @media screen and (max-width: 768px) {
-    .information__inner, .reservation-done__content,
-        .favorites-shop__content, .review-form__btn, .qr-code-form__btn{
+    .information__inner, .reservation-done__inner{
         flex-direction: column;
-        width: 100% !important;
-        margin: 50px;
+        margin: 0 auto;
+        width: 30em !important;
     }
 }
 
-.reservation-done__content,
-.favorites-shop__content {
-    width: 50%;
+.reservation-done__inner {
+    width: 100%;
 }
 
 .reservation-done__not {
@@ -32,14 +29,13 @@
 
 /*予約状況 */
 .reservation-done__table {
-    width: 71%;
     background: #3F5FED;
     border-radius: 5px;
     box-shadow: 3px 3px 6px #0f030375;
     color:#fff;
     position: relative;
     padding: 25px 36px;
-    margin-bottom: 25px;
+    margin: 25px;
 }
 
 .reservation-done__table-inner {
@@ -103,24 +99,24 @@
 }
 
 .delete-info__table {
-    width: 30%;
-    display: block;
+    width: 25em;
+    height: 200px;
     background: #3F5FED;
     border-radius: 5px;
     box-shadow: 3px 3px 6px #0f030375;
     color: #fff;
-    padding: 30px 100px;
     margin: 0 auto;
     margin-bottom: 25px;
 }
 
-.delete-info__row {
-    display: block;
-    margin: 10px;
+.delete-info__label {
+    text-align: right;
+    padding: 15px;
 }
 
-.delete-info__label {
-    padding-right: 20px;
+.delete-info__data {
+    text-align: left;
+    padding: 15px;
 }
 
 .modal-delete__btn {
@@ -220,8 +216,17 @@
 
 .favorites-shop__inner {
     display: grid;
-    grid-template-columns: repeat(2, 42%);
+    grid-template-columns: repeat(2, 45%);
     gap: 25px;
+}
+
+@media screen and (max-width: 768px) {
+    .favorites-shop__inner {
+        grid-template-columns: 1fr;
+        gap: 20px;
+        width: 20em;
+        margin: 0 auto;
+    }
 }
 
 .favorites-shop__block {
