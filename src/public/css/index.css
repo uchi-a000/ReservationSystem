@@ -45,11 +45,11 @@
     border-radius: 5px 5px 0 0;
 }
 
-.shop__card-content {
+.shop-card__content {
     margin: 20px;
 }
 
-.shop__card-ttl {
+.shop-card__ttl {
     margin: 5px;
 }
 
@@ -78,5 +78,10 @@
 .favorites-submit {
     border-style: none;
     background: none;
+}
+
+.heart-img {
+    width: 35px;
+    height: 35px;
 }
 

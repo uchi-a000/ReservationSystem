@@ -19,8 +19,8 @@
     }
 }
 
-.reservation-done__inner {
-    width: 100%;
+.reservation-done__content{
+    width: 40%;
 }
 
 .reservation-done__not {
@@ -210,7 +210,7 @@
 }
 
 /* お気に入り店舗 */
-.favorites-shop__container {
+.favorites-shop__content {
     width: 50%;
 }
 
@@ -225,7 +225,7 @@
         grid-template-columns: 1fr;
         gap: 20px;
         width: 20em;
-        margin: 0 auto;
+        margin: 0 80px;
     }
 }
 
@@ -276,6 +276,11 @@
 .favorites-submit {
     border-style: none;
     background: none;
+}
+
+.heart-img {
+    width: 35px;
+    height: 35px;
 }
 
 

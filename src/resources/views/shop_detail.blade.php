@@ -2,25 +2,24 @@
 
 @section('css')
 <link rel="stylesheet" href="{{ asset('css/shop_detail.css') }}">
-
 @endsection
 
 @section('content')
 <div class="shop-detail__container">
     <div class="shop-detail__inner">
         <div class="shop_detail__block">
-            <div class="shop_detail__content">
+            <div class="shop_detail__heading">
                 <a class="shop_detail__home-link" href="/">&lt;</a>
                 <span class="shop_detail__ttl">{{ $shop->shop_name }}</span>
             </div>
-            <div class="shop_detail__card-img">
+            <div class="img">
                 @if(Storage::disk('public')->exists('images/' . $shop['image']))
                 <img src="{{ Storage::url('images/' . $shop['image']) }}" alt="ストレージ画像">
                 @else
                 <img src="{{ $shop->image }}" alt="ダミー画像" />
                 @endif
             </div>
-            <p class="shop_detail__item">{{ $shop->area }} {{ $shop->genre }}</p>
+            <p >{{ $shop->area }} {{ $shop->genre }}</p>
             <p class="shop_detail__description">{{ $shop->description }}</p>
         </div>
 

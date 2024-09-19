@@ -21,7 +21,6 @@ body {
     }
 }
 
-
 @media screen and (max-width: 480px) {
     .search-form {
         flex-direction: column;
@@ -74,8 +73,6 @@ body {
 .header__ttl {
     color: #3F5FED;
 }
-
-
 
 /* モーダル */
 .modal {

@@ -12,7 +12,7 @@ label {
     color: black;
 }
 
-.update-form__item__input {
+.input {
     position: relative;
     padding: 8px 12px;
     min-width: 250px;
@@ -22,7 +22,7 @@ label {
     margin: 20px;
 }
 
-.update-form__item__input::-webkit-calendar-picker-indicator {
+.input::-webkit-calendar-picker-indicator {
     position: absolute;
     top: 0;
     right: 0;
@@ -34,7 +34,8 @@ label {
     background: transparent;
 }
 
-.update-form__item__input::after {
+.input::after {
+    content: "";
     position: absolute;
     top: 50%;
     right: 12px;
@@ -43,7 +44,6 @@ label {
     border-top: 12px solid #ccc;
     border-right: 8px solid transparent;
     border-left: 8px solid transparent;
-    content: "";
     transform: translateY(-50%);
 }
 

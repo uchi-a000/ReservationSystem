@@ -23,7 +23,6 @@
     padding: 3px 30px;
 }
 
-
 .item {
     display: flex;
     justify-content: center;
@@ -33,7 +32,7 @@
 .input,.select {
     display: block;
     padding: 8px 12px;
-    width: 30%;
+    width: 30em;
     height: 50px;
     border-radius: 5px;
     border: 1px solid #909090;
@@ -50,7 +49,7 @@
     border: 1px solid #909090;
     border-radius: 6px;
     padding: 0 10px;
-    width: 30%;
+    width: 30em;
     height: 90px;
     background-color: #fff;
     font-family: auto;
@@ -73,7 +72,6 @@
     margin: 5px;
     font-size: 15px;
 }
-
 
 .confirm-modal__link{
     padding: 8px 20px;

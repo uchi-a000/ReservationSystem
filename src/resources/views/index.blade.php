@@ -2,7 +2,6 @@
 
 @section('css')
 <link rel="stylesheet" href="{{ asset('css/index.css') }}">
-<script src="https://kit.fontawesome.com/748afbedc1.js" crossorigin="anonymous"></script>
 @endsection
 
 @section('content')
@@ -18,8 +17,8 @@
                 <img src="{{ $shop->image }}" alt="ダミー画像" />
                 @endif
             </div>
-            <div class="shop__card-content">
-                <h2 class="shop__card-ttl">{{ $shop->shop_name }}</h2>
+            <div class="shop-card__content">
+                <h2 class="shop-card__ttl">{{ $shop->shop_name }}</h2>
                 <p class="shop__tag">{{ $shop->area }} {{ $shop->genre }}</p>
                 <div class="shop-detail__form">
                     <div class="shop-detail__inner">
@@ -29,14 +28,14 @@
                             @csrf
                             @method('DELETE')
                             <button class="favorites-submit" type="submit" name="favorites_destroy">
-                                <img src="{{ asset('icon/red_heart.svg')}}" alt="" style="width: 35px; height: 35px;">
+                                <img class="heart-img" src="{{ asset('icon/red_heart.svg')}}" alt="red_heart">
                             </button>
                         </form>
                         @else
                         <form class="favorites__form" action="{{ route('favorites', $shop->id) }}" method="POST">
                             @csrf
                             <button class="favorites-submit" type="submit" name="favorites_store">
-                                <img src="{{ asset('icon/gray_heart.svg')}}" alt="" style="width: 35px; height: 35px;">
+                                <img class="heart-img" src="{{ asset('icon/gray_heart.svg')}}" alt="gray_heart">
                             </button>
                         </form>
                         @endif

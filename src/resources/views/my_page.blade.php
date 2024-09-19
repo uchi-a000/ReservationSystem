@@ -133,12 +133,11 @@
 
                     <!-- お気に入り店舗 -->
                     <div class="favorites-shop__content">
-                        <h3 class="favorite__ttl">お気に入り店舗</h3>
+                        <h3 class="favorite-shop__ttl">お気に入り店舗</h3>
                         <div class="favorites-shop__inner">
                             @if(isset($favorites) && $favorites->isNotEmpty())
                             @foreach($favorites as $favorite)
                             <div class="favorites-shop__block">
-
                                 <div class="favorites-shop__img">
                                     @if(Storage::disk('public')->exists('images/' . $favorite->shop['image']))
                                     <img src="{{ Storage::url('images/' . $favorite->shop['image']) }}" alt="ストレージ画像">
@@ -156,7 +155,7 @@
                                                 @csrf
                                                 @method('DELETE')
                                                 <button class="favorites-submit" type="submit" name="favorites_destroy">
-                                                    <img src="{{ asset('icon/red_heart.svg')}}" alt="" style="width: 35px; height: 35px;">
+                                                    <img class="heart-img" src="{{ asset('icon/red_heart.svg')}}" alt="red_heart">
                                                 </button>
                                             </form>
                                         </div>
