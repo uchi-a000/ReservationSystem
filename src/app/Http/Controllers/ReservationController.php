@@ -44,7 +44,7 @@ class ReservationController extends Controller
         $reservation = Reservation::find($id);
         $reservation->delete();
 
-        return redirect()->route('my_page');
+        return redirect()->route('my_page')->with('message', '予約をキャンセルしました' );
     }
 
 }

@@ -7,6 +7,13 @@
 
 @section('content')
 <div class="mypage-container">
+    <div class="alert">
+        @if(session('message'))
+        <div class="delete-alert">
+            {{ session('message') }}
+        </div>
+        @endif
+    </div>
     <h2 class="mypage__alert heading">{{ Auth::user()->name }} さんのページ</h2>
     <div class="mypage">
         <div class="mypage__inner">
@@ -57,7 +64,7 @@
 
                                 <!-- 削除 -->
                                 <div class="reservation-delete">
-                                    <a class="reservation-delete__btn" href="#delete-modal-{{ $reservation->id }}">削除</a>
+                                    <a class="reservation-delete__btn" href="#delete-modal-{{ $reservation->id }}">cancel</a>
                                     <div class="reservation-delete-modal">
                                         <div class="modal" id="delete-modal-{{ $reservation->id }}">
                                             <a href="#!" class="modal-overlay"></a>
@@ -67,7 +74,7 @@
                                                         @method('DELETE')
                                                         @csrf
                                                         <div class="modal-delete-form__item">
-                                                            <p class="modal-delete__text">削除してよろしいですか？</p>
+                                                            <p class="modal-delete__text">キャンセルをしてよろしいですか？</p>
                                                             <table class="delete-info__table">
                                                                 <tr class="delete-info__row">
                                                                     <th class="delete-info__label">Shop:</th>
@@ -86,7 +93,7 @@
                                                                     <td class="delete-info__data">{{ $reservation->number_of_people }}人</td>
                                                                 </tr>
                                                             </table>
-                                                            <button class="modal-delete__btn" type="submit">削除</button>
+                                                            <button class="modal-delete__btn" type="submit">キャンセル</button>
                                                             <a href="#" class="modal__close__btn">戻る</a>
                                                         </div>
                                                     </form>

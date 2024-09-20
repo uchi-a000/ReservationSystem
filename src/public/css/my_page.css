@@ -2,6 +2,14 @@
     max-width: 1200px;
 }
 
+.delete-alert {
+    padding: 10px 0;
+    border-color: #f5c2c7;
+    background-color: #f8d7da;
+    color: #842029;
+}
+
+
 .heading {
     text-align: center;
 }
@@ -74,13 +82,13 @@
     font-size: 15px;
 }
 
-/* モーダル予約削除 */
+/* 予約キャンセル */
 .reservation-delete__btn {
     position: absolute;
     background: #3F5FED;
     top: 32px;
     right: 32px;
-    width: 50px;
+    width: 60px;
     height: 32px;
     border: 1px solid #FFF;
     color: #FFF;
@@ -120,7 +128,7 @@
 }
 
 .modal-delete__btn {
-    padding: 10px 65px;
+    padding: 10px 60px;
     border: 1px solid #ee7878;
     background-color: #ee7878;
     color: #fff;
@@ -132,7 +140,7 @@
 }
 
 .modal__close__btn {
-    padding: 15px 60px;
+    padding: 15px 75px;
     margin: 0 auto;
     border-radius: 5px;
     background-color: #9496a1;

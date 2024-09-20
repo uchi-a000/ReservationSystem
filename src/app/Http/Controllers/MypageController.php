@@ -16,8 +16,6 @@ use Stripe\Checkout\Session;
 
 
 
-
-
 class MypageController extends Controller
 {
     public function myPage()
