@@ -38,6 +38,9 @@ php・laravelを学習中で練習のために作成しました。
 
 ## ER 図
 
+<img width="1256" alt="スクリーンショット 2024-09-20 19 07 02" src="https://github.com/user-attachments/assets/4e7cf469-597f-4a61-af91-af8be239af61">
+
+
 
 ## 環境構築
 1.  docker-compose up -d --build （docker-composeビルド&起動）
@@ -63,11 +66,11 @@ php・laravelを学習中で練習のために作成しました。
 
 ## その他機能（詳細）
 ・【マイページ画面について（利用者向け）】  
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;前日以前：予約変更と削除が可能  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;前日以前：予約変更とキャンセル（削除）が可能  
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;前日〜予約時間：「店舗へ直接連絡してください」のメッセージ  
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;予約時間：QRコード表示  
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;来店確認後：評価ができる + Stripeで支払いができる  
-・【予約変更機能】予約日時または予約人数をマイページから変更でき削除もできる（予約前日まで）  
+・【予約変更機能】予約日時または予約人数をマイページから変更できキャンセル（削除）もできる（予約前日まで）  
 ・【評価機能】予約して来店確認後に、利用者が店舗を5段階評価とコメントができる  
 ・【レスポンシブデザイン】タブレット・スマートフォン用のレスポンシブデザインを作成  
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ブレイクポイントは768px  
