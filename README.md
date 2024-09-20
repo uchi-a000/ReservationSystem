@@ -33,10 +33,8 @@ php・laravelを学習中で練習のために作成しました。
 
 
 ## テーブル設計
-
-<img width="660" alt="スクリーンショット 2024-09-19 20 34 26" src="https://github.com/user-attachments/assets/65c0a6f9-1551-4c90-a0af-a653131c5ae0">
-<img width="660" alt="スクリーンショット 2024-09-19 20 25 53" src="https://github.com/user-attachments/assets/e8a70e00-52d6-4313-a601-ae4bea465d3f">
-
+<img width="659" alt="スクリーンショット 2024-09-20 18 07 40" src="https://github.com/user-attachments/assets/e8ee37ef-533d-4aca-a238-62ce0af7c75f">
+<img width="657" alt="スクリーンショット 2024-09-20 18 06 22" src="https://github.com/user-attachments/assets/5cfa8c28-17a1-4c38-b931-fca4fca9abaf">
 
 ## ER 図
 
@@ -63,7 +61,7 @@ php・laravelを学習中で練習のために作成しました。
 メールアドレス：admin@example.com  
 パスワード：pppp0000
 
-## その他（機能詳細）
+## その他機能（詳細）
 ・【マイページ画面について（利用者向け）】  
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;前日以前：予約変更と削除が可能  
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;前日〜予約時間：「店舗へ直接連絡してください」のメッセージ  
@@ -83,5 +81,7 @@ php・laravelを学習中で練習のために作成しました。
 ・【QRコード】利用者が来店した際に店舗側に見せるQRコードを発行し、お店側は照合することができる  
 ・【決済機能】Stripeを利用して決済をすることができる  
 
-
+## URL
+・開発環境：http://localhost/  
+・phpMyAdmin:：http://localhost:8080/
 
