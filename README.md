@@ -1,7 +1,7 @@
 <p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400"></a></p>
 
-# 飲食店予約サービス
-飲食店の予約、管理（管理画面有り）
+# 飲食店予約サイト
+飲食店の予約や削除、お気に入り追加やお店の詳細も確認できます。（管理画面あり）
 
 <img width="1350" alt="スクリーンショット 2024-09-11 22 34 01" src="https://github.com/user-attachments/assets/807dfb20-df72-44bb-bc5c-bcf7e103936e">
 
@@ -67,14 +67,14 @@ php・laravelを学習中で練習のために作成しました。
 ## その他機能（詳細）
 ・【マイページ画面について（利用者向け）】  
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;前日以前：予約変更とキャンセル（削除）が可能  
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;前日〜予約時間：「店舗へ直接連絡してください」のメッセージ  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;前日〜予約時間：「店舗へ直接連絡してください」のメッセージ(変更・削除不可)  
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;予約時間：QRコード表示  
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;来店確認後：評価ができる + Stripeで支払いができる  
 ・【予約変更機能】予約日時または予約人数をマイページから変更できキャンセル（削除）もできる（予約前日まで）  
 ・【評価機能】予約して来店確認後に、利用者が店舗を5段階評価とコメントができる  
 ・【レスポンシブデザイン】タブレット・スマートフォン用のレスポンシブデザインを作成  
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ブレイクポイントは768px  
-・【管理画面】管理者と店舗代表者と利用者の3つの権限を作成  
+・【管理画面】管理者と店舗代表者と利用者の3つの権限を作成（左上モーダルメニューで各権限のメニューを表示）  
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;店舗代表者が店舗情報の作成、更新と予約情報の確認ができる管理画面を作成（予約情報の確認は登録後にできる）  
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;管理者側は店舗代表者を作成、店舗代表者一覧を確認でき、お知らせメールを送れる管理画面を作成  
 ・【ストレージ】お店の画像をストレージに保存することができる  
