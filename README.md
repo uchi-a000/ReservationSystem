@@ -34,6 +34,7 @@ php・laravelを学習中で練習のために作成しました。
 
 ## テーブル設計
 <img width="659" alt="スクリーンショット 2024-09-20 18 07 40" src="https://github.com/user-attachments/assets/e8ee37ef-533d-4aca-a238-62ce0af7c75f">
+<img width="657" alt="スクリーンショット 2024-09-21 15 17 05" src="https://github.com/user-attachments/assets/b8f0372a-9a1c-485b-a374-c530ef767b17">
 <img width="657" alt="スクリーンショット 2024-09-20 18 06 22" src="https://github.com/user-attachments/assets/5cfa8c28-17a1-4c38-b931-fca4fca9abaf">
 
 ## ER 図
