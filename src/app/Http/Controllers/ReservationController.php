@@ -32,9 +32,9 @@ class ReservationController extends Controller
     {
         $reservation = Reservation::find($request->id);
 
-        $reservationData = $request->only(['reservation_date', 'reservation_time', 'number_of_people']);
+        $reservation_data = $request->only(['reservation_date', 'reservation_time', 'number_of_people']);
 
-        $reservation->update($reservationData);
+        $reservation->update($reservation_data);
 
         return view('reservation_update_done', compact('reservation'));
     }

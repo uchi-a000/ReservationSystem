@@ -46,7 +46,7 @@
                     </div>
                     <select class="time__select" name="reservation_time">
                         <option value="">時間を選択してください</option>
-                        @foreach($timeOptions as $time)
+                        @foreach($time_options as $time)
                         <option value="{{ $time }}" @if( old('reservation_time')==$time )selected @endif>{{ $time }}</option>
                         @endforeach
                     </select>
@@ -59,7 +59,7 @@
                     </div>
                     <select class="number_of_people__select" name="number_of_people">
                         <option value="">人数を選択してください</option>
-                        @foreach($numberOfPeopleOptions as $option)
+                        @foreach($number_of_people_options as $option)
                         <option value="{{ $option }}" @if( old('number_of_people')==$option )selected @endif>{{ $option }}人</option>
                         @endforeach
                     </select>

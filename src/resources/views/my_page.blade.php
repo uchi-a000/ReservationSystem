@@ -2,7 +2,6 @@
 
 @section('css')
 <link rel="stylesheet" href="{{ asset('css/my_page.css') }}">
-
 @endsection
 
 @section('content')
@@ -53,7 +52,7 @@
                                     </tr>
                                 </table>
 
-                                @if($now->lt($reservation->dayBefore))
+                                @if($now->lt($reservation->day_before))
                                 <!-- 予約変更 -->
                                 <div class="reservation-update">
                                     <form class="update" action="{{ route('reservation_update', $reservation->id) }}" method="GET">
@@ -62,7 +61,7 @@
                                     </form>
                                 </div>
 
-                                <!-- 削除 -->
+                                <!-- 削除（キャンセル） -->
                                 <div class="reservation-delete">
                                     <a class="reservation-delete__btn" href="#delete-modal-{{ $reservation->id }}">cancel</a>
                                     <div class="reservation-delete-modal">
@@ -74,7 +73,10 @@
                                                         @method('DELETE')
                                                         @csrf
                                                         <div class="modal-delete-form__item">
-                                                            <p class="modal-delete__text">キャンセルをしてよろしいですか？</p>
+                                                            <div class="modal-delete__heading">
+                                                                <a href="#" class="modal__close__btn">&lt;</a>
+                                                                <p class="modal-delete__text">ご予約をキャンセルしてよろしいですか？</p>
+                                                            </div>
                                                             <table class="delete-info__table">
                                                                 <tr class="delete-info__row">
                                                                     <th class="delete-info__label">Shop:</th>
@@ -94,7 +96,6 @@
                                                                 </tr>
                                                             </table>
                                                             <button class="modal-delete__btn" type="submit">キャンセル</button>
-                                                            <a href="#" class="modal__close__btn">戻る</a>
                                                         </div>
                                                     </form>
                                                 </div>
@@ -108,7 +109,7 @@
                                 @elseif($reservation->check_in == 1 )
                                 <p class="check_in-alert">ご来店済み</p>
                                 <a class="payment" href="/payment/{{ $reservation->id }}">お支払い</a>
-                                @elseif($now->gt($reservation->dayBefore))
+                                @elseif($now->gt($reservation->day_before))
                                 <p class="day-before__alert">変更・キャンセルは店舗へ直接ご連絡ください</p>
                                 @endif
 
@@ -122,14 +123,14 @@
                                         <button class="review-form__btn" type="submit">口コミを投稿する</button>
                                     </form>
                                 </div>
-                                @elseif($now->gt($reservation->reservationDateTime))
+                                @elseif($now->gt($reservation->reservation_date_time))
                                 <div class="qr-code">
                                     <form class="qr-code-form" action="{{ route('generate_qr_code', $reservation->id)  }}" method="POST">
                                         @csrf
                                         <button class="qr-code-form__btn" type="submit">QRコードを発行</button>
                                     </form>
                                 </div>
-                                @elseif($now->lt($reservation->reservationDateTime))
+                                @elseif($now->lt($reservation->reservation_date_time))
                                 <p class="qr-code__alert">ご予約時間に来店確認のため<br>QRコードが発行されます</p>
                                 @endif
                             </div>

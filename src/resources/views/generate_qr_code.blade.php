@@ -11,7 +11,7 @@
         <h2 class="qr-code__description">ご来店確認</h2>
         <p class="">以下QRコードをご予約店舗にお見せください</p>
         <div class="qr-code">
-            {!! $qrCodes[$reservation->id] !!}
+            {!! $qr_codes[$reservation->id] !!}
         </div>
         <div class="my_page__link">
             <a class="my_page__link__btn" href="/mypage">マイページへ戻る</a>

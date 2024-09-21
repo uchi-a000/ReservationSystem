@@ -82,7 +82,7 @@
     font-size: 15px;
 }
 
-/* 予約キャンセル */
+/* 予約削除（キャンセル） */
 .reservation-delete__btn {
     position: absolute;
     background: #3F5FED;
@@ -94,6 +94,25 @@
     color: #FFF;
     text-align: center;
     text-decoration: none;
+}
+
+.modal-delete__heading {
+    display: flex;
+    justify-content: center;
+}
+
+.modal__close__btn {
+    box-sizing: border-box;
+    display: inline-block;
+    width: 35px;
+    height: 30px;
+    background-color: #fff;
+    color: black;
+    text-decoration: none;
+    box-shadow: 3px 3px 6px #0f030375;
+    border-radius: 5px;
+    padding: 0 10px;
+    margin: 27px;
 }
 
 .modal-delete-form__item {
@@ -138,19 +157,6 @@
     text-align: center;
     font-size: 16px;
 }
-
-.modal__close__btn {
-    padding: 15px 75px;
-    margin: 0 auto;
-    border-radius: 5px;
-    background-color: #9496a1;
-    color: #FFF;
-    font-size: 16px;
-    cursor: pointer;
-    text-decoration: none;
-}
-
-
 
 /* 前日以前の案内〜当日QRコード発行〜評価 */
 .review-done {

@@ -32,10 +32,10 @@ class ShopRepController extends Controller
     {
         $shop = $request->all();
 
-        $imagePath = $request->file('image')->store('public/temp');
-        $imageName = basename($imagePath);
+        $image_path = $request->file('image')->store('public/temp');
+        $image_name = basename($image_path);
 
-        $shop['image'] = $imageName;
+        $shop['image'] = $image_name;
 
 
         return view('shop_rep.confirm', compact('shop'));
@@ -51,10 +51,10 @@ class ShopRepController extends Controller
 
         $user = auth()->user();
 
-        $tempPath = storage_path('app/public/temp/' . $request->image);
-        $newPath = storage_path('app/public/images/' . $request->image);
+        $temp_path = storage_path('app/public/temp/' . $request->image);
+        $new_path = storage_path('app/public/images/' . $request->image);
 
-        rename($tempPath, $newPath);
+        rename($temp_path, $new_path);
 
         Shop::create([
             'user_id' => $user->id,
@@ -78,13 +78,13 @@ class ShopRepController extends Controller
         $shop = Shop::find($request->id);
 
         if($request->hasFile('image')) {
-            $imagePath = $request->file('image')->store('public/images');
-            $imageName = basename($imagePath);
-            $shop->image =$imageName;
+            $image_path = $request->file('image')->store('public/images');
+            $image_name = basename($image_path);
+            $shop->image =$image_name;
         }
 
-        $shopData = $request->only(['shop_name', 'area', 'genre', 'description']);
-        $shop->update($shopData);
+        $shop_data = $request->only(['shop_name', 'area', 'genre', 'description']);
+        $shop->update($shop_data);
 
         return redirect()->route('shop_rep.shop_rep_index')->with('message', '店舗情報を変更しました');
     }
@@ -93,13 +93,12 @@ class ShopRepController extends Controller
     public function reservations(Request $request)
     {
         $shop = auth()->user()->shop;
-        $reservationsQuery = Reservation::where('shop_id', $shop->id)
-                                        ->with('user');
+        $reservations_query = Reservation::where('shop_id', $shop->id)->with('user');
 
         if($request->has('reservation_id')) {
-            $reservationsQuery->where('id', $request->reservation_id);
+            $reservations_query->where('id', $request->reservation_id);
         }
-        $reservations = $reservationsQuery->get();
+        $reservations = $reservations_query->get();
 
         return view('shop_rep.reservations', compact('shop', 'reservations'));
     }

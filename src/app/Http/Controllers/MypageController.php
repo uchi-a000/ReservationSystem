@@ -29,11 +29,11 @@ class MypageController extends Controller
 
         foreach ($reservations as $reservation) {
 
-            $reservationDateTime = Carbon::createFromFormat('Y-m-d H:i:s', $reservation->reservation_date . ' ' . $reservation->reservation_time);
-            $dayBefore = $reservationDateTime->copy()->subDay();
+            $reservation_date_time = Carbon::createFromFormat('Y-m-d H:i:s', $reservation->reservation_date . ' ' . $reservation->reservation_time);
+            $day_before = $reservation_date_time->copy()->subDay();
 
-            $reservation->reservationDateTime = $reservationDateTime;
-            $reservation->dayBefore = $dayBefore;
+            $reservation->reservation_date_time = $reservation_date_time;
+            $reservation->day_before = $day_before;
         }
 
         return view('my_page', compact('user', 'reservations', 'favorites', 'now', 'reviews'));
@@ -43,11 +43,11 @@ class MypageController extends Controller
     public function generateQrCode($id) {
 
         $reservation = Reservation::find($id);
-        $qrCodes = [];
+        $qr_codes = [];
 
-        $qrCodes[$reservation->id] = QrCode::size(150)->generate(route('check_in', $reservation->id));
+        $qr_codes[$reservation->id] = QrCode::size(150)->generate(route('check_in', $reservation->id));
 
-        return view('generate_qr_code', compact('reservation','qrCodes'));
+        return view('generate_qr_code', compact('reservation', 'qr_codes'));
     }
 
 

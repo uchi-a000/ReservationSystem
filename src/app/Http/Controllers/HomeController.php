@@ -26,19 +26,19 @@ class HomeController extends Controller
         $reservations = Reservation::where('shop_id', $id)
                                     ->where('user_id', $user_id)
                                     ->get();
-        $numberOfPeopleOptions = range(1, 15);
+        $number_of_people_options = range(1, 15);
 
-        $startTime = Carbon::today()->hour(11)->minute(0);
-        $endTime = Carbon::today()->hour(21)->minute(0);
+        $start_time = Carbon::today()->hour(11)->minute(0);
+        $end_time = Carbon::today()->hour(21)->minute(0);
         $interval = 30;
 
-        $timeOptions = [];
-        while($startTime <= $endTime){
-            $timeOptions[] = $startTime->format('H:i');
-            $startTime->addMinutes($interval);
+        $time_options = [];
+        while($start_time <= $end_time){
+            $time_options[] = $start_time->format('H:i');
+            $start_time->addMinutes($interval);
         }
 
-        return view('shop_detail', compact('shop', 'reservations', 'numberOfPeopleOptions', 'timeOptions'));
+        return view('shop_detail', compact('shop', 'reservations', 'number_of_people_options', 'time_options'));
     }
 
     public function search(Request $request)
