@@ -55,7 +55,8 @@ php・laravelを学習中で練習のために作成しました。
    composer require simplesoftwareio/simple-qrcode（インストール）  
 9. 管理画面  
     composer require spatie/laravel-permission（Spatie Laravel Permissionパッケージインストール）  
-    php artisan db:seed（シーディング）  
+    php artisan vendor:publish --provider="Spatie\Permission\PermissionServiceProvider"（設定ファイルを生成）  
+    php artisan migrate  
 10. 画像ストレージ保存  
     php artisan storage:link（ストレージに保存した画像を表示）
 11. stripe決済  
