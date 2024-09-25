@@ -24,7 +24,6 @@
             <button class="submit" type="submit">Stripe決済</button>
             <a class="back_btn" href="/mypage">戻る</a>
         </div>
-
     </form>
 </div>
 @endsection

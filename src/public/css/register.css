@@ -26,7 +26,6 @@
     margin-bottom: 10px;
 }
 
-
 .form__input-name::before {
     content: "";
     background: url(../icon/user_icon.svg) no-repeat;

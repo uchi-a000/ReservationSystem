@@ -10,5 +10,4 @@
         <h2 class="check_in____message">ご来店が確認されました</h2>
     </div>
 </div>
-
 @endsection

@@ -43,6 +43,5 @@
             <a href="/mypage" class="back__btn">戻る</a>
         </div>
     </form>
-
 </div>
 @endsection
