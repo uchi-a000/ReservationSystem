@@ -30,7 +30,7 @@ class shop extends Model
         return $this->belongsToMany(User::class, 'favorites', 'shop_id', 'user_id');
     }
 
-    public function review(): HasMany
+    public function reviews(): HasMany
     {
         return $this->hasMany(Review::class);
     }

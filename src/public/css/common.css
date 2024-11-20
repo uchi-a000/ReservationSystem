@@ -165,15 +165,26 @@ body {
 .search__inner {
     border-radius: 5px;
     box-shadow: 3px 3px 6px #0f030375;
+    position: relative;
 }
 
 .search-form {
     display: flex;
+    position: relative;
 }
 
 select {
     appearance: none;
 }
+
+.search-form__sort {
+    position: absolute;
+    left: -190px;
+    top: 0;
+    border-radius: 5px;
+}
+
+
 
 .search-form__area,
 .search-form__genre,
@@ -209,11 +220,12 @@ select {
     margin: 10px 0;
 }
 
+.search-form__sort-select,
 .search-form__area-select,
 .search-form__genre-select,
 .search-form__keyword-input {
     border: 1px solid #ccc;
-    border-radius: 0;
+    border-radius: 5px;
     font-size: 14px;
     height: 50px;
     padding: 15px;
@@ -245,6 +257,7 @@ select {
     border-left: none;
 }
 
+.search-form__sort-select:focus,
 .search-form__area-select:focus,
 .search-form__genre-select:focus,
 .search-form__keyword-input:focus {

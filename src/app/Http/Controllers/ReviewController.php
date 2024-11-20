@@ -82,7 +82,7 @@ class ReviewController extends Controller
 
          // $review_dataを初期化する
         $review_data = [
-            'images' => !empty('images') ? json_encode('images') : null,
+            'images' => !empty($images) ? json_encode($images) : null,
         ];
 
 

@@ -14,7 +14,7 @@ class HomeController extends Controller
 {
     public function index()
     {
-        $shops = Shop::with('review')->get();
+        $shops = Shop::with('reviews')->get();
 
         return view('index', compact('shops'));
     }
@@ -69,6 +69,21 @@ class HomeController extends Controller
 
         if (!empty($request->genre)) {
             $query->where('genre', '=', '#' . $request->genre);
+        }
+
+        if($request->sort === 'random') {
+            $query->inRandomOrder();
+
+        } elseif ($request->sort === 'high_rating') {
+            $query->withAvg('reviews', 'rating')
+                    ->orderBy('reviews_avg_rating', 'desc')
+                    ->orderBy('id');
+
+        } elseif ($request->sort === 'low_rating') {
+            $query->withAvg('reviews', 'rating')
+                    ->orderByRaw('reviews_avg_rating IS NULL ASC')
+                    ->orderBy('reviews_avg_rating', 'asc')
+                    ->orderBy('id');
         }
 
         return $query;
