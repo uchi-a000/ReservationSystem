@@ -22,7 +22,8 @@ php・laravelを学習中で練習のために作成しました。
 エリアで検索する  
 ジャンルで検索する  
 店名で検索する  
-口コミ機能  
+ランダム・評価高い順・評価が低い順で検索する  
+口コミ投稿機能  
 
 ## 使用技術（実行環境）
 ・PHP 8.0
@@ -52,15 +53,17 @@ php・laravelを学習中で練習のために作成しました。
 5.  php artisan key:generate (アプリケーションを実行)
 6.  php artisan migrate（マイグレーション）
 7.  php artisan db:seed（シーディング）
-8. QRコード作成  
+8. メール認証  
+   .env ファイルとdocker-compose.ymlにテストメール（Mailtrap）内容記述
+9. QRコード作成  
    composer require simplesoftwareio/simple-qrcode（インストール）  
-9. 管理画面  
+10. 管理画面  
     composer require spatie/laravel-permission（Spatie Laravel Permissionパッケージインストール）  
     php artisan vendor:publish --provider="Spatie\Permission\PermissionServiceProvider"（設定ファイルを生成）  
     php artisan migrate  
-10. 画像ストレージ保存  
+11. 画像ストレージ保存  
     php artisan storage:link（ストレージに保存した画像を表示）
-11. stripe決済  
+12. stripe決済  
     composer require stripe/stripe-php （Stripeパッケージのインストール）
 
 ## 管理者情報
@@ -85,7 +88,7 @@ php・laravelを学習中で練習のために作成しました。
 ・【リマインダー】タスクスケジューラーを利用して、予約当日の朝に予約情報のリマインダーを送る（開発環境"php artisan send:reservation-reminders"で実行）  
 ・【QRコード】利用者が来店した際に店舗側に見せるQRコードを発行し、お店側は照合することができる  
 ・【決済機能】Stripeを利用して決済をすることができる  
-・【口コミ機能】予約して来店確認後に、利用者がに対し評価（星５段階）・コメント・画像追加ができる  
+・【口コミ投稿機能】予約して来店確認後に、利用者が店舗に対し評価（星５段階）・コメント・画像追加ができる  
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;利用者は自分の口コミのみ編集と削除ができる  
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;管理者は全ての口コミを削除することができる  
 
