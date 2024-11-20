@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\AdminRequest;
+use App\Models\Review;
 use App\Models\User;
 
 
@@ -29,5 +30,14 @@ class AdminController extends Controller
         $user->markEmailAsVerified();
 
         return redirect()->route('admin.admin_index')->with('message', '店舗代表者が作成されました');
+    }
+
+    public function destroy($id)
+    {
+        $review = Review::find($id);
+        $review->delete();
+
+        return redirect()->back()->with('success', '口コミを削除しました。');
+
     }
 }

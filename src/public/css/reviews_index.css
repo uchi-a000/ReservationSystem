@@ -1,0 +1,46 @@
+.reviews__container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.reviews__table {
+    border-bottom: 1px solid #ddd;
+    margin: 50px 0;
+}
+
+.reviews__table-inner {
+    margin: 50px 0;
+}
+
+.reviews__header {
+    font-size: 10px;
+}
+
+.reviews__data {
+    display: block;
+    margin: 5px;
+    width: 30em;
+
+}
+
+.filled-star {
+    color: #3F5FED;
+    font-size: 25px;
+}
+
+.empty-star {
+    color: #ddd;
+    font-size: 25px;
+}
+
+.delete_btn {
+    width: 30%;
+    border: 1px solid #5E7FEF;
+    padding: 10px;
+    background-color: #5E7FEF;
+    color: #fff;
+    text-decoration: none;
+    margin: 5px;
+    font-size: 15px;
+}

@@ -25,7 +25,8 @@ class ReviewRequest extends FormRequest
     {
         return [
             'rating' => ['required'],
-            'comment' => ['required', 'min:10', 'max:1000']
+            'comment' => ['required', 'min:10', 'max:400'],
+            'images.*' => ['image', 'mimes:jpeg,png', 'max:2048']
         ];
     }
 
@@ -35,7 +36,11 @@ class ReviewRequest extends FormRequest
             'rating.required' => '満足度を選択してください',
             'comment.required' => 'コメントを入力してください',
             'comment.min' => 'コメントは10文字以上で入力してください',
-            'comment.max' => 'コメントは1000文字以内で入力してください',
+            'comment.max' => 'コメントは400文字以内で入力してください',
+            'images.*.image' => '画像はjpegまたはpng形式のみアップロード可能です',
+            'images.*.mimes' => '画像はjpegまたはpng形式のみアップロード可能です',
+            'images.*.max' => '画像のサイズは2MB以内でなければなりません',
+
         ];
     }
 }

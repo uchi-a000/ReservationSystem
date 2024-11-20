@@ -6,6 +6,7 @@ use App\Http\Controllers\CustomRegisteredUserController;
 use App\Http\Controllers\FavoriteController;
 use App\Http\Controllers\MypageController;
 use App\Http\Controllers\ReservationController;
+use App\Http\Controllers\ReviewController;
 use Illuminate\Foundation\Auth\EmailVerificationRequest;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Admin\AdminController;
@@ -28,6 +29,9 @@ Route::get('/detail/{shop_id}', [HomeController::class, 'shopDetail'])->name('sh
 Route::get('/search', [HomeController::class, 'search'])->name('search');
 
 Route::post('/register', [CustomRegisteredUserController::class, 'store'])->name('register');
+
+Route::get('/reviews/{shop_id}', [ReviewController::class, 'index'])->name('reviews_index');
+
 
 // メール認証の通知
 Route::get('/email/verify', function () {
@@ -61,11 +65,17 @@ Route::middleware('auth', 'verified')->group(function () {
 
     Route::match(['post', 'delete'], '/favorites/{shop}', [FavoriteController::class, 'toggleFavorite'])->name('favorites');
 
+    Route::get('/review/{id}', [ReviewController::class, 'review'])->name('review');
+    Route::post('/review_thanks', [ReviewController::class, 'reviewThanks'])->name('review_thanks');
+    Route::get('/review/update/{id}', [ReviewController::class, 'showUpdate'])->name('review_update');
+    Route::patch('/review/update/{id}', [ReviewController::class, 'update'])->name('review_update');
+    Route::delete('/review/{reviewId}/{shopId}', [ReviewController::class, 'deleteReview'])->name('review_delete');
+
+
+
     Route::get('/mypage', [MypageController::class, 'myPage'])->name('my_page');
     Route::post('/generate_qr_code/{id}', [MypageController::class, 'generateQrCode'])->name('generate_qr_code');
     Route::get('/checkin/{id}', [MypageController::class, 'checkIn'])->name('check_in');
-    Route::get('/review/{id}', [MypageController::class, 'review'])->name('review');
-    Route::post('/review_thanks', [MypageController::class, 'reviewThanks'])->name('review_thanks');
     Route::get('/payment/{id}', [MypageController::class, 'showPayment'])->name('stripe.payment_form');
     Route::post('/checkout', [MypageController::class, 'checkout'])->name('checkout');
     Route::get('/payment/success/{id}', [MypageController::class, 'success'])->name('stripe.success');
@@ -78,6 +88,7 @@ Route::middleware('auth', 'verified')->group(function () {
 Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'role:admin']], function () {
     Route::get('/representatives', [AdminController::class, 'adminIndex'])->name('admin.admin_index');
     Route::post('/representatives', [AdminController::class, 'store'])->name('admin.store');
+    Route::delete('/reviews/delete/{review_id}', [AdminController::class, 'destroy'])->name('reviews_destroy');
     // お知らせメール
     Route::get('/notify', [AdminNotificationController::class, 'showNotificationForm'])->name('admin.notify');
     Route::post('/confirm', [AdminNotificationController::class, 'confirmNotification'])->name('admin.notify.confirm');

@@ -9,7 +9,6 @@ use App\Models\Review;
 use Illuminate\Support\Facades\Auth;
 use SimpleSoftwareIO\QrCode\Facades\QrCode;
 use Carbon\Carbon;
-use App\Http\Requests\ReviewRequest;
 use App\Http\Requests\PaymentRequest;
 use Stripe\Stripe;
 use Stripe\Checkout\Session;
@@ -59,29 +58,6 @@ class MypageController extends Controller
         $reservation->save();
 
         return view('check_in', compact('reservation'));
-    }
-
-
-    public function review($id) {
-
-        $reservation = Reservation::find($id);
-
-        return view('review', compact('reservation'));
-    }
-
-    public function reviewThanks(ReviewRequest $request) {
-
-        $reservation = Reservation::find($request->reservation_id);
-
-        Review::create([
-            'user_id' => auth()->id(),
-            'shop_id' => $request->shop_id,
-            'reservation_id' => $request->reservation_id,
-            'rating' => $request->rating,
-            'comment' => $request->comment,
-        ]);
-
-        return view('review_thanks', compact('reservation'));
     }
 
 

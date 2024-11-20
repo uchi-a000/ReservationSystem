@@ -15,7 +15,8 @@ class Review extends Model
             'shop_id',
             'reservation_id',
             'rating',
-            'comment'
+            'comment',
+            'images'
 
     ];
 

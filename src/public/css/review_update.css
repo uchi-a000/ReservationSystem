@@ -1,12 +1,13 @@
-.review__container {
+.review-update__container {
     max-width: 1200px;
 }
 
-.review__inner {
+.review-update__inner {
     display: flex;
 }
 
 @media screen and (max-width: 768px) {
+
     .review__container,
     .review__inner {
         flex-direction: column;
@@ -16,7 +17,7 @@
 }
 
 @media screen and (max-width: 768px) {
-    .vertical-line{
+    .vertical-line {
         display: none;
     }
 }
@@ -41,14 +42,13 @@
     font-weight: normal;
 }
 
-
-
 .shop__block {
     width: 20em;
     height: 370px;
     background-color: #fff;
     border-radius: 8px;
     box-shadow: 3px 3px 6px #0f030375;
+    margin: 100px;
 }
 
 .shop__img img {
@@ -190,4 +190,3 @@
         margin: 30px;
     }
 }
-

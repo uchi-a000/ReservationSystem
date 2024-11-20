@@ -6,6 +6,13 @@
 
 @section('content')
 <div class="shop-detail__container">
+    <div class="shop-rep__alert">
+        @if(session('message'))
+        <div class="shop-rep__alert--success">
+            {{ session('message') }}
+        </div>
+        @endif
+    </div>
     <div class="shop-detail__inner">
         <div class="shop_detail__block">
             <div class="shop_detail__heading">
@@ -19,8 +26,45 @@
                 <img src="{{ $shop->image }}" alt="ダミー画像" />
                 @endif
             </div>
-            <p >{{ $shop->area }} {{ $shop->genre }}</p>
+            <p>{{ $shop->area }} {{ $shop->genre }}</p>
             <p class="shop_detail__description">{{ $shop->description }}</p>
+
+            <a href="{{ route('reviews_index', $shop->id) }}" class="all-review__link">全ての口コミ情報</a>
+
+            @foreach($reservations as $reservation)
+            @if($reservation->reviews->isNotEmpty())
+            <div>
+                <div class="review">
+                    <div class="review__item">
+                        <a class="review-update" href="{{ route('review_update', $review->id) }}">口コミを編集</a>
+
+                        <form class="review-delete" action="{{ route('review_delete', ['reviewId' => $review->id, 'shopId' => $review->shop_id]) }}" method="POST" onclick="return confirm('本当に削除しますか？')">
+                            @method('DELETE')
+                            @csrf
+                            <input type="hidden" name="shop_id" value="{{ $review->shop_id }}">
+                            <button class="review-delete" type="submit" name="review_delete">口コミを削除</button>
+                        </form>
+                    </div>
+                    <div>
+                        <p>
+                            @for ($i = 1; $i <= 5; $i++)
+                                @if ($i <=$review->rating)
+                                <span class="filled-star">★</span>
+                                @else
+                                <span class="empty-star">☆</span>
+                                @endif
+                            @endfor
+                        </p>
+                        <p> {{ $review->comment }}</p>
+                    </div>
+                </div>
+            </div>
+            @elseif($reservation->check_in == 1 && $reservation->reviews->isEmpty())
+            <div class="review__content">
+                <a href="{{ route('review', $reservation->id) }}" class="review__link">口コミを投稿する</a>
+            </div>
+            @endif
+            @endforeach
         </div>
 
         <!-- 予約情報入力ページ -->
@@ -64,7 +108,6 @@
                         @endforeach
                     </select>
                 </div>
-
 
                 @if(Auth::check())
                 @if($reservations->isEmpty())

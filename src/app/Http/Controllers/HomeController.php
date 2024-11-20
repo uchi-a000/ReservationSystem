@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Reservation;
 use App\Models\Shop;
+use App\Models\Review;
 use Illuminate\Support\Facades\Auth;
 use Carbon\Carbon;
 
@@ -13,19 +14,21 @@ class HomeController extends Controller
 {
     public function index()
     {
-        $shops = Shop::all();
+        $shops = Shop::with('review')->get();
 
         return view('index', compact('shops'));
     }
 
-    public function shopDetail($id)
+    public function shopDetail($shop_id)
     {
-        $shop = Shop::find($id);
+        $shop = Shop::find($shop_id);
         $user_id = Auth::id();
+        $review = Review::where('shop_id', $shop_id)->where('user_id', $user_id)->first();
 
-        $reservations = Reservation::where('shop_id', $id)
+        $reservations = Reservation::where('shop_id', $shop_id)
                                     ->where('user_id', $user_id)
                                     ->get();
+
         $number_of_people_options = range(1, 15);
 
         $start_time = Carbon::today()->hour(11)->minute(0);
@@ -38,7 +41,7 @@ class HomeController extends Controller
             $start_time->addMinutes($interval);
         }
 
-        return view('shop_detail', compact('shop', 'reservations', 'number_of_people_options', 'time_options'));
+        return view('shop_detail', compact('shop', 'review', 'reservations', 'number_of_people_options', 'time_options', 'shop_id'));
     }
 
     public function search(Request $request)
@@ -70,4 +73,5 @@ class HomeController extends Controller
 
         return $query;
     }
+
 }
