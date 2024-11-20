@@ -65,6 +65,14 @@ php・laravelを学習中で練習のために作成しました。
     php artisan storage:link（ストレージに保存した画像を表示）
 12. stripe決済  
     composer require stripe/stripe-php （Stripeパッケージのインストール）
+13. csvインポート（管理者のみ）  
+    composer require maatwebsite/excel:^3.1.48 -W (Laravel Excel パッケージのインストール)  
+    php artisan make:import ShopsImport --model=Store (インポート用クラスの作成)  
+
+    Googleスプレッドシートに入力し、ファイル→ダウンロード→カンマ区切り形式（csv）で保存  
+    （csvファイルの記述方法）(補足※A1列から記述していただかないとエラーになります)  
+    <img width="957" alt="スクリーンショット 2024-11-20 19 12 11" src="https://github.com/user-attachments/assets/f1436815-7e5c-4032-8346-6b36ec7b83db">
+
 
 ## 管理者情報
 メールアドレス：admin@example.com  
