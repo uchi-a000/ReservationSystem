@@ -16,8 +16,8 @@
 
     <form action="/admin/shops/import" method="POST" enctype="multipart/form-data">
         @csrf
-        <input type="file" name="csv_file" required>
-        <button type="submit">インポート</button>
+        <input class="file" type="file" name="csv_file" required>
+        <button class="submit" type="submit">インポート</button>
     </form>
 </div>
 @endsection
