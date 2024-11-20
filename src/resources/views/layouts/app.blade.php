@@ -92,6 +92,7 @@
                                 <!-- 管理者メニュー -->
                                 @if(Auth::user()->hasRole('admin'))
                                 <li class="modal-form__list-item"><a href="/admin/representatives">Admin</a></li>
+                                <li class="modal-form__list-item"><a href="/admin/shops/import">Shops_csvImport</a></li>
                                 @elseif(Auth::user()->hasRole('shop_representative'))
                                 <li class="modal-form__list-item"><a href="/shop/info">ShopRegistration&amp;Update</a></li>
                                 @endif
@@ -108,4 +109,5 @@
             @yield('content')
         </main>
 </body>
+
 </html>

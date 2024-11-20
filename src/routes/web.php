@@ -93,6 +93,8 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'role:admin']], func
     Route::get('/notify', [AdminNotificationController::class, 'showNotificationForm'])->name('admin.notify');
     Route::post('/confirm', [AdminNotificationController::class, 'confirmNotification'])->name('admin.notify.confirm');
     Route::post('/notify', [AdminNotificationController::class, 'sendNotification'])->name('admin.notify.send');
+    Route::get('/shops/import', [AdminController::class, 'showImport'])->name('admin.shops_import');
+    Route::post('/shops/import', [AdminController::class, 'import'])->name('admin.shops_import');
 });
 
 //店舗代表者

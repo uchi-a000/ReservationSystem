@@ -28,7 +28,7 @@ class ShopRepRequest extends FormRequest
             'area' => ['required'],
             'genre' => ['required'],
             'description' => ['required', 'min:50', 'max:150'],
-            'image' => ['required', 'image', 'max:2048'],
+            'image' => ['required', 'image', 'mimes:jpeg,png', 'max:2048'],
         ];
     }
 
@@ -44,7 +44,7 @@ class ShopRepRequest extends FormRequest
             'description.min' => '説明文は50文字以上で入力してください',
             'description.max' => '説明文は150文字以内で入力してください',
             'image.required' => '画像を添付してください',
-            'image.image' => 'jpeg、png、jpg形式のファイルでなければなりません',
+            'image.mimes' => '画像はjpegまたはpng形式のみアップロード可能です',
             'image.max' => 'ファイルサイズは2MBまでしか許可されません',
         ];
     }
