@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
 use App\Models\Favorite;
 use App\Models\Reservation;
 use App\Models\Review;
@@ -35,12 +34,17 @@ class ReviewController extends Controller
 
     public function reviewThanks(ReviewRequest $request)
     {
-        $images = [];
+        $images = null;
+        $uploadedImages = [];
 
         if ($request->hasFile('images')) {
             foreach ($request->file('images') as $file) {
-                $images[] = $file->store('reviews', 'public');
+                $uploadedImages[] = $file->store('reviews', 'public');
             }
+        }
+
+        if(!empty($uploadedImages)){
+            $images = json_encode($uploadedImages);
         }
 
         Review::create([
@@ -49,7 +53,7 @@ class ReviewController extends Controller
             'reservation_id' => $request->reservation_id,
             'rating' => $request->rating,
             'comment' => $request->comment,
-            'images' => json_encode($images),
+            'images' => $images,
         ]);
 
         return view('review_thanks');
@@ -102,6 +106,5 @@ class ReviewController extends Controller
 
         return redirect()->route('shop_detail', ['shop_id' => $shopId])->with('message', '口コミを削除しました');
     }
-
 
 }

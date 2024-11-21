@@ -17,7 +17,7 @@ body {
 @media screen and (max-width: 768px) {
     .header__inner, .search-form, .search__inner{
         display: inline;
-        margin: 0 65px;
+        margin: 0 200px;
     }
 }
 
@@ -267,4 +267,11 @@ select {
 .form__error {
     color: red;
     text-align: center;
+}
+
+.alert--success {
+    padding: 10px 30px;
+    border-color: #badbcc;
+    background-color: #d1e7dd;
+    color: #0f5132;
 }

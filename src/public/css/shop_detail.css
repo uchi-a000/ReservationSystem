@@ -42,6 +42,64 @@ img {
     width: 85%;
 }
 
+
+.all-review__link {
+    padding: 8px 215px;
+    background-color: #5E7FEF;
+    color: #FFF;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.review {
+    width: 80%;
+    border-top: 2px solid #ccc;
+    border-bottom: 2px solid #ccc;
+    padding: 10px 0;
+    margin: 30px 0;
+
+}
+
+.review__item {
+    display: flex;
+    justify-content: right;
+    width: 100%;
+}
+
+.review__link {
+    display: block;
+    color: #000;
+    margin: 10px;
+}
+
+.review-update {
+    color: black;
+    ;
+    padding: 0 20px;
+}
+
+.review-delete {
+    color: black;
+    cursor: pointer;
+    background: none;
+    border: none;
+    text-decoration: underline;
+    font-size: 16px;
+    padding: 0 10px;
+}
+
+.filled-star {
+    color: #3F5FED;
+    font-size: 25px;
+}
+
+.empty-star {
+    color: #ddd;
+    font-size: 25px;
+}
+
+
+
 .reservation-form__block {
     position: relative;
 }
@@ -152,6 +210,7 @@ img {
     padding: 0 25px;
 }
 
+
 .btn {
     display: block;
     width: 100%;
@@ -165,62 +224,6 @@ img {
     left: 50%;
     top: 550px;
     transform: translateX(-50%);
-}
-
-.all-review__link {
-    padding: 8px 200px;
-    background-color: #5E7FEF;
-    color: #FFF;
-    cursor: pointer;
-    text-decoration: none;
-}
-
-.review {
-    width: 80%;
-    border-top: 2px solid #ccc;
-    border-bottom: 2px solid #ccc;
-    padding: 10px 0;
-    margin: 30px 0;
-
-}
-
-.review__item {
-    display: flex;
-    justify-content: right;
-    width: 100%;
-}
-
-
-
-.review__link {
-    display: block;
-    color: #000;
-    margin: 10px;
-}
-
-.review-update {
-    color: black;;
-    padding: 0 20px;
-}
-
-.review-delete {
-    color: black;
-    cursor: pointer;
-    background: none;
-    border: none;
-    text-decoration: underline;
-    font-size: 16px;
-    padding: 0 10px;
-}
-
-.filled-star {
-    color: #3F5FED;
-    font-size: 25px;
-}
-
-.empty-star {
-    color: #ddd;
-    font-size: 25px;
 }
 
 

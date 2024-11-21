@@ -58,7 +58,7 @@
                     <h2 class="item__ttl">体験を評価してください</h2>
                 </div>
                 <div class="rating">
-                    <input type="hidden" name="rating" id="rating" value="">
+                    <input type="hidden" name="rating" id="rating" value="{{ old('rating', '') }}">
                     <span data-value="1" class="star">★</span>
                     <span data-value="2" class="star">★</span>
                     <span data-value="3" class="star">★</span>
@@ -109,6 +109,16 @@
         const stars = document.querySelectorAll('.star');
         const ratingInput = document.getElementById('rating');
 
+        // ページが再表示されても値を保持
+        const initialRating = ratingInput.value;
+        if (initialRating) {
+            stars.forEach(star => {
+                if (star.getAttribute('data-value') <= initialRating) {
+                    star.classList.add('active');
+                }
+            });
+        }
+
         stars.forEach(star => {
             // 星をクリックしたときの動作
             star.addEventListener('click', () => {
@@ -143,7 +153,6 @@
     function previewAndUploadImage(event) {
         const files = event.target.files;
         const previewContainer = document.getElementById('preview-images');
-        previewContainer.innerHTML = ''; // プレビュー画像をリセット
 
         // 複数画像プレビューの処理
         for (let i = 0; i < files.length; i++) {
@@ -151,13 +160,39 @@
             const reader = new FileReader();
 
             reader.onload = function(e) {
-                const imgElement = document.createElement('img');
-                imgElement.src = e.target.result;
-                imgElement.style.width = '100px';
-                imgElement.style.marginTop = '10px';
-                previewContainer.appendChild(imgElement);
-            };
+                    const previewWrapper = document.createElement('div');
+                    previewWrapper.style.display = 'inline-block';
+                    previewWrapper.style.position = 'relative';
+                    previewWrapper.style.margin = '10px';
 
+                    const imgElement = document.createElement('img');
+                    imgElement.src = e.target.result;
+                    imgElement.style.width = '100px';
+                    imgElement.style.height = '100px';
+                    imgElement.style.objectFit = 'cover';
+
+                    const deleteBtn = document.createElement('button');
+                    deleteBtn.textContent = '×';
+                    deleteBtn.style.position = 'absolute';
+                    deleteBtn.style.top = '0';
+                    deleteBtn.style.right = '0';
+                    deleteBtn.style.backgroundColor = 'red';
+                    deleteBtn.style.color = 'white';
+                    deleteBtn.style.border = 'none';
+                    deleteBtn.style.cursor = 'pointer';
+                    deleteBtn.style.borderRadius = '50%';
+                    deleteBtn.style.width = '20px';
+                    deleteBtn.style.height = '20px';
+                    deleteBtn.style.fontSize = '12px';
+
+                    deleteBtn.addEventListener('click', function() {
+                        previewWrapper.remove();
+                    });
+
+                    previewWrapper.appendChild(imgElement);
+                    previewWrapper.appendChild(deleteBtn);
+                    previewContainer.appendChild(previewWrapper);
+                };
             reader.readAsDataURL(file); // 画像をデータURLとして読み込む
         }
     }

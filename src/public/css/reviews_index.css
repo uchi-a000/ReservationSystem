@@ -20,7 +20,7 @@
 .reviews__data {
     display: block;
     margin: 5px;
-    width: 30em;
+    width: 40em;
 
 }
 
@@ -43,4 +43,11 @@
     text-decoration: none;
     margin: 5px;
     font-size: 15px;
+}
+
+.delete-alert {
+    padding: 10px 30px;
+    border-color: #badbcc;
+    background-color: #d1e7dd;
+    color: #0f5132;
 }

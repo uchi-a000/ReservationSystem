@@ -29,7 +29,7 @@
             <p>{{ $shop->area }} {{ $shop->genre }}</p>
             <p class="shop_detail__description">{{ $shop->description }}</p>
 
-            <a href="{{ route('reviews_index', $shop->id) }}" class="all-review__link">全ての口コミ情報</a>
+            <a href="{{ route('reviews_index', $shop->id) }}" class="all-review__link">口コミ情報</a>
 
             @foreach($reservations as $reservation)
             @if($reservation->reviews->isNotEmpty())

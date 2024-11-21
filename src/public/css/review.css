@@ -34,7 +34,7 @@
 
 .ttl_1 {
     font-weight: normal;
-    font-size: 40px;
+    font-size: 25px;
 }
 
 .item__ttl {
@@ -49,6 +49,7 @@
     background-color: #fff;
     border-radius: 8px;
     box-shadow: 3px 3px 6px #0f030375;
+    margin: 100px;
 }
 
 .shop__img img {
@@ -107,6 +108,12 @@
 
 .review__block {
     width: 50%;
+}
+
+@media screen and (max-width: 768px) {
+    .review__block {
+        width: 100%;
+    }
 }
 
 

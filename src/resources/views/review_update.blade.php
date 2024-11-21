@@ -5,7 +5,7 @@
 @endsection
 
 @section('content')
-<div class="review__container">
+<div class="review-update__container">
     <div class="alert">
         @if(session('message'))
         <div class="alert--success">
@@ -16,7 +16,7 @@
     <div class="review-update__inner">
         <div>
             <div class="mein__ttl">
-                <h2 class="ttl_1">口コミを編集する</h2>
+                <h2 class="ttl_1">口コミの編集</h2>
             </div>
             <div class="shop__block">
                 @if(isset($review))
@@ -91,20 +91,23 @@
                 </div>
 
                 <div class="img-upload__area">
-                    <h2 class="item__ttl">画像を変更</h2>
-                    @if ($review->images && is_array(json_decode($review->images, true)))
-                    @foreach (json_decode($review->images, true) as $image)
-                    <img id="img-preview" class="img-preview" src="{{ asset('storage/' . $image) }}" alt="口コミ画像" width="100">
-                    @endforeach
-                    @else
-                    <img id="img-preview" class="mg-preview" src="" alt="口コミ画像" style="display: none;" width="100">
-                    @endif
+                    <h2 class="item__ttl">画像の追加</h2>
                     <div class="upload-area" id="upload-area">
-                        <input id="file-upload" class="file" type="file" name="images[]" accept="image/*" style="display: none;" onchange="previewAndUploadImage(event)" />
+                        <input id="file-upload" class="file" type="file" name="images[]" accept="image/*" style="display: none;" multiple />
                         <label for="file-upload" class="upload-btn">
-                            クリックして写真を追加<p style="font-size: 12px;">またはドラッグアンドドロップ</p>
+                            クリックして写真を追加
+                            <p style="font-size: 12px;">またはドラッグアンドドロップ</p>
                         </label>
                     </div>
+                    @if ($review->images && is_array(json_decode($review->images, true)))
+                    @foreach (json_decode($review->images, true) as $image)
+                    <img class="img-preview" src="{{ asset('storage/' . $image) }}" alt="口コミ画像">
+                    @endforeach
+                    @else
+                    <p>画像が登録されていません</p>
+                    @endif
+
+                    <div id="preview-images"></div>
                     <div class="form__error">
                         @error('images.*')
                         {{ $message }}
@@ -119,6 +122,7 @@
 @endsection
 
 <script>
+    // ster
     document.addEventListener('DOMContentLoaded', function() {
         const stars = document.querySelectorAll('.star');
         const ratingInput = document.getElementById('rating');
@@ -168,19 +172,56 @@
 
 
     //画像プレビュー
-    function previewAndUploadImage(event) {
-        const file = event.target.files[0];
-        const preview = document.getElementById('img-preview');
-        if (file) {
-            const reader = new FileReader();
-            reader.onload = function(e) {
-                preview.src = e.target.result;
-                preview.style.display = "block";
-            };
-            reader.readAsDataURL(file);
+    document.addEventListener('DOMContentLoaded', function() {
+        const fileUpload = document.getElementById('file-upload');
+        const previewContainer = document.getElementById('preview-images');
 
-            const formData = new FormData();
-            formData.append('images', file);
+        function previewAndUploadImage(event) {
+            const files = event.target.files;
+
+            for (let i = 0; i < files.length; i++) {
+                const file = files[i];
+                const reader = new FileReader();
+
+                reader.onload = function(e) {
+                    const previewWrapper = document.createElement('div');
+                    previewWrapper.style.display = 'inline-block';
+                    previewWrapper.style.position = 'relative';
+                    previewWrapper.style.margin = '10px';
+
+                    const imgElement = document.createElement('img');
+                    imgElement.src = e.target.result;
+                    imgElement.style.width = '100px';
+                    imgElement.style.height = '100px';
+                    imgElement.style.objectFit = 'cover';
+
+                    const deleteBtn = document.createElement('button');
+                    deleteBtn.textContent = '×';
+                    deleteBtn.style.position = 'absolute';
+                    deleteBtn.style.top = '0';
+                    deleteBtn.style.right = '0';
+                    deleteBtn.style.backgroundColor = 'red';
+                    deleteBtn.style.color = 'white';
+                    deleteBtn.style.border = 'none';
+                    deleteBtn.style.cursor = 'pointer';
+                    deleteBtn.style.borderRadius = '50%';
+                    deleteBtn.style.width = '20px';
+                    deleteBtn.style.height = '20px';
+                    deleteBtn.style.fontSize = '12px';
+
+                    deleteBtn.addEventListener('click', function() {
+                        previewWrapper.remove();
+                    });
+
+                    previewWrapper.appendChild(imgElement);
+                    previewWrapper.appendChild(deleteBtn);
+                    previewContainer.appendChild(previewWrapper);
+                };
+
+                reader.readAsDataURL(file);
+            }
         }
-    }
+
+        fileUpload.addEventListener('change', previewAndUploadImage);
+    });
 </script>
