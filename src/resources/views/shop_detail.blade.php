@@ -6,9 +6,9 @@
 
 @section('content')
 <div class="shop-detail__container">
-    <div class="shop-rep__alert">
+    <div class="alert">
         @if(session('message'))
-        <div class="shop-rep__alert--success">
+        <div class="alert--success">
             {{ session('message') }}
         </div>
         @endif
@@ -38,7 +38,7 @@
                     <div class="review__item">
                         <a class="review-update" href="{{ route('review_update', $review->id) }}">口コミを編集</a>
 
-                        <form class="review-delete" action="{{ route('review_delete', ['reviewId' => $review->id, 'shopId' => $review->shop_id]) }}" method="POST" onclick="return confirm('本当に削除しますか？')">
+                        <form class="review-delete" action="{{ route('review_delete', ['review_id' => $review->id, 'shop_id' => $review->shop_id]) }}" method="POST" onclick="return confirm('本当に削除しますか？')">
                             @method('DELETE')
                             @csrf
                             <input type="hidden" name="shop_id" value="{{ $review->shop_id }}">

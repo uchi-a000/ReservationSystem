@@ -33,9 +33,9 @@ class AdminNotifyRequest extends FormRequest
     {
         return [
             'subject.required' => '件名を入力してください',
-            'subject.string' => '文字列で入力してください',
+            'subject.string'   => '文字列で入力してください',
             'message.required' => '本文を入力してください',
-            'message.string' => '文字列で入力してください'
+            'message.string'   => '文字列で入力してください'
         ];
     }
 }

@@ -19,11 +19,11 @@ class ShopsImport implements ToModel, WithHeadingRow
     public function model(array $row)
     {
         $validator = Validator::make($row, [
-            'shop_name'    => 'required|string|max:50',
-            'area_id'         => ['required'],
-            'genre_id'        => ['required'],
-            'description'  => 'required|string|max:400',
-            'image'        => 'required|url',
+            'shop_name'   => 'required|string|max:50',
+            'area_id'     => 'required',
+            'genre_id'    => 'required',
+            'description' => 'required|string|max:400',
+            'image'       => 'required|url',
         ]);
 
 
@@ -42,8 +42,8 @@ class ShopsImport implements ToModel, WithHeadingRow
 
         return new Shop([
             'shop_name'   => $row['shop_name'],
-            'area_id'        => $row['area_id'],
-            'genre_id'       => $row['genre_id'],
+            'area_id'     => $row['area_id'],
+            'genre_id'    => $row['genre_id'],
             'description' => $row['description'],
             'image'       => $row['image'],
         ]);

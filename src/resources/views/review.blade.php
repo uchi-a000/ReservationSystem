@@ -9,6 +9,7 @@
     <div class="review__inner">
         <div>
             <div class="mein__ttl">
+                <a class="shop_detail__home-link" href="{{ route('shop_detail', $reservation->shop_id) }}">&lt;</a>
                 <h2 class="ttl_1">今回のご利用はいかがしたか？</h2>
             </div>
             <div class="shop__block">
@@ -160,39 +161,39 @@
             const reader = new FileReader();
 
             reader.onload = function(e) {
-                    const previewWrapper = document.createElement('div');
-                    previewWrapper.style.display = 'inline-block';
-                    previewWrapper.style.position = 'relative';
-                    previewWrapper.style.margin = '10px';
+                const previewWrapper = document.createElement('div');
+                previewWrapper.style.display = 'inline-block';
+                previewWrapper.style.position = 'relative';
+                previewWrapper.style.margin = '10px';
 
-                    const imgElement = document.createElement('img');
-                    imgElement.src = e.target.result;
-                    imgElement.style.width = '100px';
-                    imgElement.style.height = '100px';
-                    imgElement.style.objectFit = 'cover';
+                const imgElement = document.createElement('img');
+                imgElement.src = e.target.result;
+                imgElement.style.width = '100px';
+                imgElement.style.height = '100px';
+                imgElement.style.objectFit = 'cover';
 
-                    const deleteBtn = document.createElement('button');
-                    deleteBtn.textContent = '×';
-                    deleteBtn.style.position = 'absolute';
-                    deleteBtn.style.top = '0';
-                    deleteBtn.style.right = '0';
-                    deleteBtn.style.backgroundColor = 'red';
-                    deleteBtn.style.color = 'white';
-                    deleteBtn.style.border = 'none';
-                    deleteBtn.style.cursor = 'pointer';
-                    deleteBtn.style.borderRadius = '50%';
-                    deleteBtn.style.width = '20px';
-                    deleteBtn.style.height = '20px';
-                    deleteBtn.style.fontSize = '12px';
+                const deleteBtn = document.createElement('button');
+                deleteBtn.textContent = '×';
+                deleteBtn.style.position = 'absolute';
+                deleteBtn.style.top = '0';
+                deleteBtn.style.right = '0';
+                deleteBtn.style.backgroundColor = 'red';
+                deleteBtn.style.color = 'white';
+                deleteBtn.style.border = 'none';
+                deleteBtn.style.cursor = 'pointer';
+                deleteBtn.style.borderRadius = '50%';
+                deleteBtn.style.width = '20px';
+                deleteBtn.style.height = '20px';
+                deleteBtn.style.fontSize = '12px';
 
-                    deleteBtn.addEventListener('click', function() {
-                        previewWrapper.remove();
-                    });
+                deleteBtn.addEventListener('click', function() {
+                    previewWrapper.remove();
+                });
 
-                    previewWrapper.appendChild(imgElement);
-                    previewWrapper.appendChild(deleteBtn);
-                    previewContainer.appendChild(previewWrapper);
-                };
+                previewWrapper.appendChild(imgElement);
+                previewWrapper.appendChild(deleteBtn);
+                previewContainer.appendChild(previewWrapper);
+            };
             reader.readAsDataURL(file); // 画像をデータURLとして読み込む
         }
     }

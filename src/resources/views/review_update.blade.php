@@ -16,7 +16,8 @@
     <div class="review-update__inner">
         <div>
             <div class="mein__ttl">
-                <h2 class="ttl_1">口コミの編集</h2>
+                <a class="shop_detail__home-link" href="{{ route('shop_detail', $review->shop_id) }}">&lt;</a>
+                <span class="ttl_1">口コミの編集</span>
             </div>
             <div class="shop__block">
                 @if(isset($review))

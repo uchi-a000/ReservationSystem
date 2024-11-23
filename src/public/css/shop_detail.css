@@ -2,6 +2,16 @@
     max-width: 1200px;
 }
 
+.alert--success {
+    text-align: center;
+    width: 25em;
+    border-radius: 5px;
+    border-color: #badbcc;
+    background-color: #d1e7dd;
+    color: #0f5132;
+    padding: 3px 30px;
+}
+
 .shop-detail__inner {
     display: flex;
 }

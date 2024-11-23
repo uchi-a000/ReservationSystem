@@ -98,13 +98,13 @@ class ReviewController extends Controller
     }
 
 
-    public function deleteReview($reviewId, $shopId)
+    public function deleteReview($review_id, $shop_id)
     {
-        $review = Review::find($reviewId);
+        $review = Review::find($review_id);
 
         $review->delete();
 
-        return redirect()->route('shop_detail', ['shop_id' => $shopId])->with('message', '口コミを削除しました');
+        return redirect()->route('shop_detail', ['shop_id' => $shop_id])->with('message', '口コミを削除しました');
     }
 
 }

@@ -69,7 +69,7 @@ Route::middleware('auth', 'verified')->group(function () {
     Route::post('/review_thanks', [ReviewController::class, 'reviewThanks'])->name('review_thanks');
     Route::get('/review/update/{id}', [ReviewController::class, 'showUpdate'])->name('review_update');
     Route::patch('/review/update/{id}', [ReviewController::class, 'update'])->name('review_update');
-    Route::delete('/review/{reviewId}/{shopId}', [ReviewController::class, 'deleteReview'])->name('review_delete');
+    Route::delete('/review/{review_id}/{shop_id}', [ReviewController::class, 'deleteReview'])->name('review_delete');
 
 
 
