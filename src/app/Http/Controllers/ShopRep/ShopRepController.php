@@ -6,6 +6,8 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Http\Requests\ShopRepRequest;
 use App\Models\Shop;
+use App\Models\Area;
+use App\Models\Genre;
 use App\Models\Reservation;
 
 
@@ -15,8 +17,8 @@ class ShopRepController extends Controller
     public function shopRepIndex()
     {
         $shop = auth()->user()->shop;
-        $areas = ['#東京都','#大阪府','#福岡県'];
-        $genres = ['#焼肉', '#居酒屋', '#寿司','#ラーメン', '#イタリアン'];
+        $areas = Area::all();
+        $genres = Genre::all();
 
         $status = 0;
 
@@ -36,6 +38,13 @@ class ShopRepController extends Controller
         $image_name = basename($image_path);
 
         $shop['image'] = $image_name;
+
+        $area = Area::find($request->area_id);
+        $genre = Genre::find($request->genre_id);
+
+        $shop['area'] = $area ? $area->area : null;
+        $shop['genre'] = $genre ? $genre->genre : null;
+
 
 
         return view('shop_rep.confirm', compact('shop'));
@@ -59,8 +68,8 @@ class ShopRepController extends Controller
         Shop::create([
             'user_id' => $user->id,
             'shop_name' => $request->shop_name,
-            'area' => $request->area,
-            'genre' => $request->genre,
+            'area_id' => $request->area_id,
+            'genre_id' => $request->genre_id,
             'description' => $request->description,
             'image' => $request->image
         ]);
@@ -83,7 +92,16 @@ class ShopRepController extends Controller
             $shop->image =$image_name;
         }
 
-        $shop_data = $request->only(['shop_name', 'area', 'genre', 'description']);
+        Area::where('area', $request->area)->first();
+        Genre::where('genre', $request->genre)->first();
+
+        $shop_data = [
+            'shop_name' => $request->shop_name,
+            'area_id' => $request->area_id,
+            'genre_id' => $request->genre_id,
+            'description' => $request->description,
+        ];
+
         $shop->update($shop_data);
 
         return redirect()->route('shop_rep.shop_rep_index')->with('message', '店舗情報を変更しました');

@@ -13,9 +13,9 @@ class shop extends Model
 
     public $fillable = [
         'user_id',
+        'area_id',
+        'genre_id',
         'shop_name',
-        'area',
-        'genre',
         'description',
         'image',
     ];
@@ -33,5 +33,15 @@ class shop extends Model
     public function reviews(): HasMany
     {
         return $this->hasMany(Review::class);
+    }
+
+    public function area()
+    {
+        return $this->belongsTo(Area::class, 'area_id');
+    }
+
+    public function genre()
+    {
+        return $this->belongsTo(Genre::class, 'genre_id');
     }
 }

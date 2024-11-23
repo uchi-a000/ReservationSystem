@@ -19,7 +19,7 @@
             </div>
             <div class="shop-card__content">
                 <h2 class="shop-card__ttl">{{ $shop->shop_name }}</h2>
-                <p class="shop__tag">{{ $shop->area }} {{ $shop->genre }}</p>
+                <p class="shop__tag">#{{ $shop->area->area }} #{{ $shop->genre->genre }}</p>
                 <div class="shop-detail__form">
                     <div class="shop-detail__inner">
                         <a class="shop-detail__form btn" href="{{ route('shop_detail', $shop->id) }}">詳しくみる</a>

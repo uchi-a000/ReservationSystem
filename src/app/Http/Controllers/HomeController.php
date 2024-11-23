@@ -14,7 +14,7 @@ class HomeController extends Controller
 {
     public function index()
     {
-        $shops = Shop::with('reviews')->get();
+        $shops = Shop::with('reviews', 'area', 'genre')->get();
 
         return view('index', compact('shops'));
     }
@@ -64,11 +64,15 @@ class HomeController extends Controller
         }
 
         if (!empty($request->area)) {
-            $query->where('area', '=', '#' . $request->area);
+            $query->whereHas('area', function ($q) use ($request){
+                $q->where('id', '=',  $request->area);
+            });
         }
 
         if (!empty($request->genre)) {
-            $query->where('genre', '=', '#' . $request->genre);
+            $query->whereHas('genre', function ($q) use ($request){
+                $q->where('id', '=',  $request->genre);
+            });
         }
 
         if($request->sort === 'random') {

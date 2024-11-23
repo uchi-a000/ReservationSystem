@@ -9,7 +9,7 @@
     <div class="confirm__heading">
         <h2>ご登録内容確認</h2>
     </div>
-    <form class="form" action="/shop/done" method="post" enctype="multipart/form-data">
+    <form class="form" action="/shop/done" method="POST" enctype="multipart/form-data">
         @csrf
         <div class="confirm-table">
             <table class="confirm-table__inner">
@@ -22,13 +22,15 @@
                 <tr class="confirm-table__row">
                     <th class="confirm-table__header">エリア</th>
                     <td class="confirm-table__text">
-                        <input type="text" name="area" value="{{ $shop['area'] }}" readonly />
+                        <input type="hidden" name="area_id" value="{{ $shop['area_id'] }}">
+                        <input type="text" value="{{ $shop['area'] }}" readonly />
                     </td>
                 </tr>
                 <tr class="confirm-table__row">
                     <th class="confirm-table__header">ジャンル</th>
                     <td class="confirm-table__text">
-                        <input type="text" name="genre" value="{{ $shop['genre'] }}" readonly />
+                        <input type="hidden" name="genre_id" value="{{ $shop['genre_id'] }}">
+                        <input type="text"  value="{{ $shop['genre'] }}" readonly />
                     </td>
                 </tr>
                 <tr class="confirm-table__row">

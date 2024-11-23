@@ -32,28 +32,34 @@
                 <input class="input" type="text" name="shop_name" placeholder="店舗名を入力してください" value="{{ old('shop_name') }}" />
             </div>
             <div class="form__error">
-                @error('area')
+                @error('area_id')
                 {{ $message }}
                 @enderror
             </div>
             <div class="item">
-                <select class="select" name="area">
-                    <option value="" @if( request('areas')=='' ) selected @endif>エリアを選択してください</option>
+                <select class="select" name="area_id" id="area_id">
+                    <option value="">エリアを選択してください</option>
                     @foreach($areas as $area)
-                    <option value="{{ $area }}" @if((request('area')==$area || old('area')==$area )) selected @endif>{{ $area }}</option>
+                    <option value="{{ $area->id }}"
+                    @if((request('area_id')==$area->id || old('area_id')==$area->id )) selected @endif>
+                    {{ $area->area }}
+                    </option>
                     @endforeach
                 </select>
             </div>
             <div class="form__error">
-                @error('genre')
+                @error('genre_id')
                 {{ $message }}
                 @enderror
             </div>
             <div class="item">
-                <select class="select" name="genre">
-                    <option value="" @if( request('genres')=='' ) selected @endif>ジャンルを選択してください</option>
+                <select class="select" name="genre_id" id="genre_id">
+                    <option value="">ジャンルを選択してください</option>
                     @foreach($genres as $genre)
-                    <option value="{{ $genre }}" @if((request('genre')==$genre || old('genre')==$genre )) selected @endif>{{ $genre }}</option>
+                    <option value="{{ $genre->id }}"
+                    @if((request('genre_id')==$genre->id || old('genre_id')==$genre->id )) selected @endif>
+                    {{ $genre->genre }}
+                    </option>
                     @endforeach
                 </select>
             </div>
@@ -91,31 +97,41 @@
                 <input class="input" type="text" name="shop_name" value="{{ $shop->shop_name }}" />
             </div>
             <div class="form__error">
-                @error('area')
+                @error('area_id')
                 {{ $message }}
                 @enderror
             </div>
             <div class="item">
-                <select class="select" name="area">
-                    <option>{{ $shop->area }}</option>
+                <select class="select" name="area_id">
+                    <option value="{{ $shop->area->id }}">{{ $shop->area->area }}</option>
+
+                    <!-- 他のエリアを選択肢として表示 -->
                     @foreach($areas as $area)
-                    @if($area !== $shop->area )
-                    <option value="{{ $area }}" @if((request('area')==$area || old('area')==$area )) selected @endif>{{ $area }}</option>
+                    @if($area->id !== $shop->area->id)
+                    <option value="{{ $area->id }}"
+                        @if((request('area_id')==$area->id || old('area_id') == $area->id)) selected @endif>
+                        {{ $area->area }}
+                    </option>
                     @endif
                     @endforeach
                 </select>
             </div>
             <div class="form__error">
-                @error('genre')
+                @error('genre_id')
                 {{ $message }}
                 @enderror
             </div>
             <div class="item">
-                <select class="select" name="genre">
-                    <option>{{ $shop->genre }}</option>
+                <select class="select" name="genre_id">
+                    <option value="{{ $shop->genre->id }}">{{ $shop->genre->genre }}</option>
+
+                    <!-- 他のジャンルを選択肢として表示 -->
                     @foreach($genres as $genre)
-                    @if($genre !== $shop->genre )
-                    <option value="{{ $genre }}" @if((request('genre')==$genre || old('genre')==$genre )) selected @endif>{{ $genre }}</option>
+                    @if($genre->id !== $shop->genre->id)
+                    <option value="{{ $genre->id }}"
+                        @if((request('genre_id')==$genre->id || old('genre_id') == $genre->id)) selected @endif>
+                        {{ $genre->genre }}
+                    </option>
                     @endif
                     @endforeach
                 </select>
@@ -137,18 +153,10 @@
                 <input class="file" type="file" name="image" accept="image/*" />
             </div>
 
-            <a class="confirm-modal__link" href="#confirm-modal-{{ $shop->id }}">変更</a>
-            <div class="confirm-modal" id="confirm-modal-{{ $shop->id }}">
-                <a href="#!" class="confirm-modal-overlay"></a>
-                <div class="confirm-modal__inner">
-                    <div class="confirm-modal__content">
-                        <h3>変更してよろしいですか？</h3>
-                        <input type="hidden" name="id" value="{{ $shop->id }}">
-                        <input type="hidden" name="user_id" value="{{ $shop->user_id }}">
-                        <button class="confirm-modal__btn" type="submit">変更する</button>
-                        <a href="#" class="confirm-modal__close__btn">戻る</a>
-                    </div>
-                </div>
+            <div class="update-from__btn">
+                <input type="hidden" name="id" value="{{ $shop->id }}">
+                <input type="hidden" name="user_id" value="{{ $shop->user_id }}">
+                <button class="form__btn">変更</button>
             </div>
         </form>
     </div>

@@ -25,8 +25,8 @@ class ShopRepRequest extends FormRequest
     {
         return [
             'shop_name' => ['required', 'string', 'max:255'],
-            'area' => ['required'],
-            'genre' => ['required'],
+            'area_id' => ['required'],
+            'genre_id' => ['required'],
             'description' => ['required', 'min:50', 'max:150'],
             'image' => ['required', 'image', 'mimes:jpeg,png', 'max:2048'],
         ];
@@ -38,8 +38,8 @@ class ShopRepRequest extends FormRequest
             'shop_name.required' => '店舗名を入力してください',
             'shop_name.string' => '店舗名は文字列で入力してください',
             'shop_name.max' => '店舗名は255文字以下で入力してください',
-            'area.required' => 'エリアを選択してください',
-            'genre.required' => 'ジャンルを選択してください',
+            'area_id.required' => 'エリアを選択してください',
+            'genre_id.required' => 'ジャンルを選択してください',
             'description.required' => '説明文を入力してください',
             'description.min' => '説明文は50文字以上で入力してください',
             'description.max' => '説明文は150文字以内で入力してください',

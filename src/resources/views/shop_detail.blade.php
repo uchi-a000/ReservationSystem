@@ -26,7 +26,7 @@
                 <img src="{{ $shop->image }}" alt="ダミー画像" />
                 @endif
             </div>
-            <p>{{ $shop->area }} {{ $shop->genre }}</p>
+            <p>#{{ $shop->area->area }} #{{ $shop->genre->genre }}</p>
             <p class="shop_detail__description">{{ $shop->description }}</p>
 
             <a href="{{ route('reviews_index', $shop->id) }}" class="all-review__link">口コミ情報</a>
@@ -53,7 +53,7 @@
                                 @else
                                 <span class="empty-star">☆</span>
                                 @endif
-                            @endfor
+                                @endfor
                         </p>
                         <p> {{ $review->comment }}</p>
                     </div>

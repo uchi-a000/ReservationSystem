@@ -22,7 +22,7 @@
                 </div>
                 <div class="shop-card__content">
                     <h2 class="shop-card__ttl">{{ $reservation->shop->shop_name }}</h2>
-                    <p class="shop__tag">{{ $reservation->shop->area }} {{ $reservation->shop->genre }}</p>
+                    <p class="shop__tag">#{{ $reservation->shop->area->area }} #{{ $reservation->shop->genre->genre }}</p>
                     <div class="shop-detail__form">
                         <div class="shop-detail__inner">
                             <a class="shop-detail__form_btn" href="{{ route('shop_detail', $reservation->shop->id) }}">詳しくみる</a>

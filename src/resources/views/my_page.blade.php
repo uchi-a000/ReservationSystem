@@ -155,7 +155,10 @@
                                 </div>
                                 <div class="favorites-shop__card-content">
                                     <p class="favorites-shop__card-ttl">{{ $favorite->shop->shop_name }}</p>
-                                    <p class="favorites-shop__tag">{{ $favorite->shop->area }} {{ $favorite->shop->genre }}</p>
+                                    <p class="favorites-shop__tag">
+                                        #{{ $favorite->shop->area->area }}
+                                        #{{ $favorite->shop->genre->genre }}
+                                    </p>
                                     <div class="shop-detail__form">
                                         <div class="shop-detail__inner">
                                             <a class="shop-detail__form btn" href="{{ route('shop_detail', $favorite->shop->id) }}">詳しくみる</a>
