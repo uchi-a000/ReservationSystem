@@ -37,12 +37,12 @@
                 @enderror
             </div>
             <div class="item">
-                <select class="select" name="area_id" id="area_id">
-                    <option value="">エリアを選択してください</option>
+                <select class="select" name="area_id" id="area_select">
+                    <option disabled selected>エリアを選択してください</option>
                     @foreach($areas as $area)
                     <option value="{{ $area->id }}"
-                    @if((request('area_id')==$area->id || old('area_id')==$area->id )) selected @endif>
-                    {{ $area->area }}
+                        {{ old('area_id')==$area->id ? 'selected' : '' }}>
+                        {{ $area->area }}
                     </option>
                     @endforeach
                 </select>
@@ -54,11 +54,11 @@
             </div>
             <div class="item">
                 <select class="select" name="genre_id" id="genre_id">
-                    <option value="">ジャンルを選択してください</option>
+                    <option disabled selected>ジャンルを選択してください</option>
                     @foreach($genres as $genre)
                     <option value="{{ $genre->id }}"
-                    @if((request('genre_id')==$genre->id || old('genre_id')==$genre->id )) selected @endif>
-                    {{ $genre->genre }}
+                        {{ old('genre_id')==$genre->id ? 'selected' : '' }}>
+                        {{ $genre->genre }}
                     </option>
                     @endforeach
                 </select>
@@ -69,7 +69,9 @@
                 @enderror
             </div>
             <div class="item">
-                <textarea class="textarea" name="description" placeholder="50~150文字以内でお店の説明を入力してください">{{ old('description') }}</textarea>
+                <textarea class="textarea" name="description" placeholder="50~150文字以内でお店の説明を入力してください">
+                    {{ old('description') }}
+                </textarea>
             </div>
             <div class="form__error">
                 @error('image')

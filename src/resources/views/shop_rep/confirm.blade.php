@@ -15,40 +15,33 @@
             <table class="confirm-table__inner">
                 <tr class="confirm-table__row">
                     <th class="confirm-table__header">店舗名</th>
-                    <td class="confirm-table__text">
-                        <input type="text" name="shop_name" value="{{ $shop['shop_name'] }}" readonly />
-                    </td>
+                    <td class="confirm-table__text">{{ $shops['shop_name'] }}</td>
+                    <input type="hidden" name="shop_name" value="{{ $shops['shop_name'] }}" />
                 </tr>
                 <tr class="confirm-table__row">
                     <th class="confirm-table__header">エリア</th>
-                    <td class="confirm-table__text">
-                        <input type="hidden" name="area_id" value="{{ $shop['area_id'] }}">
-                        <input type="text" value="{{ $shop['area'] }}" readonly />
-                    </td>
+                    <td class="confirm-table__text">{{ $area->area }}</td>
+                    <input type="hidden" name="area_id" value="{{ $shops['area_id'] }}">
                 </tr>
                 <tr class="confirm-table__row">
                     <th class="confirm-table__header">ジャンル</th>
-                    <td class="confirm-table__text">
-                        <input type="hidden" name="genre_id" value="{{ $shop['genre_id'] }}">
-                        <input type="text"  value="{{ $shop['genre'] }}" readonly />
-                    </td>
+                    <td class="confirm-table__text">{{ $genre->genre }}</td>
+                    <input type="hidden" name="genre_id" value="{{ $shops['genre_id'] }}">
                 </tr>
                 <tr class="confirm-table__row">
                     <th class="confirm-table__header">説明</th>
-                    <td class="confirm-table__text">
-                        <textarea name="description">{{ $shop['description'] }}</textarea>
-                    </td>
+                    <td class="confirm-table__text">{{ $shops['description'] }}</td>
+                    <input type="hidden" name="description" value="{{ $shops['description'] }}">
                 </tr>
                 <tr class="confirm-table__row">
                     <th class="confirm-table__header">画像URL</th>
-                    <td class="confirm-table__text">
-                        <input type="text" name="image" value="{{ $shop['image'] }}">
-                    </td>
+                    <td class="confirm-table__text">以下</td>
+                    <input type="hidden" name="image" value="{{ $shops['image'] }}">
                 </tr>
             </table>
         </div>
         <div class="img">
-            <img src="{{ Storage::url('temp/' . $shop['image']) }}" alt="確認用画像" style="max-width: 300px;">
+            <img src="{{ Storage::url('temp/' . $shops['image']) }}" alt="確認用画像" style="max-width: 300px;">
         </div>
         <div class="form__button">
             <input class="send__btn" type="submit" value="送信" name="send">

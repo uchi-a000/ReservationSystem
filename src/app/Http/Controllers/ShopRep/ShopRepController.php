@@ -32,22 +32,17 @@ class ShopRepController extends Controller
 
     public function confirm(ShopRepRequest $request)
     {
-        $shop = $request->all();
+        $shops = $request->all();
 
         $image_path = $request->file('image')->store('public/temp');
         $image_name = basename($image_path);
 
-        $shop['image'] = $image_name;
+        $shops['image'] = $image_name;
 
         $area = Area::find($request->area_id);
         $genre = Genre::find($request->genre_id);
 
-        $shop['area'] = $area ? $area->area : null;
-        $shop['genre'] = $genre ? $genre->genre : null;
-
-
-
-        return view('shop_rep.confirm', compact('shop'));
+        return view('shop_rep.confirm', compact('shops', 'area', 'genre'));
     }
 
 
