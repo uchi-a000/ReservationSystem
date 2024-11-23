@@ -38,13 +38,14 @@ php・laravel を学習中で練習のために作成しました。
 
 ## テーブル設計
 
-<img width="659" alt="スクリーンショット 2024-09-20 18 07 40" src="https://github.com/user-attachments/assets/e8ee37ef-533d-4aca-a238-62ce0af7c75f">
+<img width="660" alt="スクリーンショット 2024-11-23 10 21 25" src="https://github.com/user-attachments/assets/9a3d20d9-9f9d-47b8-bf41-15641faab697">
+<img width="659" alt="image" src="https://github.com/user-attachments/assets/3d1dd96d-4975-4400-bd67-7d93e8b3e076">
 <img width="657" alt="スクリーンショット 2024-09-21 15 17 05" src="https://github.com/user-attachments/assets/b8f0372a-9a1c-485b-a374-c530ef767b17">
 <img width="657" alt="スクリーンショット 2024-09-20 18 06 22" src="https://github.com/user-attachments/assets/5cfa8c28-17a1-4c38-b931-fca4fca9abaf">
 
 ## ER 図
 
-<img width="1256" alt="スクリーンショット 2024-09-20 19 07 02" src="https://github.com/user-attachments/assets/4e7cf469-597f-4a61-af91-af8be239af61">
+<img width="980" alt="image" src="https://github.com/user-attachments/assets/4f98f286-b6f3-4fb1-becd-1e6df89433a3">
 
 ## 環境構築
 
@@ -73,7 +74,7 @@ php・laravel を学習中で練習のために作成しました。
 
     Google スプレッドシートに入力し、ファイル → ダウンロード → カンマ区切り形式（csv）で保存  
     （csv ファイルの記述方法）(補足※A1 列から記述していただかないとエラーになります)  
-    <img width="954" alt="スクリーンショット 2024-11-22 19 29 24" src="https://github.com/user-attachments/assets/360a9849-ad4b-45b5-8d03-013099359d08">
+<img width="952" alt="image" src="https://github.com/user-attachments/assets/d27cb71a-bb46-4ef9-a7f7-5fab58a4b6aa">
 
 ## 管理者情報
 
