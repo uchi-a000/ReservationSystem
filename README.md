@@ -26,7 +26,8 @@ php・laravel を学習中で練習のために作成しました。
 ジャンルで検索する  
 店名で検索する  
 ランダム・評価高い順・評価が低い順で検索する  
-口コミ投稿機能
+口コミ投稿機能  
+csvインポート（管理者のみ/環境構築13.に詳細あり）
 
 ## 使用技術（実行環境）
 
@@ -45,7 +46,7 @@ php・laravel を学習中で練習のために作成しました。
 
 ## ER 図
 
-<img width="980" alt="image" src="https://github.com/user-attachments/assets/4f98f286-b6f3-4fb1-becd-1e6df89433a3">
+<img width="989" alt="スクリーンショット 2024-11-24 10 56 16" src="https://github.com/user-attachments/assets/ca093218-697f-41f7-ab67-7267955c8619">
 
 ## 環境構築
 
@@ -102,9 +103,11 @@ php・laravel を学習中で練習のために作成しました。
 ・【決済機能】Stripe を利用して決済をすることができる  
 ・【口コミ投稿機能】予約して来店確認後に、利用者が店舗に対し評価（星５段階）・コメント・画像追加ができる  
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;利用者は自分の口コミのみ編集と削除ができる  
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;管理者は全ての口コミを削除することができる（[全ての口コミ情報]から）
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;管理者は全ての口コミを削除することができる（[全ての口コミ情報]から）  
+・【csvインポート】管理者はcsvをインポートすることで、店舗情報を追加することができる（環境構築13.に詳細あり）
 
 ## URL
 
 ・開発環境：http://localhost/  
-・phpMyAdmin:：http://localhost:8080/
+・phpMyAdmin:：http://localhost:8080/  
+・Mailhog：http://localhost:8025/ 
