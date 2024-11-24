@@ -177,14 +177,16 @@ select {
     appearance: none;
 }
 
+.search-form__sort-select option:disabled {
+    display: none;
+}
+
 .search-form__sort {
     position: absolute;
     left: -190px;
     top: 0;
     border-radius: 5px;
 }
-
-
 
 .search-form__area,
 .search-form__genre,

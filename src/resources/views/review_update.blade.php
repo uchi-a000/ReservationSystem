@@ -93,13 +93,10 @@
 
                 <div class="img-upload__area">
                     <h2 class="item__ttl">画像の追加</h2>
-                    <div class="upload-area" id="upload-area">
-                        <input id="file-upload" class="file" type="file" name="images[]" accept="image/*" style="display: none;" multiple />
-                        <label for="file-upload" class="upload-btn">
-                            クリックして写真を追加
-                            <p style="font-size: 12px;">またはドラッグアンドドロップ</p>
-                        </label>
-                    </div>
+                    <label for="file-upload" class="upload-area" id="upload-area">
+                        <div>クリックして写真を追加</div>
+                        <input id="file-upload" class="file" type="file" name="images[]" accept="image/*" style="display: none;" multiple onchange="previewAndUploadImage(event)" />
+                    </label>
                     @if ($review->images && is_array(json_decode($review->images, true)))
                     @foreach (json_decode($review->images, true) as $image)
                     <img class="img-preview" src="{{ asset('storage/' . $image) }}" alt="口コミ画像">

@@ -30,7 +30,7 @@
                         @csrf
                         <div class="search-form__sort">
                             <select class="search-form__sort-select" name="sort" onchange="this.form.submit()">
-                                <option value="" selected disabled>並び替え：評価高/低</option>
+                                <option selected disabled>並び替え：評価高/低</option>
                                 <option value="random" @if(request('sort')=='random' ) selected @endif>ランダム</option>
                                 <option value="high_rating" @if(request('sort')=='high_rating' ) selected @endif>評価が高い順</option>
                                 <option value="low_rating" @if(request('sort')=='low_rating' ) selected @endif>評価が低い順</option>
