@@ -106,6 +106,6 @@ Route::group(['prefix' => 'shop', 'middleware' => ['auth', 'role:shop_representa
     Route::get('/reservations', [ShopRepController::class, 'reservations'])->name('shop_rep.reservations');
 
 });
-
-
+//
+// あああ
 
