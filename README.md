@@ -111,3 +111,5 @@ csvインポート（管理者のみ/環境構築13.に詳細あり）
 ・開発環境：http://localhost/  
 ・phpMyAdmin:：http://localhost:8080/  
 ・Mailhog：http://localhost:8025/ 
+
+テスト

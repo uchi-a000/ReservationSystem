@@ -3,6 +3,7 @@ version: '3.8'
 services:
   nginx:
     image: nginx:1.21.1
+    platform: linux/amd64
     ports:
       - "80:80"
     volumes:
@@ -29,6 +30,7 @@ services:
 
   mysql:
     image: mysql:8.0.26
+    platform: linux/amd64
     environment:
       MYSQL_ROOT_PASSWORD: root
       MYSQL_DATABASE: laravel_db
@@ -42,6 +44,7 @@ services:
 
   phpmyadmin:
     image: phpmyadmin/phpmyadmin
+    platform: linux/amd64
     environment:
       - PMA_ARBITRARY=1
       - PMA_HOST=mysql
@@ -54,6 +57,7 @@ services:
 
   mailhog:
     image: mailhog/mailhog
+    platform: linux/amd64
     container_name: mailhog
     ports:
       - "8025:8025"  # MailhogのWeb UIを確認するためのポート
